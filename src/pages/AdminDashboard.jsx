@@ -26,6 +26,7 @@ export default function AdminDashboard() {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
+  const [qbLoading, setQbLoading] = useState(null);
   const queryClient = useQueryClient();
 
   const { data: bookings = [], isLoading: loadingBookings } = useQuery({
