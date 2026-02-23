@@ -49,6 +49,17 @@ export default function AdminDashboard() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["leads"] }),
   });
 
+  const handleCreateQBProject = async (booking) => {
+    setQbLoading(booking.id);
+    try {
+      const res = await base44.functions.invoke("createQuickbooksProject", { booking_id: booking.id });
+      alert(`QuickBooks project created!\nProject: ${res.data.project_name}`);
+    } catch (e) {
+      alert("Error creating QuickBooks project: " + (e.message || "Unknown error"));
+    }
+    setQbLoading(null);
+  };
+
   const filteredBookings = bookings.filter((b) => {
     const q = search.toLowerCase();
     const matchSearch =
