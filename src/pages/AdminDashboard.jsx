@@ -179,11 +179,12 @@ export default function AdminDashboard() {
                       <th className="text-left py-3 px-4 font-semibold text-slate-700">Service</th>
                       <th className="text-left py-3 px-4 font-semibold text-slate-700">Date</th>
                       <th className="text-left py-3 px-4 font-semibold text-slate-700">Status</th>
+                      <th className="text-left py-3 px-4 font-semibold text-slate-700">Payment</th>
                       <th className="text-left py-3 px-4 font-semibold text-slate-700">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {filteredBookings.map((b) => (
+                      </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                      {filteredBookings.map((b) => (
                       <tr key={b.id} className="hover:bg-slate-50 transition-colors">
                         <td className="py-3 px-4">
                           <span className="font-mono text-xs font-bold text-slate-600">{b.booking_number || "—"}</span>
@@ -203,7 +204,24 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                         <td className="py-3 px-4">
-                          <div className="flex gap-2">
+                          <div className="flex gap-2 items-center">
+                            <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${b.payment_status === "paid" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>
+                              {b.payment_status || "unpaid"}
+                            </span>
+                            {b.payment_status !== "paid" && (
+                              <Button
+                                size="sm"
+                                variant="outline"
+                                className="h-6 text-xs text-green-700 border-green-300 hover:bg-green-50"
+                                onClick={() => updateBooking.mutate({ id: b.id, data: { payment_status: "paid" } })}
+                              >
+                                Mark Paid
+                              </Button>
+                            )}
+                          </div>
+                        </td>
+                        <td className="py-3 px-4">
+                          <div className="flex gap-2 flex-wrap">
                             {b.status === "pending" && (
                               <Button
                                 size="sm"
@@ -211,6 +229,16 @@ export default function AdminDashboard() {
                                 onClick={() => updateBooking.mutate({ id: b.id, data: { status: "confirmed" } })}
                               >
                                 Confirm
+                              </Button>
+                            )}
+                            {b.status === "confirmed" && b.payment_status === "paid" && (
+                              <Button
+                                size="sm"
+                                className="h-7 text-xs bg-green-700 hover:bg-green-800 text-white"
+                                disabled={qbLoading === b.id}
+                                onClick={() => handleCreateQBProject(b)}
+                              >
+                                {qbLoading === b.id ? "Creating..." : "→ QuickBooks"}
                               </Button>
                             )}
                             {b.status === "confirmed" && (
@@ -244,7 +272,7 @@ export default function AdminDashboard() {
                           </div>
                         </td>
                       </tr>
-                    ))}
+                      ))}
                   </tbody>
                 </table>
               </div>
