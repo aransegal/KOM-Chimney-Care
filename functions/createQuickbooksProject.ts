@@ -22,7 +22,8 @@ async function refreshAccessToken(refreshToken) {
 }
 
 async function createProjectInQuickBooks(accessToken, realmId, booking) {
-    const baseUrl = `https://quickbooks.api.intuit.com/v3/company/${realmId}`;
+    // Use sandbox URL for development/testing; change to production when ready
+    const baseUrl = `https://sandbox-quickbooks.api.intuit.com/v3/company/${realmId}`;
 
     // First, create or find the customer
     const customerQuery = await fetch(
