@@ -109,6 +109,7 @@ Deno.serve(async (req) => {
         let accessToken = Deno.env.get("QUICKBOOKS_ACCESS_TOKEN");
         const refreshToken = Deno.env.get("QUICKBOOKS_REFRESH_TOKEN");
         const realmId = Deno.env.get("QUICKBOOKS_REALM_ID");
+        console.log("Using realmId:", realmId);
 
         if (!accessToken || !refreshToken || !realmId) {
             return Response.json({
