@@ -41,6 +41,13 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         customerId = customerData.QueryResponse.Customer[0].Id;
     } else {
         // Create a new customer
+        const customerBody = {
+            DisplayName: booking.customer_name,
+        };
+        if (booking.customer_phone) customerBody.PrimaryPhone = { FreeFormNumber: booking.customer_phone };
+        if (booking.customer_email) customerBody.PrimaryEmailAddr = { Address: booking.customer_email };
+        if (booking.customer_address) customerBody.BillAddr = { Line1: booking.customer_address };
+
         const createCustomer = await fetch(`${baseUrl}/customer?minorversion=65`, {
             method: "POST",
             headers: {
@@ -48,16 +55,10 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
             },
-            body: JSON.stringify({
-                DisplayName: booking.customer_name,
-                PrimaryPhone: booking.customer_phone ? { FreeFormNumber: booking.customer_phone } : undefined,
-                PrimaryEmailAddr: booking.customer_email ? { Address: booking.customer_email } : undefined,
-                BillAddr: booking.customer_address ? {
-                    Line1: booking.customer_address,
-                } : undefined,
-            }),
+            body: JSON.stringify(customerBody),
         });
         const newCustomer = await createCustomer.json();
+        console.log("QB create customer response:", JSON.stringify(newCustomer));
         customerId = newCustomer.Customer?.Id;
     }
 
