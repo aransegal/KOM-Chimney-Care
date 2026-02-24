@@ -130,20 +130,14 @@ Deno.serve(async (req) => {
             }, { status: 400 });
         }
 
-        // Try with current token, refresh if needed
-        let project;
-        try {
-            project = await createProjectInQuickBooks(accessToken, realmId, booking);
-        } catch (e) {
-            // Try refreshing token
-            const newTokens = await refreshAccessToken(refreshToken);
-            if (newTokens.access_token) {
-                accessToken = newTokens.access_token;
-                project = await createProjectInQuickBooks(accessToken, realmId, booking);
-            } else {
-                throw new Error("Failed to refresh QuickBooks token. Please re-authorize.");
-            }
+        // Always refresh token first to ensure it's valid
+        const newTokens = await refreshAccessToken(refreshToken);
+        console.log("Token refresh response:", JSON.stringify(newTokens));
+        if (newTokens.access_token) {
+            accessToken = newTokens.access_token;
         }
+
+        const project = await createProjectInQuickBooks(accessToken, realmId, booking);
 
         // Update booking with QB project ID
         await base44.asServiceRole.entities.Booking.update(booking_id, {
