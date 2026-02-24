@@ -68,7 +68,7 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         body: JSON.stringify({
             DisplayName: projectName,
             ParentRef: { value: customerId },
-            IsProject: true,
+            Job: true,
             Notes: `Service: ${serviceLabel}\nAddress: ${booking.customer_address || "N/A"}\nDate: ${booking.preferred_date || "TBD"}\nTime: ${booking.preferred_time || "TBD"}\nHeater Type: ${booking.heater_type || "N/A"}\nBooking Fee: $${booking.booking_fee || 79}`,
         }),
     });
