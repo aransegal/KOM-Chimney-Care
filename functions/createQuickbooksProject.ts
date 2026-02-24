@@ -64,7 +64,7 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
     }
 
     if (!customerId) {
-        throw new Error("Failed to create or find QuickBooks customer");
+        throw new Error(`Failed to create or find QuickBooks customer. Query response: ${JSON.stringify(customerData)}`);
     }
 
     // Create a sub-customer (project) under the customer
