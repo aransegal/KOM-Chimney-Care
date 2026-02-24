@@ -39,37 +39,23 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         throw new Error(`QuickBooks company access failed (realmId=${realmId}): ${JSON.stringify(companyInfo.Fault)}`);
     }
 
-    // First, create or find the customer
-    const queryStr = `select * from Customer where DisplayName = '${booking.customer_name.replace(/'/g, "\\'")}'`;
-    const customerQuery = await fetch(
-        `${baseUrl}/query?query=${encodeURIComponent(queryStr)}&minorversion=65`,
-        { headers: qbHeaders }
-    );
-    const customerData = await customerQuery.json();
-    console.log("QB customer query response:", JSON.stringify(customerData));
-    let customerId;
+    // Always create a new customer (skip query to avoid SystemFault on sandbox)
+    const customerBody = { DisplayName: `${booking.customer_name} - ${Date.now()}` };
+    if (booking.customer_phone) customerBody.PrimaryPhone = { FreeFormNumber: booking.customer_phone };
+    if (booking.customer_email) customerBody.PrimaryEmailAddr = { Address: booking.customer_email };
+    if (booking.customer_address) customerBody.BillAddr = { Line1: booking.customer_address };
 
-    if (customerData.QueryResponse?.Customer?.length > 0) {
-        customerId = customerData.QueryResponse.Customer[0].Id;
-    } else {
-        // Create a new customer
-        const customerBody = { DisplayName: booking.customer_name };
-        if (booking.customer_phone) customerBody.PrimaryPhone = { FreeFormNumber: booking.customer_phone };
-        if (booking.customer_email) customerBody.PrimaryEmailAddr = { Address: booking.customer_email };
-        if (booking.customer_address) customerBody.BillAddr = { Line1: booking.customer_address };
-
-        const createCustomer = await fetch(`${baseUrl}/customer?minorversion=65`, {
-            method: "POST",
-            headers: { ...qbHeaders, "Content-Type": "application/json" },
-            body: JSON.stringify(customerBody),
-        });
-        const newCustomer = await createCustomer.json();
-        console.log("QB create customer response:", JSON.stringify(newCustomer));
-        customerId = newCustomer.Customer?.Id;
-    }
+    const createCustomerRes = await fetch(`${baseUrl}/customer?minorversion=65`, {
+        method: "POST",
+        headers: { ...qbHeaders, "Content-Type": "application/json" },
+        body: JSON.stringify(customerBody),
+    });
+    const newCustomer = await createCustomerRes.json();
+    console.log("QB create customer response:", JSON.stringify(newCustomer));
+    const customerId = newCustomer.Customer?.Id;
 
     if (!customerId) {
-        throw new Error(`Failed to create or find QuickBooks customer. Query response: ${JSON.stringify(customerData)}`);
+        throw new Error(`Failed to create QuickBooks customer: ${JSON.stringify(newCustomer)}`);
     }
 
     // Create a sub-customer (project) under the customer
