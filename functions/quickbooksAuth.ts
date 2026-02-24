@@ -15,9 +15,17 @@ Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const url = new URL(req.url);
-        const action = url.searchParams.get("action");
-        const code = url.searchParams.get("code");
-        const realmId = url.searchParams.get("realmId");
+        let action = url.searchParams.get("action");
+        let code = url.searchParams.get("code");
+        let realmId = url.searchParams.get("realmId");
+
+        // Also check request body (for dashboard testing via JSON payload)
+        if (req.method === "POST" && req.headers.get("content-type")?.includes("application/json")) {
+            const body = await req.json();
+            if (body.code) code = body.code;
+            if (body.realmId) realmId = body.realmId;
+            if (body.action) action = body.action;
+        }
 
         // Return auth URL for admin to visit
         if (action === "getAuthUrl" || !code) {
