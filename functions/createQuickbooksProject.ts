@@ -31,6 +31,14 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         "Accept-Encoding": "identity",
     };
 
+    // Verify company info first (diagnostic)
+    const companyInfoRes = await fetch(`${baseUrl}/companyinfo/${realmId}?minorversion=65`, { headers: qbHeaders });
+    const companyInfo = await companyInfoRes.json();
+    console.log("QB companyinfo response:", JSON.stringify(companyInfo));
+    if (companyInfo.Fault) {
+        throw new Error(`QuickBooks company access failed (realmId=${realmId}): ${JSON.stringify(companyInfo.Fault)}`);
+    }
+
     // First, create or find the customer
     const queryStr = `select * from Customer where DisplayName = '${booking.customer_name.replace(/'/g, "\\'")}'`;
     const customerQuery = await fetch(
