@@ -32,8 +32,9 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
     };
 
     // First, create or find the customer
+    const queryStr = `select * from Customer where DisplayName = '${booking.customer_name.replace(/'/g, "\\'")}'`;
     const customerQuery = await fetch(
-        `${baseUrl}/query?query=select * from Customer where DisplayName = '${booking.customer_name.replace(/'/g, "\\'")}'&minorversion=65`,
+        `${baseUrl}/query?query=${encodeURIComponent(queryStr)}&minorversion=65`,
         { headers: qbHeaders }
     );
     const customerData = await customerQuery.json();
