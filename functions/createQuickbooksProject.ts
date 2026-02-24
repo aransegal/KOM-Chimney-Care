@@ -35,6 +35,7 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         }
     );
     const customerData = await customerQuery.json();
+    console.log("QB customer query response:", JSON.stringify(customerData));
     let customerId;
 
     if (customerData.QueryResponse?.Customer?.length > 0) {
