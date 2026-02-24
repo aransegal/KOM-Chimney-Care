@@ -25,15 +25,16 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
     // Use sandbox URL for development/testing; change to production when ready
     const baseUrl = `https://sandbox-quickbooks.api.intuit.com/v3/company/${realmId}`;
 
+    const qbHeaders = {
+        "Authorization": `Bearer ${accessToken}`,
+        "Accept": "application/json",
+        "Accept-Encoding": "identity",
+    };
+
     // First, create or find the customer
     const customerQuery = await fetch(
         `${baseUrl}/query?query=select * from Customer where DisplayName = '${booking.customer_name.replace(/'/g, "\\'")}'&minorversion=65`,
-        {
-            headers: {
-                "Authorization": `Bearer ${accessToken}`,
-                "Accept": "application/json",
-            },
-        }
+        { headers: qbHeaders }
     );
     const customerData = await customerQuery.json();
     console.log("QB customer query response:", JSON.stringify(customerData));
@@ -43,20 +44,14 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
         customerId = customerData.QueryResponse.Customer[0].Id;
     } else {
         // Create a new customer
-        const customerBody = {
-            DisplayName: booking.customer_name,
-        };
+        const customerBody = { DisplayName: booking.customer_name };
         if (booking.customer_phone) customerBody.PrimaryPhone = { FreeFormNumber: booking.customer_phone };
         if (booking.customer_email) customerBody.PrimaryEmailAddr = { Address: booking.customer_email };
         if (booking.customer_address) customerBody.BillAddr = { Line1: booking.customer_address };
 
         const createCustomer = await fetch(`${baseUrl}/customer?minorversion=65`, {
             method: "POST",
-            headers: {
-                "Authorization": `Bearer ${accessToken}`,
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-            },
+            headers: { ...qbHeaders, "Content-Type": "application/json" },
             body: JSON.stringify(customerBody),
         });
         const newCustomer = await createCustomer.json();
@@ -74,11 +69,7 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
 
     const createProject = await fetch(`${baseUrl}/customer?minorversion=65`, {
         method: "POST",
-        headers: {
-            "Authorization": `Bearer ${accessToken}`,
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-        },
+        headers: { ...qbHeaders, "Content-Type": "application/json" },
         body: JSON.stringify({
             DisplayName: projectName,
             ParentRef: { value: customerId },
