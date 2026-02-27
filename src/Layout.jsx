@@ -135,7 +135,7 @@ export default function Layout({ children, currentPageName }) {
                   (800) 555-1234
                 </a>
                 <Link to={createPageUrl("Booking")} onClick={() => setMobileMenuOpen(false)}>
-                  <Button className="w-full bg-orange-600 hover:bg-orange-700 text-white">
+                  <Button className="w-full bg-green-700 hover:bg-green-800 text-white">
                     Book Service
                   </Button>
                 </Link>
