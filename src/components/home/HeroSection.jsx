@@ -7,7 +7,7 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-orange-950" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-green-950" />
       <div
         className="absolute inset-0 opacity-20"
         style={{

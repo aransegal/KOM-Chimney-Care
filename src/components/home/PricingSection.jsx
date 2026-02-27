@@ -60,7 +60,7 @@ export default function PricingSection() {
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-orange-600 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
+          <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-5">
             No Hidden Fees. Ever.
           </h2>

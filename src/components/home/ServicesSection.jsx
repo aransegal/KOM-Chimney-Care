@@ -47,7 +47,7 @@ export default function ServicesSection() {
     <section id="services" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-orange-600 font-semibold text-sm tracking-widest uppercase mb-3 block">What We Do</span>
+          <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">What We Do</span>
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-5">
             Complete Water Heater Services
           </h2>
