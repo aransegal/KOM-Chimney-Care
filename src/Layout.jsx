@@ -181,7 +181,7 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Contact</h4>
               <ul className="space-y-3 text-slate-400 text-sm">
                 <li className="flex items-center gap-2">
-                  <Phone className="w-4 h-4 text-orange-500 flex-shrink-0" />
+                  <Phone className="w-4 h-4 text-green-500 flex-shrink-0" />
                   (800) 555-1234
                 </li>
                 <li className="flex items-center gap-2">
