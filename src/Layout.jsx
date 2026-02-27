@@ -91,7 +91,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="hidden lg:flex items-center gap-4">
               <a
                 href="tel:+18005551234"
-                className={`flex items-center gap-1.5 text-sm font-semibold hover:text-orange-600 transition-colors ${
+                className={`flex items-center gap-1.5 text-sm font-semibold hover:text-green-600 transition-colors ${
                   scrolled || !isHome ? "text-slate-800" : "text-white"
                 }`}
               >
