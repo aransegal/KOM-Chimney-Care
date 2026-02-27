@@ -121,7 +121,7 @@ export default function Layout({ children, currentPageName }) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-orange-50 hover:text-orange-600 transition-colors"
+                  className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors"
                 >
                   {link.label}
                 </button>
