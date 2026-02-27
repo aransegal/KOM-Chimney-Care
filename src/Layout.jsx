@@ -152,7 +152,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-800">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-9 h-9 bg-orange-600 rounded-lg flex items-center justify-center">
+                <div className="w-9 h-9 bg-green-700 rounded-lg flex items-center justify-center">
                   <Flame className="w-5 h-5 text-white" />
                 </div>
                 <span className="text-lg font-bold">KOM Water Heaters</span>
