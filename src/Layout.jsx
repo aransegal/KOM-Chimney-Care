@@ -99,7 +99,7 @@ export default function Layout({ children, currentPageName }) {
                 (800) 555-1234
               </a>
               <Link to={createPageUrl("Booking")}>
-                <Button className="bg-orange-600 hover:bg-orange-700 text-white px-5 shadow-md">
+                <Button className="bg-green-700 hover:bg-green-800 text-white px-5 shadow-md">
                   Book Service
                 </Button>
               </Link>
