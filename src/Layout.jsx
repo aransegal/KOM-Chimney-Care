@@ -4,6 +4,22 @@ import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X, Flame } from "lucide-react";
 
+const greenTheme = `
+  :root {
+    --primary: 145 63% 32%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 138 30% 94%;
+    --secondary-foreground: 145 63% 22%;
+    --muted: 138 20% 95%;
+    --muted-foreground: 145 10% 45%;
+    --accent: 138 30% 90%;
+    --accent-foreground: 145 63% 22%;
+    --border: 138 20% 88%;
+    --input: 138 20% 88%;
+    --ring: 145 63% 32%;
+  }
+`;
+
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
