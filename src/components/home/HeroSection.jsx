@@ -20,20 +20,20 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-transparent" />
 
       {/* Decorative orb */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-orange-600/20 border border-orange-500/30 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-            <span className="text-orange-300 text-sm font-medium">24/7 Emergency Service Available</span>
+          <div className="inline-flex items-center gap-2 bg-green-600/20 border border-green-500/30 rounded-full px-4 py-1.5 mb-6">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+            <span className="text-green-300 text-sm font-medium">24/7 Emergency Service Available</span>
           </div>
 
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
             Water Heater
             <br />
-            <span className="text-orange-400">Experts</span> You
+            <span className="text-green-400">Experts</span> You
             <br />
             Can Trust
           </h1>
@@ -45,7 +45,7 @@ export default function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-14">
             <Link to={createPageUrl("Booking")}>
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white text-base px-8 h-14 shadow-lg shadow-orange-900/40 w-full sm:w-auto">
+              <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white text-base px-8 h-14 shadow-lg shadow-green-900/40 w-full sm:w-auto">
                 Book a Service
                 <ChevronRight className="ml-2 w-5 h-5" />
               </Button>
@@ -67,8 +67,8 @@ export default function HeroSection() {
               { icon: Phone, text: "24/7 Support" },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2 text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-orange-600/20 border border-orange-500/30 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-orange-400" />
+                <div className="w-8 h-8 rounded-full bg-green-600/20 border border-green-500/30 flex items-center justify-center">
+                  <Icon className="w-4 h-4 text-green-400" />
                 </div>
                 <span className="text-sm font-medium">{text}</span>
               </div>
