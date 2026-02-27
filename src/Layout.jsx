@@ -79,7 +79,7 @@ export default function Layout({ children, currentPageName }) {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className={`text-sm font-medium transition-colors hover:text-orange-600 ${
+                  className={`text-sm font-medium transition-colors hover:text-green-600 ${
                     scrolled || !isHome ? "text-slate-700" : "text-white/90"
                   }`}
                 >
