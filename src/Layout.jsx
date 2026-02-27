@@ -131,7 +131,7 @@ export default function Layout({ children, currentPageName }) {
                   href="tel:+18005551234"
                   className="flex items-center gap-2 py-3 px-3 text-slate-700 font-semibold"
                 >
-                  <Phone className="w-4 h-4 text-orange-600" />
+                  <Phone className="w-4 h-4 text-green-600" />
                   (800) 555-1234
                 </a>
                 <Link to={createPageUrl("Booking")} onClick={() => setMobileMenuOpen(false)}>
