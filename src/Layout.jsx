@@ -188,7 +188,7 @@ export default function Layout({ children, currentPageName }) {
                   <span className="w-4 h-4 flex-shrink-0 text-orange-500 text-center">@</span>
                   info@komwaterheaters.com
                 </li>
-                <li className="text-orange-400 font-medium">Available 24/7 for emergencies</li>
+                <li className="text-green-400 font-medium">Available 24/7 for emergencies</li>
               </ul>
             </div>
           </div>
