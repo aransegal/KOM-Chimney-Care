@@ -70,7 +70,7 @@ export default function ServicesSection() {
               <ul className="space-y-1.5 mb-6">
                 {service.highlights.map((h) => (
                   <li key={h} className="flex items-center gap-2 text-sm text-slate-600">
-                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-600 flex-shrink-0" />
                     {h}
                   </li>
                 ))}
@@ -87,7 +87,7 @@ export default function ServicesSection() {
                 ) : (
                   <Link
                     to={createPageUrl("Booking")}
-                    className="flex items-center gap-1 text-sm font-semibold text-orange-600 hover:text-orange-700"
+                    className="flex items-center gap-1 text-sm font-semibold text-green-700 hover:text-green-800"
                   >
                     Book <ChevronRight className="w-4 h-4" />
                   </Link>

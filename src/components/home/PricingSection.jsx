@@ -66,7 +66,7 @@ export default function PricingSection() {
           </h2>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             We believe in honest, upfront pricing. A{" "}
-            <span className="font-bold text-orange-600">$79 booking fee</span> secures your appointment — applied toward your service total.
+            <span className="font-bold text-green-700">$79 booking fee</span> secures your appointment — applied toward your service total.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export default function PricingSection() {
               key={plan.name}
               className={`rounded-2xl p-8 flex flex-col relative ${
                 plan.highlight
-                  ? "bg-gradient-to-br from-orange-600 to-orange-700 text-white shadow-2xl shadow-orange-200 scale-105"
+                  ? "bg-gradient-to-br from-green-700 to-green-800 text-white shadow-2xl shadow-green-200 scale-105"
                   : "bg-slate-50 border border-slate-200 text-slate-900"
               }`}
             >
@@ -93,18 +93,18 @@ export default function PricingSection() {
                   <span className={`text-4xl font-extrabold ${plan.highlight ? "text-white" : "text-slate-900"}`}>
                     {plan.price}
                   </span>
-                  <span className={`text-sm pb-1 ${plan.highlight ? "text-orange-200" : "text-slate-500"}`}>
+                  <span className={`text-sm pb-1 ${plan.highlight ? "text-green-200" : "text-slate-500"}`}>
                     {plan.unit}
                   </span>
                 </div>
-                <p className={`text-sm leading-relaxed ${plan.highlight ? "text-orange-100" : "text-slate-500"}`}>
+                <p className={`text-sm leading-relaxed ${plan.highlight ? "text-green-100" : "text-slate-500"}`}>
                   {plan.description}
                 </p>
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-center gap-3 text-sm">
-                    <CheckCircle className={`w-4 h-4 flex-shrink-0 ${plan.highlight ? "text-orange-200" : "text-orange-600"}`} />
+                    <CheckCircle className={`w-4 h-4 flex-shrink-0 ${plan.highlight ? "text-green-200" : "text-green-600"}`} />
                     <span className={plan.highlight ? "text-orange-50" : "text-slate-600"}>{f}</span>
                   </li>
                 ))}
@@ -113,8 +113,8 @@ export default function PricingSection() {
                 <Button
                   className={`w-full h-12 font-semibold ${
                     plan.highlight
-                      ? "bg-white text-orange-600 hover:bg-orange-50"
-                      : "bg-orange-600 hover:bg-orange-700 text-white"
+                      ? "bg-white text-green-700 hover:bg-green-50"
+                      : "bg-green-700 hover:bg-green-800 text-white"
                   }`}
                 >
                   {plan.cta}
