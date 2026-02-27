@@ -173,7 +173,7 @@ export default function Layout({ children, currentPageName }) {
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Company</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
                 {["About Us", "KOM USA", "Reviews", "Careers"].map((s) => (
-                  <li key={s} className="hover:text-orange-400 cursor-pointer transition-colors">{s}</li>
+                  <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 ))}
               </ul>
             </div>
