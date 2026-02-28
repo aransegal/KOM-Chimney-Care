@@ -13,9 +13,9 @@ export default function HeroSection() {
         style={{
           backgroundImage: `url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/b75659a09_wmremove-transformed.jpeg")`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+          backgroundPosition: "center"
+        }} />
+
       {/* Overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-transparent" />
 
@@ -33,7 +33,7 @@ export default function HeroSection() {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
             Water Heater
             <br />
-            <span className="text-green-400">Experts</span> You
+            <span className="text-green-600">Experts</span> You
             <br />
             Can Trust
           </h1>
@@ -61,18 +61,18 @@ export default function HeroSection() {
           {/* Trust Badges */}
           <div className="flex flex-wrap gap-6">
             {[
-              { icon: Shield, text: "Licensed & Insured" },
-              { icon: Clock, text: "Same-Day Available" },
-              { icon: Star, text: "5-Star Rated" },
-              { icon: Phone, text: "24/7 Support" },
-            ].map(({ icon: Icon, text }) => (
-              <div key={text} className="flex items-center gap-2 text-slate-300">
+            { icon: Shield, text: "Licensed & Insured" },
+            { icon: Clock, text: "Same-Day Available" },
+            { icon: Star, text: "5-Star Rated" },
+            { icon: Phone, text: "24/7 Support" }].
+            map(({ icon: Icon, text }) =>
+            <div key={text} className="flex items-center gap-2 text-slate-300">
                 <div className="w-8 h-8 rounded-full bg-green-600/20 border border-green-500/30 flex items-center justify-center">
                   <Icon className="w-4 h-4 text-green-400" />
                 </div>
                 <span className="text-sm font-medium">{text}</span>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>
@@ -82,6 +82,6 @@ export default function HeroSection() {
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-white/20" />
       </div>
-    </section>
-  );
+    </section>);
+
 }
