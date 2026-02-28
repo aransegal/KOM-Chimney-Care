@@ -23,9 +23,9 @@ export default function HeroSection() {
             <span className="text-slate-50 text-sm font-medium">24/7 Emergency Service Available</span>
           </div>
 
-          <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">Water Heater
+          <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Water Heater
           </h1>
-         <h1 className="text-green-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">Experts
+         <h1 className="text-green-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Experts
           
           </h1>
           <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl"> You
