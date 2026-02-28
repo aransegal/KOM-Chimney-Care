@@ -24,8 +24,7 @@ export default function HeroSection() {
           </div>
 
           <h1 className="text-zinc-900 text-xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Water Heater
-Experts
-You Can Trust</h1>
+</h1>
          <h1 className="text-green-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Experts
           
           </h1>
