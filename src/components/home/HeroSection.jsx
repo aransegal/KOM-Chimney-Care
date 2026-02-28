@@ -23,8 +23,9 @@ export default function HeroSection() {
             <span className="text-slate-50 text-sm font-medium">24/7 Emergency Service Available</span>
           </div>
 
-          <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Water Heater
-          </h1>
+          <h1 className="text-zinc-900 text-xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Water Heater
+Experts
+You Can Trust</h1>
          <h1 className="text-green-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Experts
           
           </h1>
@@ -53,8 +54,7 @@ export default function HeroSection() {
 
           {/* Trust Badges */}
           <div className="flex flex-wrap gap-6">
-            {[
-            { icon: Shield, text: "Licensed & Insured" },
+            {[{ icon: Shield, text: "Licensed & Insured" },
             { icon: Clock, text: "Same-Day Available" },
             { icon: Star, text: "5-Star Rated" },
             { icon: Phone, text: "24/7 Support" }].
