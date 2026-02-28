@@ -18,22 +18,22 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-green-600/20 border border-green-500/30 rounded-full px-4 py-1.5 mb-6">
+          <div className="bg-green-600 mb-6 px-4 py-1.5 opacity-100 rounded-full inline-flex items-center gap-2 border border-green-500/30">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-green-300 text-sm font-medium">24/7 Emergency Service Available</span>
+            <span className="text-slate-50 text-sm font-medium">24/7 Emergency Service Available</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6">
-            Water Heater
-            <br />
-            <span className="text-green-600">Experts</span> You
-            <br />
-            Can Trust
+          <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">Water Heater
+Experts You
+Can Trust
+
+
+
           </h1>
 
-          <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-2xl">
-            Fast, professional water heater installation, repair, and maintenance. 
-            Licensed technicians, transparent pricing, and same-day service available.
+          <p className="text-gray-900 mb-10 text-xl leading-relaxed max-w-2xl">Fast, professional water heater installation, repair, and maintenance. Licensed technicians, transparent pricing, and same-day service available.
+
+
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-14">
