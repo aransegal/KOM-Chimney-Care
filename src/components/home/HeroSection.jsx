@@ -11,7 +11,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 opacity-20"
         style={{
-          backgroundImage: `url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/c9997367d_herobackgroundlight.jpg")`,
+          backgroundImage: `url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/0fafbd559_herobackgroundlight.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center"
         }} />
