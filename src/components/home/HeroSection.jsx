@@ -63,7 +63,7 @@ Can Trust
                 <div className="w-8 h-8 rounded-full bg-green-600/20 border border-green-500/30 flex items-center justify-center">
                   <Icon className="w-4 h-4 text-green-400" />
                 </div>
-                <span className="text-sm font-medium">{text}</span>
+                <span className="text-zinc-900 text-sm font-medium">{text}</span>
               </div>
             )}
           </div>
