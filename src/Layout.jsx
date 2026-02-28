@@ -41,23 +41,23 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const navLinks = [
-    { label: "Services", id: "services" },
-    { label: "Pricing", id: "pricing" },
-    { label: "About Us", id: "about" },
-    { label: "KOM USA", id: "kom-usa" },
-    { label: "Contact", id: "contact" },
-  ];
+  { label: "Services", id: "services" },
+  { label: "Pricing", id: "pricing" },
+  { label: "About Us", id: "about" },
+  { label: "KOM USA", id: "kom-usa" },
+  { label: "Contact", id: "contact" }];
+
 
   return (
     <div className="min-h-screen bg-white">
       <style>{greenTheme}</style>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || !isHome
-            ? "bg-white/95 backdrop-blur-sm shadow-md"
-            : "bg-transparent"
-        }`}
-      >
+        scrolled || !isHome ?
+        "bg-white/95 backdrop-blur-sm shadow-md" :
+        "bg-transparent"}`
+        }>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link to={createPageUrl("Home")} className="flex items-center gap-2.5">
@@ -75,26 +75,26 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             <div className="hidden lg:flex items-center gap-7">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={`text-sm font-medium transition-colors hover:text-green-600 ${
-                    scrolled || !isHome ? "text-slate-700" : "text-white/90"
-                  }`}
-                >
+              {navLinks.map((link) =>
+              <button
+                key={link.id}
+                onClick={() => scrollToSection(link.id)} className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">
+
+
+
+
                   {link.label}
                 </button>
-              ))}
+              )}
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="tel:+18005551234"
-                className={`flex items-center gap-1.5 text-sm font-semibold hover:text-green-600 transition-colors ${
-                  scrolled || !isHome ? "text-slate-800" : "text-white"
-                }`}
-              >
+                href="tel:+18005551234" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors">
+
+
+
+
                 <Phone className="w-4 h-4" />
                 (800) 555-1234
               </a>
@@ -107,30 +107,30 @@ export default function Layout({ children, currentPageName }) {
 
             <button
               className={`lg:hidden p-2 rounded-md ${scrolled || !isHome ? "text-slate-800" : "text-white"}`}
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
 
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-slate-100 shadow-xl">
+        {mobileMenuOpen &&
+        <div className="lg:hidden bg-white border-t border-slate-100 shadow-xl">
             <div className="px-5 py-5 space-y-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors"
-                >
+              {navLinks.map((link) =>
+            <button
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">
+
                   {link.label}
                 </button>
-              ))}
+            )}
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 <a
-                  href="tel:+18005551234"
-                  className="flex items-center gap-2 py-3 px-3 text-slate-700 font-semibold"
-                >
+                href="tel:+18005551234"
+                className="flex items-center gap-2 py-3 px-3 text-slate-700 font-semibold">
+
                   <Phone className="w-4 h-4 text-green-600" />
                   (800) 555-1234
                 </a>
@@ -142,7 +142,7 @@ export default function Layout({ children, currentPageName }) {
               </div>
             </div>
           </div>
-        )}
+        }
       </nav>
 
       <main>{children}</main>
@@ -164,17 +164,17 @@ export default function Layout({ children, currentPageName }) {
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Services</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
-                {["Installation", "Repair & Diagnostics", "Preventive Maintenance", "Emergency 24/7"].map((s) => (
-                  <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
-                ))}
+                {["Installation", "Repair & Diagnostics", "Preventive Maintenance", "Emergency 24/7"].map((s) =>
+                <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
+                )}
               </ul>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Company</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
-                {["About Us", "KOM USA", "Reviews", "Careers"].map((s) => (
-                  <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
-                ))}
+                {["About Us", "KOM USA", "Reviews", "Careers"].map((s) =>
+                <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
+                )}
               </ul>
             </div>
             <div>
@@ -202,6 +202,6 @@ export default function Layout({ children, currentPageName }) {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>);
+
 }
