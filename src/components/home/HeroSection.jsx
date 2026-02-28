@@ -23,13 +23,10 @@ export default function HeroSection() {
             <span className="text-slate-50 text-sm font-medium">24/7 Emergency Service Available</span>
           </div>
 
-          <h1 className="text-zinc-900 text-xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Water Heater
-</h1>
-         <h1 className="text-green-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-5xl">Experts
-          
-          </h1>
-          <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl"> You
-          Can Trust
+          <h1 className="font-extrabold leading-tight mb-6">
+            <span className="block text-zinc-900 text-5xl">Water Heater</span>
+            <span className="block text-green-700 text-5xl">Experts</span>
+            <span className="block text-zinc-900 text-5xl">You Can Trust</span>
           </h1>
           <p className="text-gray-900 mb-10 text-xl leading-relaxed max-w-2xl">Fast, professional water heater installation, repair, and maintenance. Licensed technicians, transparent pricing, and same-day service available.
 
