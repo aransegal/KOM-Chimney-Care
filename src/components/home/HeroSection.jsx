@@ -27,7 +27,10 @@ export default function HeroSection() {
 <span className="text-green-900">Experts</span> You
 Can Trust
 
-
+          </h1>
+                    <h1 className="text-zinc-900 mb-6 text-5xl font-extrabold leading-tight sm:text-6xl lg:text-7xl">Water Heater
+<span className="text-green-900">Experts</span> You
+Can Trust
 
           </h1>
 
