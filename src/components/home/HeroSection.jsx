@@ -67,9 +67,9 @@ export default function HeroSection() {
       </div>
 
       {/* Bottom scroll hint */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-zinc-900">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
-        <div className="w-px h-8 bg-white/20" />
+        <div className="w-px h-8 bg-zinc-900" />
       </div>
     </section>);
 
