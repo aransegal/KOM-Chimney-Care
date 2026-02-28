@@ -7,20 +7,13 @@ export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-green-950" />
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0"
         style={{
           backgroundImage: `url("https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/0fafbd559_herobackgroundlight.jpg")`,
           backgroundSize: "cover",
           backgroundPosition: "center"
         }} />
-
-      {/* Overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/60 to-transparent" />
-
-      {/* Decorative orb */}
-      <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32">
         <div className="max-w-3xl">
