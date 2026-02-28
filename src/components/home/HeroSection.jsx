@@ -24,9 +24,9 @@ export default function HeroSection() {
           </div>
 
           <div className="mb-6">
-            <h1 className="text-zinc-900 text-10xl font-extrabold leading-tight text-8xl">Water Heater</h1>
-            <h1 className="text-green-700 text-10xl font-extrabold leading-tight text-8xl">Experts</h1>
-            <h1 className="text-zinc-900 text-10xl font-extrabold leading-tight text-8xl">You Can Trust</h1>
+            <h1 className="text-zinc-900 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>Water Heater</h1>
+            <h1 className="text-green-700 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>Experts</h1>
+            <h1 className="text-zinc-900 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>You Can Trust</h1>
           </div>
           <p className="text-gray-900 mb-10 text-xl leading-relaxed max-w-2xl">Fast, professional water heater installation, repair, and maintenance. Licensed technicians, transparent pricing, and same-day service available.
 
