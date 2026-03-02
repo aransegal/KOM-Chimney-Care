@@ -12,21 +12,21 @@ const images = [
 
 export default function PhotoSlideshow() {
   const [current, setCurrent] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisible(false);
+      setFading(true);
       setTimeout(() => {
         setCurrent((prev) => (prev + 1) % images.length);
-        setVisible(true);
+        setFading(false);
       }, 500);
     }, 7000);
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="w-full overflow-hidden" style={{ height: "600px" }}>
+    <section className="w-full relative overflow-hidden h-[600px]">
       {images.map((src, i) => (
         <img
           key={src}
@@ -34,9 +34,8 @@ export default function PhotoSlideshow() {
           alt={`Work photo ${i + 1}`}
           className="absolute inset-0 w-full h-full object-cover"
           style={{
-            opacity: i === current ? (visible ? 1 : 0) : 0,
+            opacity: i === current ? (fading ? 0 : 1) : 0,
             transition: "opacity 0.5s ease-in-out",
-            position: i === current ? "relative" : "absolute",
           }}
         />
       ))}
