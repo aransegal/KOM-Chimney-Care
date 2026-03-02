@@ -44,7 +44,6 @@ export default function Layout({ children, currentPageName }) {
   { label: "Services", id: "services" },
   { label: "Pricing", id: "pricing" },
   { label: "About Us", id: "about" },
-  { label: "KOM USA", id: "kom-usa" },
   { label: "Contact", id: "contact" }];
 
 
