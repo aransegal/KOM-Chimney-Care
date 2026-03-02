@@ -115,7 +115,7 @@ export default function ServicesPricingSection() {
                 
 
 
-                <h3 className="font-extrabold text-slate-900 text-xl">Emergency Service</h3>
+                <h3 className="font-extrabold text-slate-900 text-xl text-center w-full">Emergency Service</h3>
               </div>
               <p className="text-slate-600 text-sm">Our emergency team is available 24/7 including weekends and holidays. Call for immediate pricing and same-day response.</p>
             </div>
