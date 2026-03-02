@@ -15,7 +15,6 @@ export default function Home() {
       <PricingSection />
       <ReviewsStrip />
       <AboutSection />
-      <KomUsaSection />
       <ContactSection />
     </>
   );

@@ -74,6 +74,7 @@ export default function Layout({ children, currentPageName }) {
             </Link>
 
             <div className="hidden lg:flex items-center gap-7">
+              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
               {navLinks.map((link) =>
               <button
                 key={link.id}
