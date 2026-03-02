@@ -26,13 +26,13 @@ export default function PhotoSlideshow() {
   }, []);
 
   return (
-    <section className="w-full relative overflow-hidden h-[600px]">
+    <section className="w-full relative bg-slate-900">
       {images.map((src, i) => (
         <img
           key={src}
           src={src}
           alt={`Work photo ${i + 1}`}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-contain"
           style={{
             opacity: i === current ? (fading ? 0 : 1) : 0,
             transition: "opacity 0.5s ease-in-out",
