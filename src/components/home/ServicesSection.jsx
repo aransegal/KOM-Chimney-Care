@@ -51,8 +51,8 @@ export default function ServicesSection() {
           <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-5">
             Complete Water Heater Services
           </h2>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
-            From first install to emergency repairs, our licensed technicians handle it all with speed and professionalism.
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">From first install to emergency repairs, our technicians handle it all with speed and professionalism.
+
           </p>
         </div>
 
