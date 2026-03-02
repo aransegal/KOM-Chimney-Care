@@ -85,10 +85,10 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </button>
               )}
+              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
-              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
               <a
                 href="tel:+18005551234" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors">
 
