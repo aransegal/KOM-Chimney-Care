@@ -1,5 +1,6 @@
 import HeroSection from "../components/home/HeroSection";
-import ServicesPricingSection from "../components/home/ServicesPricingSection";
+import ServicesSection from "../components/home/ServicesSection";
+import PricingSection from "../components/home/PricingSection";
 import AboutSection from "../components/home/AboutSection";
 import ContactSection from "../components/home/ContactSection";
 import EmergencyPopup from "../components/home/EmergencyPopup";
@@ -10,7 +11,8 @@ export default function Home() {
     <>
       <EmergencyPopup />
       <HeroSection />
-      <ServicesPricingSection />
+      <ServicesSection />
+      <PricingSection />
       <ReviewsStrip />
       <AboutSection />
       <ContactSection />
