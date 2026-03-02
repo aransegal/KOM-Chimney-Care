@@ -19,7 +19,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-slate-900">
+    <section id="contact" className="bg-emerald-950 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 block">Get In Touch</span>
@@ -35,56 +35,56 @@ export default function ContactSection() {
           {/* Contact Info */}
           <div className="lg:col-span-2 space-y-6">
             {[
-              {
-                icon: Phone,
-                title: "Call or Text",
-                info: "(800) 555-1234",
-                sub: "24/7 for emergencies",
-                href: "tel:+18005551234",
-              },
-              {
-                icon: Mail,
-                title: "Email Us",
-                info: "info@komwaterheaters.com",
-                sub: "Replies within 2 hours",
-                href: "mailto:info@komwaterheaters.com",
-              },
-              {
-                icon: MapPin,
-                title: "Service Area",
-                info: "Greater Metro Area",
-                sub: "Serving 50+ zip codes",
-              },
-              {
-                icon: Clock,
-                title: "Business Hours",
-                info: "Mon–Sat: 7am – 8pm",
-                sub: "Emergency: 24/7",
-              },
-            ].map((item) => (
-              <div key={item.title} className="flex items-start gap-4 p-5 bg-slate-800 rounded-xl border border-slate-700">
+            {
+              icon: Phone,
+              title: "Call or Text",
+              info: "(800) 555-1234",
+              sub: "24/7 for emergencies",
+              href: "tel:+18005551234"
+            },
+            {
+              icon: Mail,
+              title: "Email Us",
+              info: "info@komwaterheaters.com",
+              sub: "Replies within 2 hours",
+              href: "mailto:info@komwaterheaters.com"
+            },
+            {
+              icon: MapPin,
+              title: "Service Area",
+              info: "Greater Metro Area",
+              sub: "Serving 50+ zip codes"
+            },
+            {
+              icon: Clock,
+              title: "Business Hours",
+              info: "Mon–Sat: 7am – 8pm",
+              sub: "Emergency: 24/7"
+            }].
+            map((item) =>
+            <div key={item.title} className="flex items-start gap-4 p-5 bg-slate-800 rounded-xl border border-slate-700">
                 <div className="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <item.icon className="w-5 h-5 text-orange-400" />
                 </div>
                 <div>
                   <div className="text-slate-400 text-xs font-medium mb-0.5">{item.title}</div>
-                  {item.href ? (
-                    <a href={item.href} className="text-white font-semibold hover:text-orange-400 transition-colors">
+                  {item.href ?
+                <a href={item.href} className="text-white font-semibold hover:text-orange-400 transition-colors">
                       {item.info}
-                    </a>
-                  ) : (
-                    <div className="text-white font-semibold">{item.info}</div>
-                  )}
+                    </a> :
+
+                <div className="text-white font-semibold">{item.info}</div>
+                }
                   <div className="text-slate-400 text-sm mt-0.5">{item.sub}</div>
                 </div>
               </div>
-            ))}
+            )}
           </div>
 
           {/* Form */}
           <div className="lg:col-span-3 bg-white rounded-2xl p-8">
-            {submitted ? (
-              <div className="flex flex-col items-center justify-center h-full py-12 text-center">
+            {submitted ?
+            <div className="flex flex-col items-center justify-center h-full py-12 text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
                   <CheckCircle className="w-8 h-8 text-green-600" />
                 </div>
@@ -93,52 +93,52 @@ export default function ContactSection() {
                   Thanks for reaching out. A KOM technician will contact you within 2 hours during business hours.
                 </p>
                 <Button
-                  className="mt-6 bg-orange-600 hover:bg-orange-700"
-                  onClick={() => { setSubmitted(false); setForm({ name: "", email: "", phone: "", service_type: "", message: "" }); }}
-                >
+                className="mt-6 bg-orange-600 hover:bg-orange-700"
+                onClick={() => {setSubmitted(false);setForm({ name: "", email: "", phone: "", service_type: "", message: "" });}}>
+
                   Send Another Message
                 </Button>
-              </div>
-            ) : (
-              <>
+              </div> :
+
+            <>
                 <h3 className="text-xl font-bold text-slate-900 mb-6">Send Us a Message</h3>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="text-sm font-medium text-slate-700 mb-1 block">Full Name *</label>
                       <Input
-                        required
-                        placeholder="John Smith"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      />
+                      required
+                      placeholder="John Smith"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })} />
+
                     </div>
                     <div>
                       <label className="text-sm font-medium text-slate-700 mb-1 block">Phone *</label>
                       <Input
-                        required
-                        placeholder="(555) 000-0000"
-                        value={form.phone}
-                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      />
+                      required
+                      placeholder="(555) 000-0000"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+
                     </div>
                   </div>
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Email</label>
                     <Input
-                      type="email"
-                      placeholder="john@email.com"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    />
+                    type="email"
+                    placeholder="john@email.com"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })} />
+
                   </div>
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Service Needed</label>
                     <select
-                      className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                      value={form.service_type}
-                      onChange={(e) => setForm({ ...form, service_type: e.target.value })}
-                    >
+                    className="w-full h-10 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    value={form.service_type}
+                    onChange={(e) => setForm({ ...form, service_type: e.target.value })}>
+
                       <option value="">Select a service...</option>
                       <option value="installation">Installation</option>
                       <option value="repair">Repair</option>
@@ -149,25 +149,25 @@ export default function ContactSection() {
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Message</label>
                     <Textarea
-                      rows={4}
-                      placeholder="Describe your issue or question..."
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    />
+                    rows={4}
+                    placeholder="Describe your issue or question..."
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })} />
+
                   </div>
                   <Button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full bg-orange-600 hover:bg-orange-700 text-white h-12 font-semibold"
-                  >
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white h-12 font-semibold">
+
                     {loading ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </>
-            )}
+            }
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 }
