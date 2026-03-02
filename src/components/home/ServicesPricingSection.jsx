@@ -30,18 +30,6 @@ export default function ServicesPricingSection() {
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-5">
-            No Hidden Fees. Ever.
-          </h2>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
-            We believe in honest, upfront pricing. A{" "}
-            <span className="font-bold text-green-700">$79 booking fee</span> secures your appointment — applied toward your service total.
-          </p>
-        </div>
-
         {/* Service 1: New Installation */}
         <div className="mb-16">
           <div className="flex items-center gap-3 mb-3">
