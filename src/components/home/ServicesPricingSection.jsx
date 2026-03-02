@@ -139,6 +139,7 @@ export default function ServicesPricingSection() {
             <span className="font-bold text-green-700">$79 booking fee</span> secures your appointment — applied toward your service total.
           </p>
         </div>
+        <div></div>
 
       </div>
     </section>);
