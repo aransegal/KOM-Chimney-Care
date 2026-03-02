@@ -44,7 +44,7 @@ export default function Layout({ children, currentPageName }) {
   { label: "Services", id: "services" },
   { label: "Pricing", id: "pricing" },
   { label: "About Us", id: "about" },
-  { label: "Contact", id: "contact" }];
+  { label: "Contact Us", id: "contact" }];
 
 
   return (
