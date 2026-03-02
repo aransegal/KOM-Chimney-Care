@@ -24,9 +24,9 @@ export default function HeroSection() {
           </div>
 
           <div className="mb-6">
-            <h1 className="text-zinc-900 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>Water Heater</h1>
-            <h1 className="text-green-700 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>Experts</h1>
-            <h1 className="text-zinc-900 font-extrabold leading-none" style={{fontSize: "clamp(3rem, 8vw, 7rem)"}}>You Can Trust</h1>
+            <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Water Heater</h1>
+            <h1 className="text-green-700 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Experts</h1>
+            <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>You Can Trust</h1>
           </div>
           <p className="text-gray-900 mb-10 text-xl leading-relaxed max-w-2xl">Fast, professional water heater installation, repair, and maintenance. Licensed technicians, transparent pricing, and same-day service available.
 
@@ -56,7 +56,7 @@ export default function HeroSection() {
             { icon: Phone, text: "24/7 Support" }].
             map(({ icon: Icon, text }) =>
             <div key={text} className="flex items-center gap-2 text-slate-300">
-                <div className="w-8 h-8 rounded-full bg-green-600/20 border border-green-500/30 flex items-center justify-center">
+                <div className="bg-green-700 opacity-100 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
                   <Icon className="w-4 h-4 text-green-400" />
                 </div>
                 <span className="text-zinc-900 text-sm font-medium">{text}</span>
