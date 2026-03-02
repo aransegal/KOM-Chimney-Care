@@ -30,16 +30,7 @@ const services = [
   color: "bg-green-50 text-green-600",
   accent: "border-green-200"
 },
-{
-  icon: Shield,
-  title: "Emergency Service",
-  description: "Water heater failure can't wait. Our emergency team is on call 24/7 to restore your hot water as fast as possible.",
-  highlights: ["24/7 availability", "Arrive in 2 hours", "Weekend & holiday"],
-  from: "Call for pricing",
-  color: "bg-red-50 text-red-600",
-  accent: "border-red-200",
-  isEmergency: true
-}];
+];
 
 
 export default function ServicesSection() {
