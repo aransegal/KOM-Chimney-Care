@@ -117,6 +117,7 @@ export default function Layout({ children, currentPageName }) {
         {mobileMenuOpen &&
         <div className="lg:hidden bg-white border-t border-slate-100 shadow-xl">
             <div className="px-5 py-5 space-y-1">
+              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">KOM USA</a>
               {navLinks.map((link) =>
             <button
               key={link.id}
