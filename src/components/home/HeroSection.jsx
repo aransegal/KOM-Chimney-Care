@@ -18,10 +18,10 @@ export default function HeroSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28 lg:py-32">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="bg-green-600 mb-6 px-4 py-1.5 opacity-100 rounded-full inline-flex items-center gap-2 border border-green-500/30">
-            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            <span className="text-slate-50 text-sm font-medium">24/7 Emergency Service Available</span>
-          </div>
+          
+
+
+
 
           <div className="mb-6">
             <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Water Heater</h1>
@@ -41,7 +41,7 @@ export default function HeroSection() {
               </Button>
             </Link>
             <a href="tel:+18005551234">
-              <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-400 hover:bg-red-500/10 text-base px-8 h-14 w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-background shadow-sm hover:text-accent-foreground rounded-md border-2 border-red-500 text-red-400 hover:bg-red-500/10 text-base px-8 h-14 w-full sm:w-auto">
                 <AlertTriangle className="mr-2 w-5 h-5" />
                 Emergency Service
               </Button>
