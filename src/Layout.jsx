@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { Phone, Menu, X, Flame } from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 const greenTheme = `
   :root {
