@@ -149,10 +149,11 @@ export default function Layout({ children, currentPageName }) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-slate-800">
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-9 h-9 bg-green-700 rounded-lg flex items-center justify-center">
-                  <Flame className="w-5 h-5 text-white" />
-                </div>
-                <span className="text-lg font-bold">KOM Water Heaters</span>
+                <img
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4308ccdd3_logo-gradient-nobckground.png"
+                  alt="KOM Water Heaters"
+                  className="h-10 w-auto brightness-0 invert"
+                />
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Professional water heater installation, repair, and maintenance. Licensed, bonded & insured.
