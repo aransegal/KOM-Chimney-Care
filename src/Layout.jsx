@@ -58,19 +58,16 @@ export default function Layout({ children, currentPageName }) {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            <Link to={createPageUrl("Home")} className="flex items-center gap-2.5">
-              <div className="w-9 h-9 bg-green-700 rounded-lg flex items-center justify-center shadow-md">
-                <Flame className="w-5 h-5 text-white" />
-              </div>
-              <div className="leading-none">
-                <div className={`text-lg font-extrabold tracking-tight ${scrolled || !isHome ? "text-slate-900" : "text-white"}`}>
-                  KOM<span className="text-green-500"> Water Heaters</span>
-                </div>
-                <div className={`text-[10px] font-medium tracking-widest uppercase ${scrolled || !isHome ? "text-slate-400" : "text-white/60"}`}>
-                  Professional Service
-                </div>
-              </div>
-            </Link>
+            <button
+              onClick={() => scrollToSection("hero")}
+              className="flex items-center"
+            >
+              <img
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4308ccdd3_logo-gradient-nobckground.png"
+                alt="KOM Water Heaters"
+                className="h-12 w-auto"
+              />
+            </button>
 
             <div className="hidden lg:flex items-center gap-7">
               {navLinks.map((link) =>
