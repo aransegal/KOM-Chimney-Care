@@ -41,7 +41,7 @@ export default function HeroSection() {
               </Button>
             </Link>
             <a href="tel:+18005551234" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-400 hover:bg-red-500/10 text-base px-8 h-14 w-full sm:min-w-[275px]">
+              <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-400 hover:bg-red-800 hover:text-red-400 text-base px-8 h-14 w-full sm:min-w-[275px]">
                 <AlertTriangle className="mr-2 w-5 h-5" />
                 24/7 Emergency Service
               </Button>
