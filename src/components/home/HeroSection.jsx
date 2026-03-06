@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { Phone, Shield, Clock, Star, ChevronRight, AlertTriangle } from "lucide-react";
+import { Phone, Shield, Clock, Star, ChevronRight, AlertTriangle, CalendarCheck } from "lucide-react";
 
 export default function HeroSection() {
   return (
