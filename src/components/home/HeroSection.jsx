@@ -50,7 +50,7 @@ export default function HeroSection() {
 
           {/* Trust Badges */}
           <div className="flex flex-wrap gap-6">
-            {[{ icon: Shield, text: "Licensed & Insured" },
+            {[{ icon: Shield, text: "Licensed" },
             { icon: Clock, text: "Same-Day Available" },
             { icon: Star, text: "5-Star Rated" },
             { icon: Phone, text: "24/7 Support" }].
