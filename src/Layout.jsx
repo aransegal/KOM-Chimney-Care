@@ -63,7 +63,7 @@ export default function Layout({ children, currentPageName }) {
               className="flex items-center"
             >
               <img
-                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4308ccdd3_logo-gradient-nobckground.png"
+                src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
                 alt="KOM Water Heaters"
                 className="h-12 w-auto"
               />
@@ -150,7 +150,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
                 <img
-                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4308ccdd3_logo-gradient-nobckground.png"
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
                   alt="KOM Water Heaters"
                   className="h-10 w-auto brightness-0 invert"
                 />
