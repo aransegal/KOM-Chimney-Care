@@ -26,30 +26,41 @@ export default function AdminDashboard() {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
   const [qbLoading, setQbLoading] = useState(null);
-  const [user, setUser] = useState(undefined);
+  const [user, setUser] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
   const queryClient = useQueryClient();
 
   useEffect(() => {
     base44.auth.me()
-      .then((u) => setUser(u))
-      .catch(() => base44.auth.redirectToLogin(window.location.href));
+      .then((u) => {
+        if (!u || u.role !== "admin") {
+          base44.auth.redirectToLogin(window.location.href);
+        } else {
+          setUser(u);
+        }
+      })
+      .catch(() => base44.auth.redirectToLogin(window.location.href))
+      .finally(() => setAuthChecked(true));
   }, []);
-
-  if (user === undefined) return null;
-  if (!user || user.role !== "admin") {
-    base44.auth.redirectToLogin(window.location.href);
-    return null;
-  }
 
   const { data: bookings = [], isLoading: loadingBookings } = useQuery({
     queryKey: ["bookings"],
     queryFn: () => base44.entities.Booking.list("-created_date", 100),
+    enabled: !!user,
   });
 
   const { data: leads = [], isLoading: loadingLeads } = useQuery({
     queryKey: ["leads"],
     queryFn: () => base44.entities.ServiceRequest.list("-created_date", 100),
+    enabled: !!user,
   });
+
+  if (!authChecked) return (
+    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
+    </div>
+  );
+  if (!user) return null;
 
   const updateBooking = useMutation({
     mutationFn: ({ id, data }) => base44.entities.Booking.update(id, data),
