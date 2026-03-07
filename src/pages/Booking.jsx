@@ -407,7 +407,7 @@ export default function Booking() {
         {/* Trust Row */}
         <div className="flex flex-wrap justify-center gap-8 mt-10 text-slate-500 text-sm">
           {[
-          { icon: Shield, text: "Licensed & Insured" },
+          { icon: Shield, text: "Licensed Vendor" },
           { icon: Clock, text: "Same-Day Available" },
           { icon: CheckCircle, text: "Satisfaction Guaranteed" }].
           map(({ icon: Icon, text }) =>
