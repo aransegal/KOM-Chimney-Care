@@ -184,7 +184,9 @@ export default function Layout({ children, currentPageName }) {
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 flex-shrink-0 text-orange-500 text-center">@</span>
-                  Kom.construction.llc@gmail.com
+                  <a href="mailto:Kom.construction.llc@gmail.com" className="hover:text-green-400 transition-colors">
+                    Kom.construction.llc@gmail.com
+                  </a>
                 </li>
                 <li className="text-green-400 font-medium">Available 24/7 for emergencies</li>
               </ul>
