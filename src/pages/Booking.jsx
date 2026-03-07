@@ -45,6 +45,7 @@ export default function Booking() {
     notes: preselectedProduct ? `Product: ${preselectedProduct} (${preselectedPrice})` : "",
     is_emergency: false
   });
+  const [confirmNoProduct, setConfirmNoProduct] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [bookingRef, setBookingRef] = useState("");
