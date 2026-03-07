@@ -27,8 +27,8 @@ const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM –
 export default function Booking() {
   const [step, setStep] = useState(0);
   const [booking, setBooking] = useState({
-    service_type: "",
-    heater_type: "",
+    service_type: "installation",
+    heater_type: "tank",
     customer_name: "",
     customer_email: "",
     customer_phone: "",
