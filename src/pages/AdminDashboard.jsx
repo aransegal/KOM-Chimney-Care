@@ -5,9 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import {
-  Calendar, Phone, MapPin, Clock, User, Wrench,
-  CheckCircle, XCircle, AlertTriangle, RefreshCw, Search,
-  BarChart3, Users, DollarSign
+  Calendar, Clock, CheckCircle, RefreshCw, Search,
+  Users, Loader2
 } from "lucide-react";
 
 const STATUS_COLORS = {
