@@ -38,7 +38,7 @@ export default function ServicesPricingSection() {
             
 
 
-            <h3 className="text-2xl font-extrabold text-slate-900 text-center w-full">Full water heater installation including haul-away of your old unit.</h3>
+            <h3 className="text-slate-800 text-2xl font-semibold text-center w-full">Full water heater installation including haul-away of your old unit.</h3>
           </div>
           
 
