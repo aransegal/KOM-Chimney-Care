@@ -19,15 +19,15 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-emerald-950 py-24">
+    <section id="contact" className="bg-slate-50 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 block">Get In Touch</span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-white mb-5">
-            We're Ready to Help
+          <h2 className="text-slate-900 mb-5 text-4xl font-extrabold sm:text-5xl">We're Ready to Help
+
           </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            Have a question, need a quote, or facing an emergency? Reach out anytime.
+          <p className="text-slate-700 mx-auto text-xl max-w-2xl">Have a question, need a quote, or facing an emergency? Reach out anytime.
+
           </p>
         </div>
 
