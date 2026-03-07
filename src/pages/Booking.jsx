@@ -63,7 +63,7 @@ export default function Booking() {
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-orange-800 font-medium">Next Step: A KOM specialist will call you at <span className="font-bold">{booking.customer_phone}</span> to confirm your appointment details.</p>
           </div>
-          <a href="tel:+18005551234">
+          <a href="tel:+13138040844">
             <Button variant="outline" className="w-full border-2 border-orange-600 text-orange-600 hover:bg-orange-50 mb-3">
               <Phone className="mr-2 w-4 h-4" /> Call Us Directly
             </Button>
@@ -220,7 +220,7 @@ export default function Booking() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-2 text-blue-700 text-sm font-medium">
                   <Clock className="w-4 h-4" />
-                  Need same-day or emergency? Call us at (800) 555-1234
+                  Need same-day or emergency? Call us at (313) 804-0844
                 </div>
               </div>
               <div className="flex justify-between">

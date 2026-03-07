@@ -125,11 +125,11 @@ export default function Layout({ children, currentPageName }) {
             )}
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 <a
-                href="tel:+18005551234"
+                href="tel:+13138040844"
                 className="flex items-center gap-2 py-3 px-3 text-slate-700 font-semibold">
 
                   <Phone className="w-4 h-4 text-green-600" />
-                  (800) 555-1234
+                  (313) 804-0844
                 </a>
                 <Link to={createPageUrl("Booking")} onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-green-700 hover:bg-green-800 text-white">
@@ -180,7 +180,7 @@ export default function Layout({ children, currentPageName }) {
               <ul className="space-y-3 text-slate-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  (800) 555-1234
+                  (313) 804-0844
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 flex-shrink-0 text-orange-500 text-center">@</span>
