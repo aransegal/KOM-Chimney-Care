@@ -249,7 +249,12 @@ export default function AdminDashboard() {
                               <Button
                                 size="sm"
                                 className="h-7 text-xs bg-blue-600 hover:bg-blue-700 text-white"
-                                onClick={() => updateBooking.mutate({ id: b.id, data: { status: "confirmed" } })}
+                                onClick={async () => {
+                                  updateBooking.mutate({ id: b.id, data: { status: "confirmed" } });
+                                  if (b.customer_email) {
+                                    await base44.functions.invoke("sendBookingConfirmation", { booking_id: b.id });
+                                  }
+                                }}
                               >
                                 Confirm
                               </Button>
