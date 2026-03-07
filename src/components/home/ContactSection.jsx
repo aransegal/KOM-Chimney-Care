@@ -45,9 +45,9 @@ export default function ContactSection() {
             {
               icon: Mail,
               title: "Email Us",
-              info: "info@komwaterheaters.com",
+              info: "Kom.construction.llc@gmail.com",
               sub: "Replies within 2 hours",
-              href: "mailto:info@komwaterheaters.com"
+              href: "mailto:Kom.construction.llc@gmail.com"
             },
             {
               icon: MapPin,
