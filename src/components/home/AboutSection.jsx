@@ -15,7 +15,7 @@ const stats = [
 { value: "15+", label: "Years in Business" },
 { value: "8,400+", label: "Jobs Completed" },
 { value: "4.9★", label: "Average Rating" },
-{ value: "100%", label: "Licensed & Insured" }];
+{ value: "100%", label: "Licensed Vendor" }];
 
 
 const values = [
