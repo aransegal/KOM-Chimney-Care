@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
-const STEPS = ["Chosen Installation", "Your Details", "Schedule", "Confirm"];
+const STEPS = ["Choose Product", "Your Details", "Schedule", "Confirm"];
 
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
 
@@ -137,7 +137,7 @@ export default function Booking() {
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
 
-          {/* STEP 0: Choose Product */}
+          {/* STEP 0: Chosen Installation */}
           {step === 0 &&
           <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Product</h2>
