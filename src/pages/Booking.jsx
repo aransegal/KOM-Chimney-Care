@@ -57,13 +57,16 @@ export default function Booking() {
   const handleSubmit = async () => {
     setLoading(true);
     const ref = "KOM-" + Date.now().toString().slice(-6);
-    await base44.entities.Booking.create({
+    const created = await base44.entities.Booking.create({
       ...booking,
       booking_number: ref,
       booking_fee: 79,
       payment_status: "unpaid",
       status: "pending"
     });
+    if (booking.customer_email) {
+      await base44.functions.invoke("sendPendingBookingEmail", { booking_id: created.id });
+    }
     setBookingRef(ref);
     setSubmitted(true);
     setLoading(false);
