@@ -1,16 +1,38 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lucide-react";
+import { createPageUrl } from "@/utils";
 
-const STEPS = ["Your Details", "Schedule", "Confirm"];
+const STEPS = ["Chosen Installation", "Your Details", "Schedule", "Confirm"];
 
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
 
+const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
+
+const products = [
+  { name: "Electric 40 Gallon", price: "$1,895" },
+  { name: "Electric 50 Gallon", price: "$1,995" },
+  { name: "Gas 40 Gallon", price: "$2,095" },
+  { name: "Gas 50 Gallon", price: "$2,195", popular: true },
+  { name: "Electric Power Vent 40 Gallon", price: "$2,695" },
+  { name: "Electric Power Vent 50 Gallon", price: "$2,795" },
+  { name: "Gas Power Vent 40 Gallon", price: "$2,895" },
+  { name: "Gas Power Vent 50 Gallon", price: "$2,995" },
+];
+
 export default function Booking() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const preselectedProduct = urlParams.get("product") || "";
+  const preselectedPrice = urlParams.get("price") || "";
+
   const [step, setStep] = useState(0);
+  const [selectedProduct, setSelectedProduct] = useState(
+    preselectedProduct ? { name: preselectedProduct, price: preselectedPrice } : null
+  );
   const [booking, setBooking] = useState({
     service_type: "installation",
     heater_type: "tank",
@@ -20,7 +42,7 @@ export default function Booking() {
     customer_address: "",
     preferred_date: "",
     preferred_time: "",
-    notes: "",
+    notes: preselectedProduct ? `Product: ${preselectedProduct} (${preselectedPrice})` : "",
     is_emergency: false,
   });
   const [submitted, setSubmitted] = useState(false);
@@ -33,7 +55,7 @@ export default function Booking() {
   const handleSubmit = async () => {
     setLoading(true);
     const ref = "KOM-" + Date.now().toString().slice(-6);
-    const result = await base44.entities.Booking.create({
+    await base44.entities.Booking.create({
       ...booking,
       booking_number: ref,
       booking_fee: 79,
@@ -106,7 +128,7 @@ export default function Booking() {
                 </span>
               </div>
               {i < STEPS.length - 1 && (
-                <div className={`w-12 sm:w-20 h-0.5 mx-1 ${i < step ? "bg-orange-600" : "bg-slate-200"}`} />
+                <div className={`w-10 sm:w-16 h-0.5 mx-1 ${i < step ? "bg-orange-600" : "bg-slate-200"}`} />
               )}
             </div>
           ))}
@@ -114,8 +136,82 @@ export default function Booking() {
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-          {/* STEP 0: Customer Details */}
+
+          {/* STEP 0: Chosen Installation */}
           {step === 0 && (
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Chosen Installation</h2>
+              {selectedProduct ? (
+                <>
+                  <p className="text-slate-500 mb-6">You selected the following product. You can change your selection below.</p>
+                  {/* Selected product highlight */}
+                  <div className="flex items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
+                    <img src={PRODUCT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
+                    <div>
+                      <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected</div>
+                      <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
+                      <div className="text-2xl font-extrabold text-green-700 mt-1">{selectedProduct.price}</div>
+                    </div>
+                    <button
+                      onClick={() => setSelectedProduct(null)}
+                      className="ml-auto text-sm text-slate-400 hover:text-slate-700 underline"
+                    >
+                      Change
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <p className="text-slate-500 mb-6">Select a product to install or skip to continue without a specific selection.</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    {products.map((product) => (
+                      <button
+                        key={product.name}
+                        onClick={() => {
+                          setSelectedProduct(product);
+                          setBooking((b) => ({ ...b, notes: `Product: ${product.name} (${product.price})` }));
+                        }}
+                        className={`relative rounded-xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-md text-left ${
+                          product.popular ? "border-green-600" : "border-slate-200 hover:border-green-400"
+                        }`}
+                      >
+                        {product.popular && (
+                          <div className="absolute top-1.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase whitespace-nowrap z-10">
+                            Most Popular
+                          </div>
+                        )}
+                        <div className={`flex items-center justify-center p-3 pt-7 ${product.popular ? "bg-green-50" : "bg-slate-50"}`}>
+                          <img src={PRODUCT_IMAGE} alt={product.name} className="h-20 object-contain" />
+                        </div>
+                        <div className={`p-3 flex flex-col flex-1 ${product.popular ? "bg-gradient-to-br from-green-700 to-green-800 text-white" : "bg-white"}`}>
+                          <p className={`text-xs font-semibold mb-1 leading-snug ${product.popular ? "text-green-100" : "text-slate-700"}`}>
+                            {product.name}
+                          </p>
+                          <p className={`text-lg font-extrabold ${product.popular ? "text-white" : "text-slate-900"}`}>
+                            {product.price}
+                          </p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+              <div className="flex justify-between">
+                <Button variant="outline" onClick={() => window.location.href = "/#pricing"}>
+                  <ChevronLeft className="mr-1 w-4 h-4" /> Back
+                </Button>
+                <Button
+                  onClick={next}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8"
+                >
+                  Next <ChevronRight className="ml-1 w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* STEP 1: Customer Details */}
+          {step === 1 && (
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Your Contact Information</h2>
               <p className="text-slate-500 mb-6">We'll use this to confirm your appointment.</p>
@@ -169,7 +265,7 @@ export default function Booking() {
                 </div>
               </div>
               <div className="flex justify-between">
-                <Button variant="outline" onClick={() => window.location.href = "/#pricing"}>
+                <Button variant="outline" onClick={back}>
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
@@ -183,8 +279,8 @@ export default function Booking() {
             </div>
           )}
 
-          {/* STEP 1: Schedule */}
-          {step === 1 && (
+          {/* STEP 2: Schedule */}
+          {step === 2 && (
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Your Appointment</h2>
               <p className="text-slate-500 mb-6">Select a preferred date and time window.</p>
@@ -238,20 +334,18 @@ export default function Booking() {
             </div>
           )}
 
-          {/* STEP 2: Confirm */}
-          {step === 2 && (
+          {/* STEP 3: Confirm */}
+          {step === 3 && (
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Review & Confirm</h2>
               <p className="text-slate-500 mb-6">Please review your booking details before confirming.</p>
 
               <div className="bg-slate-50 rounded-xl p-5 mb-6 space-y-3 text-sm">
                 <div className="grid grid-cols-2 gap-2">
-                  <div className="text-slate-500">Service</div>
-                  <div className="font-semibold text-slate-900 capitalize">{booking.service_type?.replace("_", " ")}</div>
-                  {booking.heater_type && (
+                  {selectedProduct && (
                     <>
-                      <div className="text-slate-500">Heater Type</div>
-                      <div className="font-semibold text-slate-900 capitalize">{booking.heater_type}</div>
+                      <div className="text-slate-500">Product</div>
+                      <div className="font-semibold text-slate-900">{selectedProduct.name} — {selectedProduct.price}</div>
                     </>
                   )}
                   <div className="text-slate-500">Name</div>
