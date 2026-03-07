@@ -27,7 +27,20 @@ export default function AdminDashboard() {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
   const [qbLoading, setQbLoading] = useState(null);
+  const [user, setUser] = useState(undefined);
   const queryClient = useQueryClient();
+
+  useEffect(() => {
+    base44.auth.me()
+      .then((u) => setUser(u))
+      .catch(() => base44.auth.redirectToLogin(window.location.href));
+  }, []);
+
+  if (user === undefined) return null;
+  if (!user || user.role !== "admin") {
+    base44.auth.redirectToLogin(window.location.href);
+    return null;
+  }
 
   const { data: bookings = [], isLoading: loadingBookings } = useQuery({
     queryKey: ["bookings"],
