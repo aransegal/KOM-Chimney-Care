@@ -52,7 +52,7 @@ export default function ContactSection() {
             {
               icon: MapPin,
               title: "Service Area",
-              info: "Greater Metro Area",
+              info: "Detroit Metro Area",
               sub: "Serving 50+ zip codes"
             },
             {
