@@ -108,7 +108,7 @@ export default function ServicesPricingSection() {
                     "bg-green-700 hover:bg-green-800 text-white"}`
                     }>
 
-                      Book
+                      Book Installation
                     </Button>
                   </Link>
                 </div>
