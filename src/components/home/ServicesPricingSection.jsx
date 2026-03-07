@@ -43,7 +43,7 @@ export default function ServicesPricingSection() {
           </p>
 
           {/* Features row */}
-          <div className="flex flex-wrap gap-4 mb-8 ml-11">
+          <div className="flex flex-wrap gap-4 mb-8 ml-11 ">
             {installationFeatures.map((f) =>
             <div key={f} className="flex items-center gap-1.5 text-sm text-slate-600">
                 <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
