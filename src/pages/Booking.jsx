@@ -131,78 +131,8 @@ export default function Booking() {
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-          {/* STEP 0: Service Type */}
+          {/* STEP 0: Customer Details */}
           {step === 0 && (
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">What do you need?</h2>
-              <p className="text-slate-500 mb-6">Select the type of service you're looking for.</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-                {SERVICE_TYPES.map((s) => (
-                  <button
-                    key={s.id}
-                    onClick={() => setBooking({ ...booking, service_type: s.id, is_emergency: s.id === "emergency" })}
-                    className={`text-left p-5 rounded-xl border-2 transition-all ${
-                      booking.service_type === s.id
-                        ? "border-orange-600 bg-orange-50"
-                        : "border-slate-200 hover:border-orange-300"
-                    }`}
-                  >
-                    <div className="font-bold text-slate-900 mb-1">{s.label}</div>
-                    <div className="text-slate-500 text-sm mb-2">{s.desc}</div>
-                    <div className="font-semibold text-orange-600">{s.price}</div>
-                  </button>
-                ))}
-              </div>
-
-              {isEmergency && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-6">
-                  <div className="font-bold text-red-700 mb-2">For immediate emergency service, call us now:</div>
-                  <a href="tel:+18005551234">
-                    <Button className="bg-red-600 hover:bg-red-700 text-white">
-                      <Phone className="mr-2 w-4 h-4" /> (800) 555-1234
-                    </Button>
-                  </a>
-                  <p className="text-red-600 text-sm mt-2">You can still fill out this form and we'll call you back within 15 minutes.</p>
-                </div>
-              )}
-
-              {booking.service_type && booking.service_type !== "emergency" && (
-                <>
-                  <div className="mb-6">
-                    <h3 className="font-semibold text-slate-900 mb-3">What type of water heater?</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {HEATER_TYPES.map((h) => (
-                        <button
-                          key={h.id}
-                          onClick={() => setBooking({ ...booking, heater_type: h.id })}
-                          className={`px-4 py-2 rounded-full border text-sm font-medium transition-all ${
-                            booking.heater_type === h.id
-                              ? "border-orange-600 bg-orange-600 text-white"
-                              : "border-slate-300 text-slate-600 hover:border-orange-400"
-                          }`}
-                        >
-                          {h.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </>
-              )}
-
-              <div className="flex justify-end">
-                <Button
-                  onClick={next}
-                  disabled={!booking.service_type}
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-8"
-                >
-                  Next <ChevronRight className="ml-1 w-4 h-4" />
-                </Button>
-              </div>
-            </div>
-          )}
-
-          {/* STEP 1: Customer Details */}
-          {step === 1 && (
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Your Contact Information</h2>
               <p className="text-slate-500 mb-6">We'll use this to confirm your appointment.</p>
