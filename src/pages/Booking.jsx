@@ -212,7 +212,7 @@ export default function Booking() {
                 </div>
               }
               <div className="flex justify-between">
-                <Button variant="outline" onClick={() => window.location.href = "/#pricing"}>
+                <Button variant="outline" onClick={() => navigate(createPageUrl("Home") + "#pricing")}>
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
