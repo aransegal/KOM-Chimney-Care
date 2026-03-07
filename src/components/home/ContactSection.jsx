@@ -22,7 +22,7 @@ export default function ContactSection() {
     <section id="contact" className="bg-slate-50 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 block">Get In Touch</span>
+          <span className="text-orange-400 font-semibold text-sm tracking-widest uppercase mb-3 block">CONTACT US</span>
           <h2 className="text-slate-900 mb-5 text-4xl font-extrabold sm:text-5xl">We're Ready to Help
 
           </h2>
