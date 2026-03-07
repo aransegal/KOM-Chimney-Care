@@ -43,13 +43,26 @@ export default function ServicesPricingSection() {
           </p>
 
           {/* Features row */}
-          <div className="flex flex-wrap gap-4 mb-8 ml-11 ">
-            {installationFeatures.map((f) =>
-            <div key={f} className="flex items-center gap-1.5 text-sm text-slate-600">
-                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                {f}
-              </div>
-            )}
+          <div className="flex justify-center mb-8">
+            <table>
+              <tbody>
+                {[[installationFeatures[0], installationFeatures[1], installationFeatures[2]],
+                  [installationFeatures[3], installationFeatures[4], installationFeatures[5]]].map((row, ri) => (
+                  <tr key={ri}>
+                    {row.map((f) => (
+                      <>
+                        <td key={f + "-icon"} className="pr-1.5 py-1.5">
+                          <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                        </td>
+                        <td key={f + "-text"} className="pr-6 py-1.5">
+                          <span className="text-sm text-slate-600 whitespace-nowrap">{f}</span>
+                        </td>
+                      </>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
 
           {/* Product cards grid */}
