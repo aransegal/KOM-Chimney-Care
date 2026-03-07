@@ -30,7 +30,7 @@ export default function ServicesPricingSection() {
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <h2 className="text-3xl font-extrabold text-slate-900 text-center mb-10">Products</h2>
+        <h2 className="text-slate-900 mb-10 text-4xl font-extrabold text-center\nsm:text-5xl">Products</h2>
 
         {/* Service 1: New Installation */}
         <div className="mb-16">
@@ -49,10 +49,10 @@ export default function ServicesPricingSection() {
             <table>
               <tbody>
                 {[[installationFeatures[0], installationFeatures[1], installationFeatures[2]],
-                  [installationFeatures[3], installationFeatures[4], installationFeatures[5]]].map((row, ri) => (
-                  <tr key={ri}>
-                    {row.map((f) => (
-                      <>
+                [installationFeatures[3], installationFeatures[4], installationFeatures[5]]].map((row, ri) =>
+                <tr key={ri}>
+                    {row.map((f) =>
+                  <>
                         <td key={f + "-icon"} className="pr-1.5 py-1.5">
                           <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
                         </td>
@@ -60,9 +60,9 @@ export default function ServicesPricingSection() {
                           <span className="text-sm text-slate-600 whitespace-nowrap">{f}</span>
                         </td>
                       </>
-                    ))}
+                  )}
                   </tr>
-                ))}
+                )}
               </tbody>
             </table>
           </div>
@@ -146,8 +146,8 @@ export default function ServicesPricingSection() {
         {/* Header */}
         <div className="text-center mt-16">
           <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-5">
-            No Hidden Fees. Ever.
+          <h2 className="text-slate-900 mb-5 text-4xl font-extrabold text-center sm:text-5xl">No Hidden Fees. Ever.
+
           </h2>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             We believe in honest, upfront pricing. A{" "}
