@@ -92,7 +92,7 @@ export default function Booking() {
               <Phone className="mr-2 w-4 h-4" /> Call Us Directly
             </Button>
           </a>
-          <Button onClick={() => window.location.href = "/"} variant="ghost" className="w-full text-slate-500">
+          <Button onClick={() => navigate(createPageUrl("Home"))} variant="ghost" className="w-full text-slate-500">
             Back to Home
           </Button>
         </div>
