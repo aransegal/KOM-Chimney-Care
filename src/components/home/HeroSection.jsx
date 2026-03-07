@@ -41,7 +41,7 @@ export default function HeroSection() {
               </Button>
             </Link>
             <a href="tel:+18005551234" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="border-2 border-red-500 text-red-400 hover:bg-red-300 hover:text-red-600 text-base px-8 h-14 w-full sm:min-w-[275px]">
+              <Button size="lg" variant="outline" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-background shadow-sm rounded-md border-0 border-red-500 bg-red-600 hover:bg-red-700 text-white text-base px-8 h-14 w-full sm:min-w-[275px]">
                 <AlertTriangle className="mr-2 w-5 h-5" />
                 24/7 Emergency Service
               </Button>
@@ -52,10 +52,10 @@ export default function HeroSection() {
           <table className="sm:mx-auto">
             <tbody>
               {[[{ icon: Shield, text: "Licensed Vendor" }, { icon: Clock, text: "Same-Day Available" }],
-                [{ icon: Star, text: "5-Star Rated" }, { icon: Phone, text: "24/7 Support" }]].map((row, ri) => (
-                <tr key={ri}>
-                  {row.map(({ icon: Icon, text }) => (
-                    <>
+              [{ icon: Star, text: "5-Star Rated" }, { icon: Phone, text: "24/7 Support" }]].map((row, ri) =>
+              <tr key={ri}>
+                  {row.map(({ icon: Icon, text }) =>
+                <>
                       <td key={text + "-icon"} className="pr-2 py-1.5">
                         <div className="bg-green-700 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
                           <Icon className="w-4 h-4 text-green-400" />
@@ -65,9 +65,9 @@ export default function HeroSection() {
                         <span className="text-zinc-900 text-sm font-medium whitespace-nowrap">{text}</span>
                       </td>
                     </>
-                  ))}
+                )}
                 </tr>
-              ))}
+              )}
             </tbody>
           </table>
         </div>
