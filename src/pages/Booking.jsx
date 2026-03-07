@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
-const STEPS = ["Choose Product", "Your Details", "Schedule", "Confirm"];
+const STEPS = ["Chosen Installation", "Your Details", "Schedule", "Confirm"];
 
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
 
