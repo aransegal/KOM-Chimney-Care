@@ -55,13 +55,6 @@ export default function AdminDashboard() {
     enabled: !!user,
   });
 
-  if (!authChecked) return (
-    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
-      <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
-    </div>
-  );
-  if (!user) return null;
-
   const updateBooking = useMutation({
     mutationFn: ({ id, data }) => base44.entities.Booking.update(id, data),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["bookings"] }),
@@ -71,6 +64,13 @@ export default function AdminDashboard() {
     mutationFn: ({ id, data }) => base44.entities.ServiceRequest.update(id, data),
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["leads"] }),
   });
+
+  if (!authChecked) return (
+    <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+      <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
+    </div>
+  );
+  if (!user) return null;
 
   const handleCreateQBProject = async (booking) => {
     setQbLoading(booking.id);
