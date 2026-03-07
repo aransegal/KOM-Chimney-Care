@@ -60,13 +60,13 @@ export default function Layout({ children, currentPageName }) {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <button
               onClick={() => scrollToSection("hero")}
-              className="flex items-center"
-            >
+              className="flex items-center">
+
               <img
                 src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
                 alt="KOM Water Heaters"
-                className="h-12 w-auto"
-              />
+                className="h-12 w-auto" />
+
             </button>
 
             <div className="hidden lg:flex items-center gap-7">
@@ -86,13 +86,13 @@ export default function Layout({ children, currentPageName }) {
 
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="tel:+18005551234" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors">
+                href="tel:+18005551234" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors">(313) 804-0844
 
 
 
 
-                <Phone className="w-4 h-4" />
-                (800) 555-1234
+
+
               </a>
               <Link to={createPageUrl("Booking")}>
                 <Button className="bg-green-700 hover:bg-green-800 text-white px-5 shadow-md">
@@ -152,8 +152,8 @@ export default function Layout({ children, currentPageName }) {
                 <img
                   src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
                   alt="KOM Water Heaters"
-                  className="h-10 w-auto brightness-0 invert"
-                />
+                  className="h-10 w-auto brightness-0 invert" />
+
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">
                 Professional water heater installation, repair, and maintenance. Licensed, bonded & insured.
