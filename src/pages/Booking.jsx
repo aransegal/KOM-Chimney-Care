@@ -200,8 +200,8 @@ export default function Booking() {
             </div>
           )}
 
-          {/* STEP 2: Schedule */}
-          {step === 2 && (
+          {/* STEP 1: Schedule */}
+          {step === 1 && (
             <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Your Appointment</h2>
               <p className="text-slate-500 mb-6">Select a preferred date and time window.</p>
