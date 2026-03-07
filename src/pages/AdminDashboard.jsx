@@ -65,12 +65,11 @@ export default function AdminDashboard() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["leads"] }),
   });
 
-  if (!authChecked) return (
+  if (!authChecked || !user) return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center">
       <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
     </div>
   );
-  if (!user) return null;
 
   const handleCreateQBProject = async (booking) => {
     setQbLoading(booking.id);
