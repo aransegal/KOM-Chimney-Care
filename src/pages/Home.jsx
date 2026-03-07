@@ -11,7 +11,6 @@ export default function Home() {
       <EmergencyPopup />
       <HeroSection />
       <ServicesPricingSection />
-      <PhotoSlideshow />
       <ReviewsStrip />
       <AboutSection />
       <ContactSection />

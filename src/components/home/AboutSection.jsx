@@ -41,6 +41,39 @@ const values = [
 }];
 
 
+function Slideshow() {
+  const [current, setCurrent] = useState(0);
+  const [fading, setFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFading(true);
+      setTimeout(() => {
+        setCurrent((prev) => (prev + 1) % images.length);
+        setFading(false);
+      }, 500);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="relative w-full h-[400px]">
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`Work photo ${i + 1}`}
+          className="absolute inset-0 w-full h-full object-contain"
+          style={{
+            opacity: i === current ? (fading ? 0 : 1) : 0,
+            transition: "opacity 0.5s ease-in-out",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-24 bg-slate-50">
