@@ -99,8 +99,8 @@ export default function AboutSection() {
               )}
             </div>
           </div>
-          <div className="rounded-2xl overflow-hidden shadow-2xl">
-            <PhotoSlideshow />
+          <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-100">
+            <Slideshow />
           </div>
         </div>
 
