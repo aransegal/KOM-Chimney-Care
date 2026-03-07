@@ -33,7 +33,7 @@ export default function HeroSection() {
 
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-14">
+          <div className="flex flex-col sm:flex-row gap-4 mb-14 sm:justify-center">
             <Link to={createPageUrl("Booking")} className="w-full sm:w-auto">
               <Button size="lg" className="bg-green-700 hover:bg-green-800 text-white text-base px-8 h-14 shadow-lg shadow-green-900/40 w-full sm:min-w-[275px]">
                 <CalendarCheck className="mr-2 w-5 h-5" />
