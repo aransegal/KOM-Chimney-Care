@@ -137,7 +137,7 @@ export default function Booking() {
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
 
-          {/* STEP 0: Chosen Installation */}
+          {/* STEP 0: Choose Product */}
           {step === 0 &&
           <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Product</h2>
