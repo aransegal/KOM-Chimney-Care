@@ -49,20 +49,25 @@ export default function HeroSection() {
           </div>
 
           {/* Trust Badges */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 items-center sm:justify-center">
-            {[{ icon: Shield, text: "Licensed Vendor" },
-            { icon: Clock, text: "Same-Day Available" },
-            { icon: Star, text: "5-Star Rated" },
-            { icon: Phone, text: "24/7 Support" }].
-            map(({ icon: Icon, text }) =>
-            <div key={text} className="flex items-center gap-2 text-slate-300">
-                <div className="bg-green-700 opacity-100 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
-                  <Icon className="w-4 h-4 text-green-400" />
-                </div>
-                <span className="text-zinc-900 text-sm font-medium">{text}</span>
-              </div>
-            )}
-          </div>
+          <table className="sm:mx-auto">
+            <tbody>
+              {[{ icon: Shield, text: "Licensed Vendor" },
+                { icon: Clock, text: "Same-Day Available" },
+                { icon: Star, text: "5-Star Rated" },
+                { icon: Phone, text: "24/7 Support" }].map(({ icon: Icon, text }) => (
+                <tr key={text}>
+                  <td className="pr-3 py-1.5">
+                    <div className="bg-green-700 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-green-400" />
+                    </div>
+                  </td>
+                  <td className="py-1.5">
+                    <span className="text-zinc-900 text-sm font-medium">{text}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
