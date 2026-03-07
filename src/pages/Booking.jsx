@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lucide-react";
 
-const STEPS = ["Service Type", "Your Details", "Schedule", "Confirm"];
+const STEPS = ["Your Details", "Schedule", "Confirm"];
 
 const SERVICE_TYPES = [
   { id: "installation", label: "New Installation", price: "$299+", desc: "Full water heater installation" },
