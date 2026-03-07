@@ -38,8 +38,8 @@ export default function ServicesPricingSection() {
 
             <h3 className="text-2xl font-extrabold text-slate-900 text-center w-full">New Water Heater Tank Installation</h3>
           </div>
-          <p className="text-slate-500 mb-2 ml-11">
-            Full water heater installation including haul-away of your old unit.
+          <p className="text-slate-500 mb-2 ml-11 text-center">Full water heater installation including haul-away of your old unit.
+
           </p>
 
           {/* Features row */}
