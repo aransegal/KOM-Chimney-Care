@@ -41,6 +41,7 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const navLinks = [
+  { label: "Products", id: "pricing" },
   { label: "Services & Pricing", id: "pricing" },
   { label: "About Us", id: "about" },
   { label: "Contact Us", id: "contact" }];
