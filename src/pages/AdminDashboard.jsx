@@ -33,11 +33,12 @@ export default function AdminDashboard() {
   useEffect(() => {
     base44.auth.me()
       .then((u) => {
-        if (!u || u.role !== "admin") {
-          base44.auth.redirectToLogin(window.location.href);
-        } else {
+        if (u && u.role === "admin") {
           setUser(u);
+        } else if (!u) {
+          base44.auth.redirectToLogin(window.location.href);
         }
+        // If logged in but not admin, authChecked will be true but user stays null → spinner shown
       })
       .catch(() => base44.auth.redirectToLogin(window.location.href))
       .finally(() => setAuthChecked(true));
