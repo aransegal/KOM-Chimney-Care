@@ -56,18 +56,8 @@ export default function AboutSection() {
               )}
             </div>
           </div>
-          <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=800&q=80"
-                alt="KOM technician at work"
-                className="w-full h-[480px] object-cover" />
-
-            </div>
-            <div className="absolute -bottom-6 -left-6 bg-orange-600 text-white rounded-xl p-5 shadow-xl">
-              <div className="text-3xl font-extrabold mb-1">15+</div>
-              <div className="text-orange-100 text-sm">Years of trusted service</div>
-            </div>
+          <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <PhotoSlideshow />
           </div>
         </div>
 
