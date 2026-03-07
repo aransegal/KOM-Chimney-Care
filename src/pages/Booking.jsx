@@ -25,6 +25,7 @@ const products = [
 
 
 export default function Booking() {
+  const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
   const preselectedProduct = urlParams.get("product") || "";
   const preselectedPrice = urlParams.get("price") || "";
