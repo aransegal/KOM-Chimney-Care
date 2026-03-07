@@ -26,7 +26,7 @@ export default function PhotoSlideshow() {
   }, []);
 
   return (
-    <section className="w-full relative bg-slate-900 h-[600px]">
+    <section className="w-full relative bg-white h-[600px]">
       {images.map((src, i) => (
         <img
           key={src}
