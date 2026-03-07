@@ -7,21 +7,6 @@ import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lu
 
 const STEPS = ["Your Details", "Schedule", "Confirm"];
 
-const SERVICE_TYPES = [
-  { id: "installation", label: "New Installation", price: "$299+", desc: "Full water heater installation" },
-  { id: "repair", label: "Repair / Diagnostic", price: "$89+", desc: "Fix any water heater issue" },
-  { id: "maintenance", label: "Annual Maintenance", price: "$79", desc: "Keep your unit running efficiently" },
-  { id: "emergency", label: "Emergency Service", price: "Call", desc: "24/7 urgent response" },
-];
-
-const HEATER_TYPES = [
-  { id: "tank", label: "Tank (Traditional)" },
-  { id: "tankless", label: "Tankless / On-Demand" },
-  { id: "hybrid", label: "Hybrid / Heat Pump" },
-  { id: "solar", label: "Solar" },
-  { id: "unknown", label: "Not Sure" },
-];
-
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
 
 export default function Booking() {
