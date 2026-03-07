@@ -140,7 +140,7 @@ export default function Booking() {
           {/* STEP 0: Chosen Installation */}
           {step === 0 &&
           <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Chosen Product</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Product</h2>
               {selectedProduct ?
             <>
                   <p className="text-slate-500 mb-6">You selected the following product. You can change your selection below.</p>
