@@ -4,7 +4,6 @@ import AboutSection from "../components/home/AboutSection";
 import ContactSection from "../components/home/ContactSection";
 import EmergencyPopup from "../components/home/EmergencyPopup";
 import ReviewsStrip from "../components/home/ReviewsStrip";
-import PhotoSlideshow from "../components/home/PhotoSlideshow";
 
 export default function Home() {
   return (
