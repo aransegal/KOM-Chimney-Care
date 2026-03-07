@@ -9,22 +9,22 @@ Deno.serve(async (req) => {
         await base44.asServiceRole.integrations.Core.SendEmail({
             to: "aran.segal@gmail.com",
             subject: `New Booking Request - ${booking.customer_name}`,
-            body: `A new booking request has been submitted on KOM Water Heaters.
-
-Customer: ${booking.customer_name}
-Phone: ${booking.customer_phone}
-Email: ${booking.customer_email || 'N/A'}
-Address: ${booking.customer_address}
-Service: ${booking.service_type}
-Heater Type: ${booking.heater_type || 'N/A'}
-Preferred Date: ${booking.preferred_date}
-Preferred Time: ${booking.preferred_time}
-Notes: ${booking.notes || 'None'}
-Booking Ref: ${booking.booking_number}
-
-Log in to the admin dashboard to manage this booking: https://kom-heat-fix.base44.app/AdminDashboard
-
-If you'd like to unsubscribe and stop receiving these emails, reply to this email with "Unsubscribe".`
+            body: `<p>A new booking request has been submitted on KOM Water Heaters.</p>
+<br>
+<p><strong>Customer:</strong> ${booking.customer_name}</p>
+<p><strong>Phone:</strong> ${booking.customer_phone}</p>
+<p><strong>Email:</strong> ${booking.customer_email || 'N/A'}</p>
+<p><strong>Address:</strong> ${booking.customer_address}</p>
+<p><strong>Service:</strong> ${booking.service_type}</p>
+<p><strong>Heater Type:</strong> ${booking.heater_type || 'N/A'}</p>
+<p><strong>Preferred Date:</strong> ${booking.preferred_date}</p>
+<p><strong>Preferred Time:</strong> ${booking.preferred_time}</p>
+<p><strong>Notes:</strong> ${booking.notes || 'None'}</p>
+<p><strong>Booking Ref:</strong> ${booking.booking_number}</p>
+<br>
+<p>Log in to the <a href="https://kom-heat-fix.base44.app/AdminDashboard">Admin Dashboard</a> to manage this booking.</p>
+<br>
+<p style="color:#999;font-size:12px;">If you'd like to unsubscribe and stop receiving these emails <a href="mailto:Kom.construction.llc@gmail.com?subject=Unsubscribe">click here</a>.</p>`
         });
 
         return Response.json({ success: true });
