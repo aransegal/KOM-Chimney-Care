@@ -101,7 +101,7 @@ export default function ServicesPricingSection() {
                   <p className={`text-2xl font-extrabold mb-4 ${product.popular ? "text-white" : "text-slate-900"}`}>
                     {product.price}
                   </p>
-                  <Link to={createPageUrl("Booking")} className="mt-auto">
+                  <Link to={createPageUrl("Booking") + `?product=${encodeURIComponent(product.name)}&price=${encodeURIComponent(product.price)}`} className="mt-auto">
                     <Button
                     size="sm"
                     className={`w-full font-semibold ${
