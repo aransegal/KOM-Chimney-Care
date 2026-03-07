@@ -1,4 +1,5 @@
 import { Shield, Award, Users, ThumbsUp } from "lucide-react";
+import PhotoSlideshow from "./PhotoSlideshow";
 
 const stats = [
 { value: "15+", label: "Years in Business" },
