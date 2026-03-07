@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Shield, Award, Users, ThumbsUp } from "lucide-react";
 
 const images = [
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/726bb866f_WhatsAppImage2026-01-21at212517.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/cf53cd502_WhatsAppImage2026-01-21at220105.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/ddc0404ea_WhatsAppImage2026-01-21at220401.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/b05d13ebe_WhatsAppImage2026-01-21at220626.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/e3b871bcf_WhatsAppImage2026-01-21at220799.jpg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4e8d19b2e_WhatsAppImage2026-01-21at212305.jpeg",
-  "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d466766f3_WhatsAppImage2026-01-21at212511.jpeg",
-];
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/726bb866f_WhatsAppImage2026-01-21at212517.jpg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/cf53cd502_WhatsAppImage2026-01-21at220105.jpg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/ddc0404ea_WhatsAppImage2026-01-21at220401.jpg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/b05d13ebe_WhatsAppImage2026-01-21at220626.jpg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/e3b871bcf_WhatsAppImage2026-01-21at220799.jpg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/4e8d19b2e_WhatsAppImage2026-01-21at212305.jpeg",
+"https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d466766f3_WhatsAppImage2026-01-21at212511.jpeg"];
+
 
 const stats = [
 { value: "15+", label: "Years in Business" },
@@ -58,20 +58,20 @@ function Slideshow() {
 
   return (
     <div className="relative w-full h-[400px]">
-      {images.map((src, i) => (
-        <img
-          key={src}
-          src={src}
-          alt={`Work photo ${i + 1}`}
-          className="absolute inset-0 w-full h-full object-contain"
-          style={{
-            opacity: i === current ? (fading ? 0 : 1) : 0,
-            transition: "opacity 0.5s ease-in-out",
-          }}
-        />
-      ))}
-    </div>
-  );
+      {images.map((src, i) =>
+      <img
+        key={src}
+        src={src}
+        alt={`Work photo ${i + 1}`}
+        className="absolute inset-0 w-full h-full object-contain"
+        style={{
+          opacity: i === current ? fading ? 0 : 1 : 0,
+          transition: "opacity 0.5s ease-in-out"
+        }} />
+
+      )}
+    </div>);
+
 }
 
 export default function AboutSection() {
@@ -80,7 +80,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
-            <span className="text-orange-600 font-semibold text-sm tracking-widest uppercase mb-3 block">ABOUT US</span>
+            <span className="text-orange-600 mb-3 text-sm font-semibold text-center uppercase tracking-widest block">ABOUT US</span>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
               Your Neighborhood Water Heater Specialists
             </h2>
