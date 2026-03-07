@@ -84,18 +84,18 @@ export default function AboutSection() {
             <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
               Your Neighborhood Water Heater Specialists
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed mb-6">
-              KOM Water Heaters was founded with one mission: provide homeowners and businesses with fast, honest, and expertly executed water heater services at a fair price.
+            <p className="text-slate-600 mb-6 text-xl font-medium leading-relaxed">KOM Water Heaters was founded with one mission: provide homeowners and businesses with fast, honest, and expertly executed water heater services at a fair price.
+
             </p>
             
 
 
             <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) =>
-              <div key={stat.label} className="bg-white rounded-xl p-5 shadow-sm border border-slate-200">
-                  <div className="text-3xl font-extrabold text-orange-600 mb-1">{stat.value}</div>
-                  <div className="text-sm font-medium text-slate-500">{stat.label}</div>
-                </div>
+              {stats.map((stat) => null
+
+
+
+
               )}
             </div>
           </div>
