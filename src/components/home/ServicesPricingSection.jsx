@@ -30,7 +30,7 @@ export default function ServicesPricingSection() {
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <h2 className="text-slate-900 mb-10 text-4xl font-extrabold text-center\nsm:text-5xl">Products</h2>
+        <h2 className="text-slate-900 mb-5 text-4xl font-extrabold text-center sm:text-5xl">Products</h2>
 
         {/* Service 1: New Installation */}
         <div className="mb-16">
