@@ -135,7 +135,7 @@ export default function ServicesPricingSection() {
               <p className="text-slate-600 text-sm">Our emergency team is available 24/7 including weekends and holidays. Call for immediate pricing and same-day response.</p>
             </div>
           </div>
-          <a href="tel:+18005551234" className="flex-shrink-0">
+          <a href="tel:+13138040844" className="flex-shrink-0">
             <Button className="bg-red-600 hover:bg-red-700 text-white px-8 h-12">
               <Phone className="mr-2 w-4 h-4" />
               Call Emergency Line

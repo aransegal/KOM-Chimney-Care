@@ -86,7 +86,7 @@ export default function Layout({ children, currentPageName }) {
 
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="tel:+18005551234" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors">(313) 804-0844
+                href="tel:+13138040844" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors"><Phone className="w-4 h-4" /> (313) 804-0844
 
 
 
