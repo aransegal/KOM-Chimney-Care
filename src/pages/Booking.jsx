@@ -150,17 +150,18 @@ export default function Booking() {
             <>
                   <p className="text-slate-500 mb-6">You selected the following product. You can change your selection below.</p>
                   {/* Selected product highlight */}
-                  <div className="flex items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
-                    <img src={PRODUCT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
-                    <div>
-                      <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected</div>
-                      <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
-                      <div className="text-2xl font-extrabold text-green-700 mt-1">{selectedProduct.price}</div>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
+                    <div className="flex items-center gap-5">
+                      <img src={PRODUCT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
+                      <div>
+                        <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected</div>
+                        <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
+                        <div className="text-2xl font-extrabold text-green-700 mt-1">{selectedProduct.price}</div>
+                      </div>
                     </div>
                     <button
-                  onClick={() => setSelectedProduct(null)}
-                  className="ml-auto text-sm text-slate-400 hover:text-slate-700 underline">
-
+                      onClick={() => setSelectedProduct(null)}
+                      className="sm:ml-auto text-sm text-slate-400 hover:text-slate-700 underline text-left">
                       Change
                     </button>
                   </div>
