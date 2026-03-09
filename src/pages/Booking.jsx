@@ -160,8 +160,8 @@ export default function Booking() {
                       </div>
                     </div>
                     <button
-                      onClick={() => setSelectedProduct(null)}
-                      className="sm:ml-auto text-sm text-slate-400 hover:text-slate-700 underline text-left">
+                  onClick={() => setSelectedProduct(null)} className="text-slate-400 text-sm text-center underline sm:ml-auto hover:text-slate-700">
+
                       Change
                     </button>
                   </div>
@@ -203,24 +203,24 @@ export default function Booking() {
                 </>
             }
               {confirmNoProduct &&
-                <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-4 text-center">
+            <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-4 text-center">
                   <p className="text-amber-800 font-medium mb-3">Continue without choosing a product?</p>
                   <div className="flex justify-center gap-3">
                     <Button variant="outline" onClick={() => setConfirmNoProduct(false)}>
                       <ChevronLeft className="mr-1 w-4 h-4" /> Back
                     </Button>
-                    <Button onClick={() => { setConfirmNoProduct(false); next(); }} className="bg-orange-600 hover:bg-orange-700 text-white">
+                    <Button onClick={() => {setConfirmNoProduct(false);next();}} className="bg-orange-600 hover:bg-orange-700 text-white">
                       Yes <ChevronRight className="ml-1 w-4 h-4" />
                     </Button>
                   </div>
                 </div>
-              }
+            }
               <div className="flex justify-between">
                 <Button variant="outline" onClick={() => navigate(createPageUrl("Home") + "#pricing")}>
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
-                onClick={() => { if (!selectedProduct) { setConfirmNoProduct(true); } else { next(); } }}
+                onClick={() => {if (!selectedProduct) {setConfirmNoProduct(true);} else {next();}}}
                 className="bg-orange-600 hover:bg-orange-700 text-white px-8">
 
                   Next <ChevronRight className="ml-1 w-4 h-4" />
