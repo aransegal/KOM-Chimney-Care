@@ -6,9 +6,6 @@ export default function EmergencyPopup() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem("kom_emergency_popup_dismissed");
-    if (dismissed) return;
-
     const timer = setTimeout(() => setVisible(true), 5000);
     return () => clearTimeout(timer);
   }, []);
