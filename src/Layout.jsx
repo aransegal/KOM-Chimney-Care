@@ -155,8 +155,8 @@ export default function Layout({ children, currentPageName }) {
                   className="h-10 w-auto brightness-0 invert" />
 
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Professional water heater installation, repair, and maintenance. Licensed, bonded & insured.
+              <p className="text-slate-400 text-sm leading-relaxed">Professional water heater installation and repairs. Licensed & insured.
+
               </p>
             </div>
             <div>
