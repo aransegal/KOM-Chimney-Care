@@ -12,7 +12,6 @@ export default function EmergencyPopup() {
 
   const dismiss = () => {
     setVisible(false);
-    localStorage.setItem("kom_emergency_popup_dismissed", Date.now().toString());
   };
 
   if (!visible) return null;
