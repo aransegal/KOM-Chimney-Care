@@ -24,7 +24,13 @@ const greenTheme = `
 export default function Layout({ children, currentPageName }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState(null);
   const isHome = currentPageName === "Home";
+  const isAdmin = user?.role === "admin";
+
+  useEffect(() => {
+    base44.auth.me().then(setUser).catch(() => setUser(null));
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
