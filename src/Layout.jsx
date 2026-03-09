@@ -138,6 +138,7 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </button>
             )}
+              <Link to={createPageUrl("Account")} onClick={() => setMobileMenuOpen(false)} className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">My Orders</Link>
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 <a
                 href="tel:+13138040844"
@@ -151,6 +152,13 @@ export default function Layout({ children, currentPageName }) {
                     Book Installation
                   </Button>
                 </Link>
+                {isAdmin && (
+                  <Link to={createPageUrl("AdminDashboard")} onClick={() => setMobileMenuOpen(false)}>
+                    <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
+                      Admin Dashboard
+                    </Button>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
