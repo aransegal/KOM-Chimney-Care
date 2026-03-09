@@ -49,7 +49,7 @@ export default function ServicesPricingSection() {
             {installationFeatures.map((f) =>
               <div key={f} className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                <span className="text-sm text-slate-600 whitespace-nowrap">{f}</span>
+                <span className="text-sm text-slate-600">{f}</span>
               </div>
             )}
           </div>

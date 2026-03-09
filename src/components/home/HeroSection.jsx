@@ -62,7 +62,7 @@ export default function HeroSection() {
                         </div>
                       </td>
                       <td key={text + "-text"} className="pr-6 py-1.5">
-                        <span className="text-zinc-900 text-sm font-medium whitespace-nowrap">{text}</span>
+                        <span className="text-zinc-900 text-sm font-medium">{text}</span>
                       </td>
                     </>
                 )}
