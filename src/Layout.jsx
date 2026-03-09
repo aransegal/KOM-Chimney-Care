@@ -92,6 +92,13 @@ export default function Layout({ children, currentPageName }) {
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
+              {isAdmin && (
+                <Link to={createPageUrl("AdminDashboard")}>
+                  <Button variant="outline" size="sm" className="border-orange-300 text-orange-600 hover:bg-orange-50">
+                    Admin
+                  </Button>
+                </Link>
+              )}
               <a
                 href="tel:+13138040844" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors"><Phone className="w-4 h-4" /> (313) 804-0844
 
