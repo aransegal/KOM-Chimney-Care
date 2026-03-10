@@ -184,11 +184,7 @@ export default function Booking() {
                         <div className="text-2xl font-extrabold text-green-700 mt-1">{selectedProduct.price}</div>
                       </div>
                     </div>
-                    <button
-                  onClick={() => setSelectedProduct(null)} className="text-slate-400 text-sm text-center underline sm:ml-auto hover:text-slate-700">
 
-                      Change
-                    </button>
                   </div>
                 </> :
 
@@ -240,8 +236,8 @@ export default function Booking() {
                 </div>
             }
               <div className="flex justify-between">
-                <Button variant="outline" onClick={() => navigate(createPageUrl("Home") + "#pricing")}>
-                  <ChevronLeft className="mr-1 w-4 h-4" /> Back
+                <Button variant="outline" onClick={() => setSelectedProduct(null)}>
+                  <ChevronLeft className="mr-1 w-4 h-4" /> Change
                 </Button>
                 <Button
                 onClick={() => {if (!selectedProduct) {setConfirmNoProduct(true);} else {next();}}}
