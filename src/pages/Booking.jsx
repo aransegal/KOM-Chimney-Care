@@ -213,11 +213,11 @@ export default function Booking() {
                         <div className="bg-slate-50 pt-7 p-3 flex items-center justify-center">
                           <img src={PRODUCT_IMAGE} alt={product.name} className="h-20 object-contain" />
                         </div>
-                        <div className={`p-3 flex flex-col flex-1 ${product.popular ? "bg-gradient-to-br from-green-700 to-green-800 text-white" : "bg-white"}`}>
-                          <p className={`text-xs font-semibold mb-1 leading-snug ${product.popular ? "text-green-100" : "text-slate-700"}`}>
+                        <div className="p-3 flex flex-col flex-1 bg-white">
+                          <p className="text-xs font-semibold mb-1 leading-snug text-slate-700">
                             {product.name}
                           </p>
-                          <p className={`text-lg font-extrabold ${product.popular ? "text-white" : "text-slate-900"}`}>
+                          <p className="text-lg font-extrabold text-slate-900">
                             {product.price}
                           </p>
                         </div>
