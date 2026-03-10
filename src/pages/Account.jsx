@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
-import { Loader2, Package, Calendar, MapPin, LogOut, Wrench } from "lucide-react";
+import { Loader2, Package, Calendar, MapPin, LogOut, Wrench, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 
