@@ -95,9 +95,9 @@ export default function Booking() {
       } catch (e) {
 
 
+
         // Email failed (e.g. non-registered user), booking still confirmed
-      }}setBookingRef(ref);
-    setSubmitted(true);
+      }}setBookingRef(ref);setSubmitted(true);
     setLoading(false);
   };
 
@@ -210,7 +210,7 @@ export default function Booking() {
                             Most Popular
                           </div>
                   }
-                        <div className={`flex items-center justify-center p-3 pt-7 ${product.popular ? "bg-green-50" : "bg-slate-50"}`}>
+                        <div className="bg-slate-50 pt-7 p-3 flex items-center justify-center">
                           <img src={PRODUCT_IMAGE} alt={product.name} className="h-20 object-contain" />
                         </div>
                         <div className={`p-3 flex flex-col flex-1 ${product.popular ? "bg-gradient-to-br from-green-700 to-green-800 text-white" : "bg-white"}`}>
