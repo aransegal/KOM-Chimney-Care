@@ -226,7 +226,7 @@ export default function Booking() {
                   </div>
                 </>
             }
-              {confirmNoProduct &&
+              {confirmNoProduct && !selectedProduct &&
             <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-4 text-center">
                   <p className="text-amber-800 font-medium">Continue without choosing a product?</p>
                   
