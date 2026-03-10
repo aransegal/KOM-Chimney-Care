@@ -246,7 +246,7 @@ export default function Booking() {
                   </Button> :
               <div />}
                 <Button
-                onClick={() => {if (!selectedProduct) {setConfirmNoProduct(true);} else {next();}}}
+                onClick={() => {if (!selectedProduct && !confirmNoProduct) {setConfirmNoProduct(true);} else {next();}}}
                 className="bg-orange-600 hover:bg-orange-700 text-white px-8">
 
                   Next <ChevronRight className="ml-1 w-4 h-4" />
