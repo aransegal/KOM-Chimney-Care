@@ -261,50 +261,68 @@ export default function Booking() {
               <div className="space-y-4 mb-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-slate-700 mb-1 block">Full Name *</label>
+                    <label className="text-sm font-medium text-slate-700 mb-1 block">First Name *</label>
                     <Input
-                    required
-                    placeholder="John Smith"
-                    value={booking.customer_name}
-                    onChange={(e) => setBooking({ ...booking, customer_name: e.target.value })} />
-
+                      placeholder="John"
+                      value={booking.customer_first_name}
+                      onChange={(e) => { setBooking({ ...booking, customer_first_name: e.target.value }); setFieldErrors(p => ({...p, customer_first_name: null})); }}
+                      className={fieldErrors.customer_first_name ? "border-red-400" : ""} />
+                    {fieldErrors.customer_first_name && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_first_name}</p>}
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-slate-700 mb-1 block">Phone Number *</label>
+                    <label className="text-sm font-medium text-slate-700 mb-1 block">Last Name *</label>
                     <Input
-                    required
-                    placeholder="(555) 000-0000"
-                    value={booking.customer_phone}
-                    onChange={(e) => setBooking({ ...booking, customer_phone: e.target.value })} />
-
+                      placeholder="Smith"
+                      value={booking.customer_last_name}
+                      onChange={(e) => { setBooking({ ...booking, customer_last_name: e.target.value }); setFieldErrors(p => ({...p, customer_last_name: null})); }}
+                      className={fieldErrors.customer_last_name ? "border-red-400" : ""} />
+                    {fieldErrors.customer_last_name && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_last_name}</p>}
                   </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-slate-700 mb-1 block">Email Address</label>
+                  <label className="text-sm font-medium text-slate-700 mb-1 block">Company <span className="text-slate-400 font-normal">(optional)</span></label>
                   <Input
-                  type="email"
-                  placeholder="john@email.com"
-                  value={booking.customer_email}
-                  onChange={(e) => setBooking({ ...booking, customer_email: e.target.value })} />
-
+                    placeholder="ABC Corp"
+                    value={booking.customer_company}
+                    onChange={(e) => setBooking({ ...booking, customer_company: e.target.value })} />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-slate-700 mb-1 block">Phone Number *</label>
+                    <Input
+                      placeholder="(555) 000-0000"
+                      value={booking.customer_phone}
+                      onChange={(e) => { setBooking({ ...booking, customer_phone: e.target.value }); setFieldErrors(p => ({...p, customer_phone: null})); }}
+                      className={fieldErrors.customer_phone ? "border-red-400" : ""} />
+                    {fieldErrors.customer_phone && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_phone}</p>}
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-slate-700 mb-1 block">Email Address</label>
+                    <Input
+                      type="email"
+                      placeholder="john@email.com"
+                      value={booking.customer_email}
+                      onChange={(e) => { setBooking({ ...booking, customer_email: e.target.value }); setFieldErrors(p => ({...p, customer_email: null})); }}
+                      className={fieldErrors.customer_email ? "border-red-400" : ""} />
+                    {fieldErrors.customer_email && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_email}</p>}
+                  </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Service Address *</label>
                   <Input
-                  required
-                  placeholder="123 Main St, City, State, ZIP"
-                  value={booking.customer_address}
-                  onChange={(e) => setBooking({ ...booking, customer_address: e.target.value })} />
-
+                    placeholder="123 Main St, City, State, ZIP"
+                    value={booking.customer_address}
+                    onChange={(e) => { setBooking({ ...booking, customer_address: e.target.value }); setFieldErrors(p => ({...p, customer_address: null})); }}
+                    className={fieldErrors.customer_address ? "border-red-400" : ""} />
+                  {fieldErrors.customer_address && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_address}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Additional Notes</label>
                   <Textarea
-                  rows={3}
-                  placeholder="Describe your issue, location of unit, or any other details..."
-                  value={booking.notes}
-                  onChange={(e) => setBooking({ ...booking, notes: e.target.value })} />
-
+                    rows={3}
+                    placeholder="Describe your issue, location of unit, or any other details..."
+                    value={booking.notes}
+                    onChange={(e) => setBooking({ ...booking, notes: e.target.value })} />
                 </div>
               </div>
               <div className="flex justify-between">
@@ -312,10 +330,8 @@ export default function Booking() {
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
-                onClick={next}
-                disabled={!booking.customer_name || !booking.customer_phone || !booking.customer_address}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-
+                  onClick={handleStep1Next}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                   Next <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
               </div>
