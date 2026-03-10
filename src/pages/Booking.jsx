@@ -417,6 +417,10 @@ export default function Booking() {
                   </>}
                   <div className="text-slate-500">Phone</div>
                   <div className="font-semibold text-slate-900">{booking.customer_phone}</div>
+                  {booking.customer_email && <>
+                    <div className="text-slate-500">Email</div>
+                    <div className="font-semibold text-slate-900">{booking.customer_email}</div>
+                  </>}
                   <div className="text-slate-500">Address</div>
                   <div className="font-semibold text-slate-900">{booking.customer_address}</div>
                   <div className="text-slate-500">Date</div>
