@@ -145,7 +145,7 @@ export default function Account() {
               <div
                 key={b.id}
                 className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors"
-                onClick={() => handleResendConfirmation(b)}
+                onClick={() => openBooking(b)}
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
@@ -180,17 +180,90 @@ export default function Account() {
                     {b.technician_notes}
                   </div>
                 )}
-                <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-400">
-                  {sendingEmail === b.id ? (
-                    <><Loader2 className="w-3 h-3 animate-spin" /> Sending...</>
-                  ) : emailSent[b.id] ? (
-                    <><Mail className="w-3 h-3 text-green-500" /> <span className="text-green-600">Confirmation sent to your email</span></>
-                  ) : (
-                    <><Mail className="w-3 h-3" /> Click to resend booking confirmation</>
+              </div>
+            ))}
+
+            {/* Booking Detail Modal */}
+            {selectedBooking && (
+              <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={closeBooking}>
+                <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
+                  <div className="flex items-start justify-between mb-5">
+                    <div>
+                      <h3 className="text-xl font-bold text-slate-900 capitalize">
+                        {selectedBooking.service_type?.replace("_", " ")} Service
+                      </h3>
+                      {selectedBooking.booking_number && (
+                        <div className="text-xs text-slate-400 font-mono mt-0.5">#{selectedBooking.booking_number}</div>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${STATUS_COLORS[selectedBooking.status] || "bg-slate-100 text-slate-700"}`}>
+                        {STATUS_LABELS[selectedBooking.status] || selectedBooking.status}
+                      </span>
+                      <button onClick={closeBooking} className="text-slate-400 hover:text-slate-600 ml-1">
+                        <X className="w-5 h-5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 text-sm mb-6">
+                    {selectedBooking.selected_product && (
+                      <div className="flex gap-3">
+                        <Package className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{selectedBooking.selected_product}</span>
+                      </div>
+                    )}
+                    {selectedBooking.preferred_date && (
+                      <div className="flex gap-3">
+                        <Calendar className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{selectedBooking.preferred_date}{selectedBooking.preferred_time ? ` · ${selectedBooking.preferred_time}` : ""}</span>
+                      </div>
+                    )}
+                    {selectedBooking.customer_address && (
+                      <div className="flex gap-3">
+                        <MapPin className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{selectedBooking.customer_address}</span>
+                      </div>
+                    )}
+                    {selectedBooking.customer_phone && (
+                      <div className="flex gap-3">
+                        <Phone className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{selectedBooking.customer_phone}</span>
+                      </div>
+                    )}
+                    {selectedBooking.notes && (
+                      <div className="flex gap-3">
+                        <Clock className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{selectedBooking.notes}</span>
+                      </div>
+                    )}
+                    {selectedBooking.technician_notes && (
+                      <div className="bg-blue-50 rounded-lg p-3 text-slate-700">
+                        <span className="font-medium text-blue-800">Technician note: </span>
+                        {selectedBooking.technician_notes}
+                      </div>
+                    )}
+                  </div>
+
+                  {selectedBooking.customer_email && (
+                    <Button
+                      onClick={handleResendConfirmation}
+                      disabled={sendingEmail || emailSent}
+                      variant="outline"
+                      className="w-full"
+                    >
+                      {sendingEmail ? (
+                        <><Loader2 className="w-4 h-4 animate-spin mr-2" /> Sending...</>
+                      ) : emailSent ? (
+                        <><Mail className="w-4 h-4 mr-2 text-green-500" /> <span className="text-green-600">Confirmation sent!</span></>
+                      ) : (
+                        <><Mail className="w-4 h-4 mr-2" /> Resend confirmation email</>
+                      )}
+                    </Button>
                   )}
                 </div>
               </div>
-            ))}
+            )}
           </div>
         )}
       </div>
