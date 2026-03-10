@@ -207,12 +207,31 @@ export default function Account() {
                   </div>
 
                   <div className="space-y-3 text-sm mb-6">
-                    {selectedBooking.selected_product && (
-                      <div className="flex gap-3">
-                        <Package className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-slate-700">{selectedBooking.selected_product}</span>
-                      </div>
-                    )}
+                    {selectedBooking.selected_product && (() => {
+                      const match = selectedBooking.selected_product.match(/^(.+?)\s+\((\$[\d,]+)\)$/);
+                      const productName = match ? match[1] : selectedBooking.selected_product;
+                      const productPrice = match ? match[2] : null;
+                      return (
+                        <>
+                          <div className="flex gap-3">
+                            <Package className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                            <div className="flex justify-between w-full">
+                              <span className="text-slate-500">Product</span>
+                              <span className="font-medium text-slate-900">{productName}</span>
+                            </div>
+                          </div>
+                          {productPrice && (
+                            <div className="flex gap-3">
+                              <Package className="w-4 h-4 text-transparent flex-shrink-0 mt-0.5" />
+                              <div className="flex justify-between w-full">
+                                <span className="text-slate-500">Price</span>
+                                <span className="font-semibold text-green-700">{productPrice}</span>
+                              </div>
+                            </div>
+                          )}
+                        </>
+                      );
+                    })()}
                     {selectedBooking.preferred_date && (
                       <div className="flex gap-3">
                         <Calendar className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
