@@ -61,7 +61,7 @@ export default function ServicesPricingSection() {
               key={product.name}
               className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-lg ${
               product.popular ?
-              "border-slate-900 shadow-lg" :
+              "border-slate-200 shadow-lg" :
               "border-slate-200"}`
               }>
 
