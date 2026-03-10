@@ -54,6 +54,27 @@ export default function Booking() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [bookingRef, setBookingRef] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
+  const [lastBooking, setLastBooking] = useState(null);
+  const [autofillDismissed, setAutofillDismissed] = useState(false);
+
+  useEffect(() => {
+    base44.auth.me().then(async (user) => {
+      if (!user) return;
+      setCurrentUser(user);
+      // Pre-fill name + email from account
+      const nameParts = (user.full_name || "").split(" ");
+      setBooking((b) => ({
+        ...b,
+        customer_first_name: b.customer_first_name || nameParts[0] || "",
+        customer_last_name: b.customer_last_name || nameParts.slice(1).join(" ") || "",
+        customer_email: b.customer_email || user.email || "",
+      }));
+      // Fetch last booking
+      const bookings = await base44.entities.Booking.filter({ created_by: user.email }, "-created_date", 1);
+      if (bookings && bookings.length > 0) setLastBooking(bookings[0]);
+    }).catch(() => {});
+  }, []);
 
   const next = () => setStep((s) => Math.min(s + 1, STEPS.length - 1));
   const back = () => setStep((s) => Math.max(s - 1, 0));
