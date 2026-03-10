@@ -225,8 +225,15 @@ export default function Booking() {
                 </>
             }
               {confirmNoProduct && !selectedProduct &&
-            <div className="bg-amber-50 border border-amber-300 rounded-xl p-4 mb-4 text-center">
-                  <p className="text-amber-800 font-medium">Continue without choosing a product?</p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 mb-6">
+                  <div className="flex items-center gap-5">
+                    <img src={PRODUCT_IMAGE} alt="No product" className="h-24 object-contain flex-shrink-0 opacity-30" />
+                    <div>
+                      <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Product Selected</div>
+                      <div className="text-xl font-extrabold text-slate-900">Continue without a product?</div>
+                      <div className="text-sm text-amber-700 mt-1">Press Next again to confirm</div>
+                    </div>
+                  </div>
                   
 
 
