@@ -25,14 +25,25 @@ const STATUS_LABELS = {
 export default function Account() {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
-  const [sendingEmail, setSendingEmail] = useState(null);
-  const [emailSent, setEmailSent] = useState({});
+  const [selectedBooking, setSelectedBooking] = useState(null);
+  const [sendingEmail, setSendingEmail] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
 
-  const handleResendConfirmation = async (b) => {
-    setSendingEmail(b.id);
-    await base44.functions.invoke("sendBookingConfirmation", { booking_id: b.id });
-    setEmailSent((prev) => ({ ...prev, [b.id]: true }));
-    setSendingEmail(null);
+  const handleResendConfirmation = async () => {
+    setSendingEmail(true);
+    await base44.functions.invoke("sendBookingConfirmation", { booking_id: selectedBooking.id });
+    setEmailSent(true);
+    setSendingEmail(false);
+  };
+
+  const openBooking = (b) => {
+    setSelectedBooking(b);
+    setEmailSent(false);
+  };
+
+  const closeBooking = () => {
+    setSelectedBooking(null);
+    setEmailSent(false);
   };
 
   useEffect(() => {
