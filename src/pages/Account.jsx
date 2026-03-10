@@ -47,19 +47,44 @@ export default function Account() {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4">
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-10 text-center max-w-sm w-full">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Package className="w-8 h-8 text-green-700" />
+      <div className="min-h-screen flex items-center justify-center bg-slate-50 px-4 pt-20">
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 max-w-md w-full overflow-hidden">
+          {/* Header */}
+          <div className="bg-gradient-to-br from-green-700 to-green-800 p-8 text-white text-center">
+            <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Package className="w-8 h-8 text-white" />
+            </div>
+            <h2 className="text-2xl font-bold mb-1">My Orders</h2>
+            <p className="text-green-200 text-sm">Sign in to track your bookings and appointment status</p>
           </div>
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">Track Your Orders</h2>
-          <p className="text-slate-500 mb-6">Sign in to view your booking history and appointment status.</p>
-          <Button
-            onClick={() => base44.auth.redirectToLogin(window.location.href)}
-            className="w-full bg-green-700 hover:bg-green-800 text-white"
-          >
-            Sign In
-          </Button>
+
+          {/* Body */}
+          <div className="p-8">
+            <Button
+              onClick={() => base44.auth.redirectToLogin(window.location.href)}
+              className="w-full bg-green-700 hover:bg-green-800 text-white h-11 text-base font-semibold mb-4"
+            >
+              Sign In / Create Account
+            </Button>
+            <p className="text-center text-slate-400 text-xs">
+              Sign in with Google or your email to view your booking history, appointment details, and order status.
+            </p>
+
+            <div className="mt-6 pt-6 border-t border-slate-100 space-y-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                View real-time booking status
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                See appointment details & technician notes
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-green-500" />
+                Access your full service history
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
