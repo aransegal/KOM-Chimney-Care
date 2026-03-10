@@ -200,7 +200,6 @@ export default function Booking() {
                   key={product.name}
                   onClick={() => {
                     setSelectedProduct(product);
-                    setBooking((b) => ({ ...b, notes: `Product: ${product.name} (${product.price})` }));
                   }}
                   className={`relative rounded-xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-md text-left ${
                   product.popular ? "border-green-600" : "border-slate-200 hover:border-green-400"}`
