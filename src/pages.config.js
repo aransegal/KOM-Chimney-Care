@@ -51,6 +51,7 @@ import Account from './pages/Account';
 import AdminDashboard from './pages/AdminDashboard';
 import Booking from './pages/Booking';
 import Home from './pages/Home';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import __Layout from './Layout.jsx';
 
 
@@ -59,6 +60,7 @@ export const PAGES = {
     "AdminDashboard": AdminDashboard,
     "Booking": Booking,
     "Home": Home,
+    "PrivacyPolicy": PrivacyPolicy,
 }
 
 export const pagesConfig = {
