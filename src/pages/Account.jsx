@@ -222,7 +222,7 @@ export default function Account() {
                           </div>
                           {productPrice && (
                             <div className="flex gap-3">
-                              <Package className="w-4 h-4 text-transparent flex-shrink-0 mt-0.5" />
+                              <Tag className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
                               <div className="flex justify-between w-full">
                                 <span className="text-slate-500">Price</span>
                                 <span className="font-semibold text-green-700">{productPrice}</span>
