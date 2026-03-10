@@ -74,9 +74,6 @@ export default function Layout({ children, currentPageName }) {
                   alt="KOM Water Heaters"
                   className="h-12 w-auto" />
               </button>
-              <Link to={createPageUrl("Account")} className="flex items-center justify-center w-9 h-9 rounded-full bg-green-100 hover:bg-green-200 text-green-700 transition-colors" title="My Account">
-                <User className="w-5 h-5" />
-              </Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-7">
