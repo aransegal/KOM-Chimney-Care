@@ -25,6 +25,15 @@ const STATUS_LABELS = {
 export default function Account() {
   const [user, setUser] = useState(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const [sendingEmail, setSendingEmail] = useState(null);
+  const [emailSent, setEmailSent] = useState({});
+
+  const handleResendConfirmation = async (b) => {
+    setSendingEmail(b.id);
+    await base44.functions.invoke("sendBookingConfirmation", { booking_id: b.id });
+    setEmailSent((prev) => ({ ...prev, [b.id]: true }));
+    setSendingEmail(null);
+  };
 
   useEffect(() => {
     base44.auth.me()
