@@ -404,7 +404,9 @@ export default function Booking() {
                   {selectedProduct &&
                 <>
                       <div className="text-slate-500">Product</div>
-                      <div className="font-semibold text-slate-900">{selectedProduct.name} — {selectedProduct.price}</div>
+                      <div className="font-semibold text-slate-900">{selectedProduct.name}</div>
+                      <div className="text-slate-500">Price</div>
+                      <div className="font-semibold text-slate-900">{selectedProduct.price}</div>
                     </>
                 }
                   <div className="text-slate-500">Name</div>
