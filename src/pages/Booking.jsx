@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock } from "lucide-react";
+import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock, UserCircle } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
 const STEPS = ["Choose Product", "Your Details", "Schedule", "Confirm"];
