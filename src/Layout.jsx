@@ -92,7 +92,6 @@ export default function Layout({ children, currentPageName }) {
                 </button>
               )}
               <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
-              <Link to={createPageUrl("Account")} className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">My Orders</Link>
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
