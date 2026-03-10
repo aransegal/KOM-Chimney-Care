@@ -201,9 +201,7 @@ export default function Booking() {
                   onClick={() => {
                     setSelectedProduct(product);
                   }}
-                  className={`relative rounded-xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-md text-left ${
-                  product.popular ? "border-green-600" : "border-slate-200 hover:border-green-400"}`
-                  }>
+                  className="relative rounded-xl border-2 border-slate-200 hover:border-green-400 overflow-hidden flex flex-col transition-all hover:shadow-md text-left">
 
                         {product.popular &&
                   <div className="absolute top-1.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase whitespace-nowrap z-10">
