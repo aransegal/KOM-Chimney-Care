@@ -113,6 +113,9 @@ export default function Layout({ children, currentPageName }) {
                   Book Installation
                 </Button>
               </Link>
+              <Link to={createPageUrl("Account")} className="flex items-center justify-center w-9 h-9 rounded-full bg-green-100 hover:bg-green-200 text-green-700 transition-colors" title="My Account">
+                <User className="w-5 h-5" />
+              </Link>
             </div>
 
             <button
