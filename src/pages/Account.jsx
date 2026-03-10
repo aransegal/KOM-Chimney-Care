@@ -252,7 +252,7 @@ export default function Account() {
                     )}
                     {selectedBooking.notes && (
                       <div className="flex gap-3">
-                        <Clock className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
+                        <FileText className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
                         <span className="text-slate-700">{selectedBooking.notes}</span>
                       </div>
                     )}
