@@ -131,7 +131,11 @@ export default function Account() {
         ) : (
           <div className="space-y-4">
             {bookings.map((b) => (
-              <div key={b.id} className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm">
+              <div
+                key={b.id}
+                className="bg-white rounded-2xl border border-slate-200 p-5 shadow-sm cursor-pointer hover:bg-slate-50 transition-colors"
+                onClick={() => handleResendConfirmation(b)}
+              >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
                     <div className="font-semibold text-slate-900 capitalize text-lg">
