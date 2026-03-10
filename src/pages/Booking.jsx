@@ -90,7 +90,11 @@ export default function Booking() {
       status: "pending"
     });
     if (booking.customer_email) {
-      await base44.functions.invoke("sendPendingBookingEmail", { booking_id: created.id });
+      try {
+        await base44.functions.invoke("sendPendingBookingEmail", { booking_id: created.id });
+      } catch (e) {
+        // Email failed (e.g. non-registered user), booking still confirmed
+      }
     }
     setBookingRef(ref);
     setSubmitted(true);
