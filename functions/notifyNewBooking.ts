@@ -4,7 +4,16 @@ Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
-        const booking = payload.data;
+        let booking = payload.data;
+
+        // If payload was too large, fetch the booking directly
+        if (!booking && payload.event?.entity_id) {
+            booking = await base44.asServiceRole.entities.Booking.get(payload.event.entity_id);
+        }
+
+        if (!booking) {
+            return Response.json({ error: "No booking data found" }, { status: 400 });
+        }
 
         const emailSubject = `New Booking Request - ${booking.customer_name}`;
         const emailBody = `<p>A new booking request has been submitted on KOM Water Heaters.</p>
