@@ -169,6 +169,15 @@ export default function Account() {
                     {b.technician_notes}
                   </div>
                 )}
+                <div className="mt-3 pt-3 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-400">
+                  {sendingEmail === b.id ? (
+                    <><Loader2 className="w-3 h-3 animate-spin" /> Sending...</>
+                  ) : emailSent[b.id] ? (
+                    <><Mail className="w-3 h-3 text-green-500" /> <span className="text-green-600">Confirmation sent to your email</span></>
+                  ) : (
+                    <><Mail className="w-3 h-3" /> Click to resend booking confirmation</>
+                  )}
+                </div>
               </div>
             ))}
           </div>
