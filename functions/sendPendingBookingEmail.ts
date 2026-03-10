@@ -31,14 +31,19 @@ Deno.serve(async (req) => {
   <p style="color:#6b7280;font-size:13px;">Thank you for choosing KOM Water Heaters!</p>
 </div>`;
 
-        await base44.asServiceRole.integrations.Core.SendEmail({
-            from_name: "KOM Water Heaters",
-            to: booking.customer_email,
-            subject: `Booking Received – ${booking.booking_number}`,
-            body: emailBody,
-        });
-
-        return Response.json({ success: true });
+        try {
+            await base44.asServiceRole.integrations.Core.SendEmail({
+                from_name: "KOM Water Heaters",
+                to: booking.customer_email,
+                subject: `Booking Received – ${booking.booking_number}`,
+                body: emailBody,
+            });
+            return Response.json({ success: true });
+        } catch (emailError) {
+            // Email may fail for non-registered users - log but don't fail
+            console.warn("Email send failed:", emailError.message);
+            return Response.json({ success: false, reason: emailError.message });
+        }
     } catch (error) {
         return Response.json({ error: error.message }, { status: 500 });
     }
