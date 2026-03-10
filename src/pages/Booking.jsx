@@ -224,7 +224,7 @@ export default function Booking() {
                   </div>
                 </>
             }
-              {confirmNoProduct && !selectedProduct &&
+              {!selectedProduct &&
             <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 mb-6">
                   <div className="flex items-center gap-5">
                     <img src={PRODUCT_IMAGE} alt="No product" className="h-24 object-contain flex-shrink-0 opacity-30" />
