@@ -37,15 +37,19 @@ export default function Booking() {
   const [booking, setBooking] = useState({
     service_type: "installation",
     heater_type: "tank",
+    customer_first_name: "",
+    customer_last_name: "",
+    customer_company: "",
     customer_name: "",
     customer_email: "",
     customer_phone: "",
     customer_address: "",
     preferred_date: "",
     preferred_time: "",
-    notes: preselectedProduct ? `Product: ${preselectedProduct} (${preselectedPrice})` : "",
+    notes: "",
     is_emergency: false
   });
+  const [fieldErrors, setFieldErrors] = useState({});
   const [confirmNoProduct, setConfirmNoProduct] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
