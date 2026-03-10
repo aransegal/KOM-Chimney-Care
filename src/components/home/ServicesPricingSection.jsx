@@ -61,7 +61,7 @@ export default function ServicesPricingSection() {
               key={product.name}
               className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-lg ${
               product.popular ?
-              "border-green-600 shadow-lg shadow-green-100" :
+              "border-slate-900 shadow-lg" :
               "border-slate-200"}`
               }>
 
@@ -72,7 +72,7 @@ export default function ServicesPricingSection() {
               }
 
                 {/* Product image */}
-                <div className={`flex items-center justify-center p-4 pt-8 ${product.popular ? "bg-green-50" : "bg-slate-50"}`}>
+                <div className="flex items-center justify-center p-4 pt-8 bg-slate-50">
                   <img
                   src={PRODUCT_IMAGE}
                   alt={product.name}
@@ -81,21 +81,17 @@ export default function ServicesPricingSection() {
                 </div>
 
                 {/* Info */}
-                <div className={`p-4 flex flex-col flex-1 ${product.popular ? "bg-gradient-to-br from-green-700 to-green-800 text-white" : "bg-white"}`}>
-                  <p className={`text-sm font-semibold mb-2 leading-snug ${product.popular ? "text-green-100" : "text-slate-700"}`}>
+                <div className="p-4 flex flex-col flex-1 bg-white">
+                  <p className="text-sm font-semibold mb-2 leading-snug text-slate-700">
                     {product.name}
                   </p>
-                  <p className={`text-2xl font-extrabold mb-4 ${product.popular ? "text-white" : "text-slate-900"}`}>
+                  <p className="text-2xl font-extrabold mb-4 text-slate-900">
                     {product.price}
                   </p>
                   <Link to={createPageUrl("Booking") + `?product=${encodeURIComponent(product.name)}&price=${encodeURIComponent(product.price)}`} className="mt-auto">
                     <Button
                     size="sm"
-                    className={`w-full font-semibold ${
-                    product.popular ?
-                    "bg-white text-green-700 hover:bg-green-50" :
-                    "bg-green-700 hover:bg-green-800 text-white"}`
-                    }>
+                    className="w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
 
                       Book Installation
                     </Button>
