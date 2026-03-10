@@ -58,11 +58,32 @@ export default function Booking() {
   const next = () => setStep((s) => Math.min(s + 1, STEPS.length - 1));
   const back = () => setStep((s) => Math.max(s - 1, 0));
 
+  const validateStep1 = () => {
+    const errors = {};
+    if (!booking.customer_first_name.trim()) errors.customer_first_name = "First name is required";
+    if (!booking.customer_last_name.trim()) errors.customer_last_name = "Last name is required";
+    const phone = booking.customer_phone.replace(/\D/g, "");
+    if (phone.length !== 10) errors.customer_phone = "Phone number must be 10 digits";
+    if (booking.customer_email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(booking.customer_email)) {
+      errors.customer_email = "Please enter a valid email address";
+    }
+    if (!booking.customer_address.trim()) errors.customer_address = "Service address is required";
+    setFieldErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleStep1Next = () => {
+    if (validateStep1()) next();
+  };
+
   const handleSubmit = async () => {
     setLoading(true);
+    const fullName = `${booking.customer_first_name} ${booking.customer_last_name}`.trim();
     const ref = "KOM-" + Date.now().toString().slice(-6);
     const created = await base44.entities.Booking.create({
       ...booking,
+      customer_name: fullName,
+      selected_product: selectedProduct ? `${selectedProduct.name} (${selectedProduct.price})` : "",
       booking_number: ref,
       booking_fee: 79,
       payment_status: "unpaid",
