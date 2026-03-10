@@ -220,7 +220,10 @@ export default function AdminDashboard() {
                           <div className="text-slate-400 text-xs">{b.customer_phone}</div>
                         </td>
                         <td className="py-3 px-4 capitalize">{b.service_type?.replace("_", " ")}</td>
-                        <td className="py-3 px-4 text-slate-600">{b.preferred_date || "—"}</td>
+                        <td className="py-3 px-4">
+                          <div className="text-slate-700">{b.preferred_date || "—"}</div>
+                          <div className="text-slate-400 text-xs">Booked: {b.created_date ? new Date(b.created_date).toLocaleDateString() : "—"}</div>
+                        </td>
                         <td className="py-3 px-4">
                           <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${STATUS_COLORS[b.status] || "bg-slate-100 text-slate-700"}`}>
                             {b.status}
