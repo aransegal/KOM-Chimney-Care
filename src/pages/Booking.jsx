@@ -240,9 +240,11 @@ export default function Booking() {
                 </div>
             }
               <div className="flex justify-between">
-                <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-                  <ChevronLeft className="mr-1 w-4 h-4" /> Change
-                </Button>
+                {selectedProduct ? (
+                  <Button variant="outline" onClick={() => setSelectedProduct(null)}>
+                    <ChevronLeft className="mr-1 w-4 h-4" /> Change
+                  </Button>
+                ) : <div />}
                 <Button
                 onClick={() => {if (!selectedProduct) {setConfirmNoProduct(true);} else {next();}}}
                 className="bg-orange-600 hover:bg-orange-700 text-white px-8">
