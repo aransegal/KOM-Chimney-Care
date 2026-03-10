@@ -408,7 +408,11 @@ export default function Booking() {
                     </>
                 }
                   <div className="text-slate-500">Name</div>
-                  <div className="font-semibold text-slate-900">{booking.customer_name}</div>
+                  <div className="font-semibold text-slate-900">{booking.customer_first_name} {booking.customer_last_name}</div>
+                  {booking.customer_company && <>
+                    <div className="text-slate-500">Company</div>
+                    <div className="font-semibold text-slate-900">{booking.customer_company}</div>
+                  </>}
                   <div className="text-slate-500">Phone</div>
                   <div className="font-semibold text-slate-900">{booking.customer_phone}</div>
                   <div className="text-slate-500">Address</div>
