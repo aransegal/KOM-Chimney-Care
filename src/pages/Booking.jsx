@@ -252,7 +252,7 @@ export default function Booking() {
                     <div>
                       <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Product Selected</div>
                       <div className="text-xl font-extrabold text-slate-900">Continue without a product?</div>
-                      <div className="text-sm text-amber-700 mt-1">Press Next again to confirm</div>
+                      <div className="text-sm text-amber-700 mt-1">Press Next again to confirm. You can add notes later.</div>
                     </div>
                   </div>
                   
