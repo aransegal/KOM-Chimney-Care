@@ -96,6 +96,7 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </button>
               )}
+              <Link to="/OwnerSupport" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">Owner Support</Link>
               <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
             </div>
 
