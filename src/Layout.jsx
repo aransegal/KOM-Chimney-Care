@@ -229,6 +229,7 @@ export default function Layout({ children, currentPageName }) {
           <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
             <p>© 2026 KOM Water Heaters. All rights reserved.</p>
             <div className="flex gap-6">
+              <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
               <Link to={createPageUrl("PrivacyPolicy")} className="hover:text-white transition-colors">Privacy Policy</Link>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
               {isAdmin && (
