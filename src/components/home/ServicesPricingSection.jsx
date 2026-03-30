@@ -86,7 +86,7 @@ export default function ServicesPricingSection() {
 
                 {/* Info */}
                 <div className="p-4 flex flex-col flex-1 bg-white">
-                  <p className="text-2xl font-extrabold mb-4 text-slate-900">
+                  <p className="text-2xl font-extrabold mb-4 text-slate-900 text-center">
                     {product.price}
                   </p>
                   <Link to={createPageUrl("Booking") + `?product=${encodeURIComponent(product.name)}&price=${encodeURIComponent(product.price)}`} className="mt-auto">
