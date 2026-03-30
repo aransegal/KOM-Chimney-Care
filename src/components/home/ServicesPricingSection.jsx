@@ -71,20 +71,21 @@ export default function ServicesPricingSection() {
                   </div>
               }
 
+                {/* Product title */}
+                <div className="text-center pt-3 px-2">
+                  <p className="text-sm font-bold text-slate-800 leading-snug">{product.name}</p>
+                </div>
+
                 {/* Product image */}
-                <div className="flex items-center justify-center p-4 pt-8 bg-slate-50">
+                <div className="flex items-center justify-center p-4 pt-2 bg-slate-50">
                   <img
                   src={PRODUCT_IMAGE}
                   alt={product.name}
                   className="h-32 object-contain" />
-
                 </div>
 
                 {/* Info */}
                 <div className="p-4 flex flex-col flex-1 bg-white">
-                  <p className="text-sm font-semibold mb-2 leading-snug text-slate-700">
-                    {product.name}
-                  </p>
                   <p className="text-2xl font-extrabold mb-4 text-slate-900">
                     {product.price}
                   </p>
@@ -92,7 +93,6 @@ export default function ServicesPricingSection() {
                     <Button
                     size="sm"
                     className="w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
-
                       Book Installation
                     </Button>
                   </Link>
