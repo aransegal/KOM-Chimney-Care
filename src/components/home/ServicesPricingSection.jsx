@@ -87,7 +87,7 @@ export default function ServicesPricingSection() {
                 </div>
 
                 {/* Info */}
-                <div className="p-4 flex flex-col flex-1 bg-white">
+                <div className="p-4 flex flex-col flex-1 bg-white justify-end">
                   <p className="text-2xl font-extrabold mb-4 text-slate-900 text-center">
                     {product.price}
                   </p>
