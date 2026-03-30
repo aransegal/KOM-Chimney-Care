@@ -66,13 +66,15 @@ export default function ServicesPricingSection() {
               }>
 
                 {product.popular &&
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase whitespace-nowrap z-10">
-                    Most Popular
+                  <div className="text-center pt-2 px-2">
+                    <span className="inline-block bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase whitespace-nowrap">
+                      Most Popular
+                    </span>
                   </div>
-              }
+                }
 
                 {/* Product title */}
-                <div className="text-center pt-3 px-2">
+                <div className="text-center pt-2 px-2">
                   <p className="text-sm font-bold text-slate-800 leading-snug">{product.name}</p>
                 </div>
 
