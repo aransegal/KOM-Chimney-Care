@@ -65,13 +65,17 @@ export default function ServicesPricingSection() {
               "border-slate-200"}`
               }>
 
-                {product.popular &&
+                {product.popular ? (
                   <div className="text-center pt-2 px-2">
                     <span className="inline-block bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase whitespace-nowrap">
                       Most Popular
                     </span>
                   </div>
-                }
+                ) : (
+                  <div className="pt-2 px-2">
+                    <span className="inline-block text-[10px] px-3 py-1">&nbsp;</span>
+                  </div>
+                )}
 
                 {/* Product title */}
                 <div className="text-center pt-2 px-2">
