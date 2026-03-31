@@ -10,67 +10,67 @@ const DOC_COLORS = {
   "Use and Care Manual": "bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100",
   "Warranty": "bg-red-50 text-red-700 border-red-200 hover:bg-red-100",
   "Service Manual": "bg-teal-50 text-teal-700 border-teal-200 hover:bg-teal-100",
-  "Submittal Sheet": "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100",
+  "Submittal Sheet": "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"
 };
 
 const products = [
-  {
-    name: "GE RealMAX Choice 40-Gallon Short Natural Gas Power Vent Water Heater",
-    type: "Gas Power Vent",
-    gallons: "40 Gal",
-    folderId: "1e1KEfDeXz6K2D-_ovLiX_5QzmFetiFpb",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE RealMAX Choice 40-Gallon Tall Natural Gas Power Vent Water Heater",
-    type: "Gas Power Vent",
-    gallons: "40 Gal",
-    folderId: "1P2Ub_V7mwJn3VVWvUO1aCHKy61gEr8cU",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
-    type: "Gas Atmospheric",
-    gallons: "40 Gal",
-    folderId: "1DKvaam8-XBXOTp-NO0GKOOIt-pGYMbfm",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE RealMAX Premium 50-Gallon Tall Natural Gas Atmospheric Water Heater",
-    type: "Gas Atmospheric",
-    gallons: "50 Gal",
-    folderId: "1BAiIwPT6hNLVzq0vkFOWBioDgUYaJUIj",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE® Smart 30 Gallon Short Electric Water Heater",
-    type: "Electric Smart",
-    gallons: "30 Gal",
-    folderId: "13VfFodwWebYHHBz0NAjgQwKMuVUU54fL",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE® Smart 30 Gallon Tall Electric Water Heater",
-    type: "Electric Smart",
-    gallons: "30 Gal",
-    folderId: "1Q5cUR3a7Kc1pLGpWiGJS2z5JIhYnwVBj",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE® Smart 40 Gallon Short Electric Water Heater",
-    type: "Electric Smart",
-    gallons: "40 Gal",
-    folderId: "1IBXd5SQh5VQeCUqVwgY22ksif7u20Phl",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"],
-  },
-  {
-    name: "GE® Smart 40 Gallon Tall Electric Water Heater",
-    type: "Electric Smart",
-    gallons: "40 Gal",
-    folderId: "1ajOrsEb6hWPLV3f_K4xik1l8TPHlsu1N",
-    docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"],
-  },
-];
+{
+  name: "GE RealMAX Choice 40-Gallon Short Natural Gas Power Vent Water Heater",
+  type: "Gas Power Vent",
+  gallons: "40 Gal",
+  folderId: "1e1KEfDeXz6K2D-_ovLiX_5QzmFetiFpb",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE RealMAX Choice 40-Gallon Tall Natural Gas Power Vent Water Heater",
+  type: "Gas Power Vent",
+  gallons: "40 Gal",
+  folderId: "1P2Ub_V7mwJn3VVWvUO1aCHKy61gEr8cU",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
+  type: "Gas Atmospheric",
+  gallons: "40 Gal",
+  folderId: "1DKvaam8-XBXOTp-NO0GKOOIt-pGYMbfm",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE RealMAX Premium 50-Gallon Tall Natural Gas Atmospheric Water Heater",
+  type: "Gas Atmospheric",
+  gallons: "50 Gal",
+  folderId: "1BAiIwPT6hNLVzq0vkFOWBioDgUYaJUIj",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE® Smart 30 Gallon Short Electric Water Heater",
+  type: "Electric Smart",
+  gallons: "30 Gal",
+  folderId: "13VfFodwWebYHHBz0NAjgQwKMuVUU54fL",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE® Smart 30 Gallon Tall Electric Water Heater",
+  type: "Electric Smart",
+  gallons: "30 Gal",
+  folderId: "1Q5cUR3a7Kc1pLGpWiGJS2z5JIhYnwVBj",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE® Smart 40 Gallon Short Electric Water Heater",
+  type: "Electric Smart",
+  gallons: "40 Gal",
+  folderId: "1IBXd5SQh5VQeCUqVwgY22ksif7u20Phl",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+},
+{
+  name: "GE® Smart 40 Gallon Tall Electric Water Heater",
+  type: "Electric Smart",
+  gallons: "40 Gal",
+  folderId: "1ajOrsEb6hWPLV3f_K4xik1l8TPHlsu1N",
+  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+}];
+
 
 function ProductRow({ product }) {
   const [expanded, setExpanded] = useState(false);
@@ -80,8 +80,8 @@ function ProductRow({ product }) {
     <div className="border border-slate-200 rounded-xl overflow-hidden">
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-slate-50 transition-colors text-left"
-      >
+        className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-slate-50 transition-colors text-left">
+        
         <div className="flex items-center gap-4 flex-1 min-w-0">
           <div className="flex-shrink-0 flex gap-1.5">
             <span className="text-xs font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full whitespace-nowrap">{product.gallons}</span>
@@ -95,30 +95,30 @@ function ProductRow({ product }) {
         </div>
       </button>
 
-      {expanded && (
-        <div className="border-t border-slate-100 px-5 py-4 bg-slate-50">
+      {expanded &&
+      <div className="border-t border-slate-100 px-5 py-4 bg-slate-50">
           <div className="flex flex-wrap gap-2">
-            {product.docs.map((doc) => (
-              <a
-                key={doc}
-                href={folderUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors ${DOC_COLORS[doc] || "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"}`}
-              >
+            {product.docs.map((doc) =>
+          <a
+            key={doc}
+            href={folderUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors ${DOC_COLORS[doc] || "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"}`}>
+            
                 <FileText className="w-3 h-3" />
                 {doc}
                 <ExternalLink className="w-3 h-3 opacity-50" />
               </a>
-            ))}
+          )}
           </div>
           <p className="text-xs text-slate-400 mt-3">
             Documents open in Google Drive. Click any document to view or download.
           </p>
         </div>
-      )}
-    </div>
-  );
+      }
+    </div>);
+
 }
 
 export default function OwnerSupport() {
@@ -128,8 +128,8 @@ export default function OwnerSupport() {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-3">Owner Support</h1>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
-            Find installation instructions, manuals, warranty documents, and more for your GE water heater.
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">Find installation instructions, manuals, warranty documents, and more for your water heater.
+
           </p>
         </div>
 
@@ -140,11 +140,11 @@ export default function OwnerSupport() {
             <span className="text-xs text-slate-400">{products.length} products</span>
           </div>
           <div className="divide-y divide-slate-100">
-            {products.map((product) => (
-              <div key={product.folderId} className="px-3 py-2">
+            {products.map((product) =>
+            <div key={product.folderId} className="px-3 py-2">
                 <ProductRow product={product} />
               </div>
-            ))}
+            )}
           </div>
         </div>
 
@@ -156,12 +156,12 @@ export default function OwnerSupport() {
           </div>
           <a
             href="tel:+13138040844"
-            className="flex-shrink-0 bg-green-700 hover:bg-green-800 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors whitespace-nowrap"
-          >
+            className="flex-shrink-0 bg-green-700 hover:bg-green-800 text-white font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors whitespace-nowrap">
+            
             Call (313) 804-0844
           </a>
         </div>
       </div>
-    </div>
-  );
+    </div>);
+
 }
