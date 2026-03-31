@@ -8,8 +8,8 @@ const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/objec
 const products = [
 { name: "Electric 40 Gallon", price: "$1,895" },
 { name: "Electric 50 Gallon", price: "$1,995" },
-{ name: "Gas 40 Gallon", price: "$2,095" },
-{ name: "Gas 50 Gallon", price: "$2,195", popular: true },
+{ name: "Gas 40 Gallon", price: "$2,095", popular: true },
+    { name: "Gas 50 Gallon", price: "$2,195" },
 { name: "Electric Power Vent 40 Gallon", price: "$2,695" },
 { name: "Electric Power Vent 50 Gallon", price: "$2,795" },
 { name: "Gas Power Vent 40 Gallon", price: "$2,895" },
