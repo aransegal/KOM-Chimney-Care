@@ -99,7 +99,7 @@ export default function ServicesPricingSection() {
                     <Button
                     size="sm" className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-8 rounded-md px-3 text-xs w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
                     
-                      Book Installation
+                      Choose Product & Book Installation
                     </Button>
                   </Link>
                 </div>
