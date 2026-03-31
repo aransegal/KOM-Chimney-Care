@@ -67,7 +67,7 @@ export default function ServicesPricingSection() {
 
                 {product.popular ?
               <div className="text-center pt-2 px-2">
-                    <span className="bg-green-900 text-green-50 px-3 py-1 font-bold underline uppercase tracking-wide rounded-full inline-block whitespace-nowrap">MOST POPULAR!
+                    <span className="bg-green-900 text-green-50 px-3 py-1 font-bold uppercase tracking-wide rounded-full inline-block whitespace-nowrap">MOST POPULAR!
 
                 </span>
                   </div> :
