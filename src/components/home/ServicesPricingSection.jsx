@@ -8,8 +8,8 @@ const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/objec
 const products = [
 { name: "Electric 40 Gallon", price: "$1,895" },
 { name: "Electric 50 Gallon", price: "$1,995" },
-{ name: "Gas 40 Gallon", price: "$2,095", popular: true },
-{ name: "Gas 50 Gallon", price: "$2,195" },
+{ name: "Gas 40 Gallon", price: "$2,095" },
+{ name: "Gas 50 Gallon", price: "$2,195", popular: true },
 { name: "Electric Power Vent 40 Gallon", price: "$2,695" },
 { name: "Electric Power Vent 50 Gallon", price: "$2,795" },
 { name: "Gas Power Vent 40 Gallon", price: "$2,895" },
@@ -67,7 +67,7 @@ export default function ServicesPricingSection() {
 
                 {product.popular ?
               <div className="text-center pt-2 px-2">
-                    <span className="bg-teal-950 text-[#ffffff] px-3 py-1 font-bold uppercase tracking-wide rounded-full inline-block whitespace-nowrap">MOST POPULAR!
+                    <span className="bg-green-900 text-green-50 px-3 py-1 font-bold underline uppercase tracking-wide rounded-full inline-block whitespace-nowrap">MOST POPULAR!
 
                 </span>
                   </div> :
@@ -99,7 +99,7 @@ export default function ServicesPricingSection() {
                     <Button
                     size="sm" className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-8 rounded-md px-3 text-xs w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
                     
-                      Choose Product & Book Installation
+                      Book Installation
                     </Button>
                   </Link>
                 </div>
