@@ -59,10 +59,7 @@ export default function ServicesPricingSection() {
             {products.map((product) =>
             <div
               key={product.name}
-              className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-lg ${
-              product.popular ?
-              "border-slate-200 shadow-lg" :
-              "border-slate-200"}`
+              className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-lg border-slate-200`
               }>
 
                 {product.popular ?
