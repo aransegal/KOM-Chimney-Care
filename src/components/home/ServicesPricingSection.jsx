@@ -47,7 +47,7 @@ export default function ServicesPricingSection() {
           {/* Features row */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-2 mb-8 max-w-2xl mx-auto">
             {installationFeatures.map((f) =>
-              <div key={f} className="flex items-center gap-1.5">
+            <div key={f} className="flex items-center gap-1.5">
                 <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
                 <span className="text-sm text-slate-600">{f}</span>
               </div>
@@ -65,17 +65,17 @@ export default function ServicesPricingSection() {
               "border-slate-200"}`
               }>
 
-                {product.popular ? (
-                  <div className="text-center pt-2 px-2">
+                {product.popular ?
+              <div className="text-center pt-2 px-2">
                     <span className="inline-block bg-slate-900 text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wide uppercase whitespace-nowrap">
                       Most Popular
                     </span>
-                  </div>
-                ) : (
-                  <div className="pt-2 px-2">
+                  </div> :
+
+              <div className="pt-2 px-2">
                     <span className="inline-block text-[10px] px-3 py-1">&nbsp;</span>
                   </div>
-                )}
+              }
 
                 {/* Product title */}
                 <div className="text-center pt-2 px-2">
@@ -97,8 +97,8 @@ export default function ServicesPricingSection() {
                   </p>
                   <Link to={createPageUrl("Booking") + `?product=${encodeURIComponent(product.name)}&price=${encodeURIComponent(product.price)}`} className="mt-auto">
                     <Button
-                    size="sm"
-                    className="w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
+                    size="sm" className="inline-flex items-center justify-center gap-2 whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 shadow h-8 rounded-md px-3 text-xs w-full font-semibold bg-green-700 hover:bg-green-800 text-white">
+                    
                       Book Installation
                     </Button>
                   </Link>
