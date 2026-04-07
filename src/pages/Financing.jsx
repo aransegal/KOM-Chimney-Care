@@ -32,14 +32,11 @@ export default function Financing() {
     <div className="min-h-screen bg-green-50 py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today
-Pay Over Time</h1>
+          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today, Pay Over Time
+          </h1>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water Heaters, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’re using QuickBooks Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.
 
           </p>
-          <div className="mt-6 flex justify-center">
-            <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/803d0aa16_Affirm_Logosvg.png" alt="Affirm" className="h-12" />
-          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
@@ -61,29 +58,14 @@ Pay Over Time</h1>
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8">
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">How It Works (3 Easy Steps)</h3>
-          <ul className="space-y-4 mb-8">
-            <li className="flex items-start gap-3 text-slate-600">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
-              <div>
-                <div className="font-bold text-slate-800 text-xl">Receive Your Invoice</div>
-                <div className="text-base">Once our technician completes your quote or service, we will email you a digital invoice via QuickBooks. Open the invoice on your phone or computer.</div>
-              </div>
-            </li>
-            <li className="flex items-start gap-3 text-slate-600">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
-              <div>
-                <div className="font-bold text-slate-800 text-xl">Select &quot;Affirm&quot; at Checkout</div>
-                <div className="text-base">Click the &quot;Pay Now&quot; button on your invoice. When the payment options appear, select Affirm as your payment method.</div>
-              </div>
-            </li>
-            <li className="flex items-start gap-3 text-slate-600">
-              <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
-              <div>
-                <div className="font-bold text-slate-800 text-xl">Pick Your Plan</div>
-                <div className="text-base">Follow the brief prompts to enter your details. You'll receive an instant decision and can choose the monthly payment plan that works best for you (including 0% APR options for qualifying customers).</div>
-              </div>
-            </li>
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">What's included</h3>
+          <ul className="space-y-2 mb-8">
+            {["No prepayment penalties", "Available on all installation packages", "Approval does not affect credit score"].map((item) =>
+            <li key={item} className="flex items-center gap-2 text-slate-600 text-sm">
+                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                {item}
+              </li>
+            )}
           </ul>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link to={createPageUrl("Booking")}>
