@@ -7,7 +7,7 @@ const options = [
   {
     icon: BadgePercent,
     title: "Instant Approval",
-    description: "See if you're approved in seconds without leaving your invoice.",
+    description: "Get approved in seconds via QuickBooks Affirm.",
     highlight: true,
   },
   {
