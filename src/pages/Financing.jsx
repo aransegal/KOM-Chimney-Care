@@ -58,7 +58,7 @@ Pay Over Time</h1>
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8">
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">What's included</h3>
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">How It Works (3 Easy Steps)</h3>
           <ul className="space-y-4 mb-8">
             <li className="flex items-start gap-3 text-slate-600">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
