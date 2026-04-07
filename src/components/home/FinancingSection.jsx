@@ -8,7 +8,7 @@ const options = [
     icon: Clock,
     title: "Instant Approval",
     description: "Get approved in seconds via QuickBooks Affirm.",
-    highlight: true,
+    highlight: false,
   },
   {
     icon: DollarSign,
