@@ -61,7 +61,7 @@ export default function Financing() {
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8 mb-8">
-          <h2 className="text-2xl font-extrabold text-slate-900 mb-6">How It Works (3 Easy Steps)</h2>
+          <h2 className="text-slate-900 mb-6 text-2xl font-extrabold text-center">How It Works (3 Easy Steps)</h2>
           <ol className="space-y-6">
             <li className="flex gap-4">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">1</div>
@@ -88,7 +88,7 @@ export default function Financing() {
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8">
-          <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Frequently Asked Questions</h2>
+          <h2 className="text-slate-900 mb-6 text-2xl font-extrabold text-center">Frequently Asked Questions</h2>
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-slate-200">
