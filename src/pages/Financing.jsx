@@ -66,21 +66,21 @@ export default function Financing() {
             <li className="flex gap-4">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">1</div>
               <div>
-                <p className="font-bold text-slate-900">Receive Your Invoice</p>
+                <p className="text-xl font-bold text-slate-900">Receive Your Invoice</p>
                 <p className="text-base text-slate-600 mt-1">Once our technician completes your quote or service, we will email you a digital invoice via QuickBooks. Open the invoice on your phone or computer.</p>
               </div>
             </li>
             <li className="flex gap-4">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">2</div>
               <div>
-                <p className="font-bold text-slate-900">Select &ldquo;Affirm&rdquo; at Checkout</p>
+                <p className="text-xl font-bold text-slate-900">Select &ldquo;Affirm&rdquo; at Checkout</p>
                 <p className="text-base text-slate-600 mt-1">Click the &ldquo;Pay Now&rdquo; button on your invoice. When the payment options appear, select Affirm as your payment method.</p>
               </div>
             </li>
             <li className="flex gap-4">
               <div className="flex-shrink-0 w-9 h-9 rounded-full bg-green-700 text-white flex items-center justify-center font-bold text-lg">3</div>
               <div>
-                <p className="font-bold text-slate-900">Pick Your Plan</p>
+                <p className="text-xl font-bold text-slate-900">Pick Your Plan</p>
                 <p className="text-base text-slate-600 mt-1">Follow the brief prompts to enter your details. You'll receive an instant decision and can choose the monthly payment plan that works best for you (including 0% APR options for qualifying customers).</p>
               </div>
             </li>
