@@ -37,6 +37,9 @@ Pay Over Time</h1>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water Heaters, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’re using QuickBooks Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.
 
           </p>
+          <div className="mt-6 flex justify-center">
+            <img src="https://cdn.affirm.com/images/black_logo-transparent_bg.png" alt="Affirm" className="h-10" />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
