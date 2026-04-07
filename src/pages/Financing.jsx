@@ -88,28 +88,37 @@ export default function Financing() {
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8">
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">Frequently Asked Questions</h3>
-          <ul className="space-y-2 mb-8">
-            {["No prepayment penalties", "Available on all installation packages", "Approval does not affect credit score"].map((item) =>
-            <li key={item} className="flex items-center gap-2 text-slate-600 text-sm">
-                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-                {item}
-              </li>
-            )}
-          </ul>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Link to={createPageUrl("Booking")}>
-              
-
-              
-            </Link>
-            <a href="tel:+13138040844">
-              
-
-
-              
-            </a>
-          </div>
+          <h2 className="text-2xl font-extrabold text-slate-900 mb-6">Frequently Asked Questions</h2>
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-slate-200">
+                <th className="text-left font-bold text-slate-900 pb-3 w-2/5">Question</th>
+                <th className="text-left font-bold text-slate-900 pb-3">Answer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-slate-100">
+                <td className="font-bold text-slate-900 py-4 pr-6 align-top">What is the limit?</td>
+                <td className="text-slate-600 py-4 align-top">You can finance invoices ranging from <strong>$50 up to $20,000</strong>.</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="font-bold text-slate-900 py-4 pr-6 align-top">Are there late fees?</td>
+                <td className="text-slate-600 py-4 align-top"><strong>No.</strong> One of the best parts about Affirm is that they <strong>never charge late fees</strong>, hidden penalties, or service fees. What you see at checkout is exactly what you'll pay.</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="font-bold text-slate-900 py-4 pr-6 align-top">Does missing a payment matter?</td>
+                <td className="text-slate-600 py-4 align-top">While there are no late fees, keep in mind that late payments can affect your credit score and your eligibility for future financing through Affirm.</td>
+              </tr>
+              <tr className="border-b border-slate-100">
+                <td className="font-bold text-slate-900 py-4 pr-6 align-top">When is my first payment?</td>
+                <td className="text-slate-600 py-4 align-top">Your first payment is usually due one month after your service is completed and the invoice is finalized.</td>
+              </tr>
+              <tr>
+                <td className="font-bold text-slate-900 py-4 pr-6 align-top">Can I pay it off early?</td>
+                <td className="text-slate-600 py-4 align-top">Absolutely! You can pay off your balance at any time with <strong>no prepayment penalties</strong>.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>);
