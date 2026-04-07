@@ -6,7 +6,7 @@ import { DollarSign, CheckCircle, Clock, CreditCard, BadgePercent } from "lucide
 const options = [
   {
     icon: BadgePercent,
-    title: "Instant Decisions",
+    title: "Instant Approval",
     description: "See if you're approved in seconds without leaving your invoice.",
     highlight: true,
   },
