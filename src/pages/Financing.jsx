@@ -60,15 +60,15 @@ Pay Over Time</h1>
         <div className="bg-white border border-green-200 rounded-2xl p-8">
           <h3 className="text-2xl font-extrabold text-slate-900 mb-4">What's included</h3>
           <ul className="space-y-4 mb-8">
-            <li className="flex items-start gap-3 text-slate-600 text-sm">
+            <li className="flex items-start gap-3 text-slate-600 text-xl">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
               <div><span className="font-semibold text-slate-800">Receive Your Invoice</span> — Once our technician completes your quote or service, we will email you a digital invoice via QuickBooks. Open the invoice on your phone or computer.</div>
             </li>
-            <li className="flex items-start gap-3 text-slate-600 text-sm">
+            <li className="flex items-start gap-3 text-slate-600 text-xl">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
               <div><span className="font-semibold text-slate-800">Select "Affirm" at Checkout</span> — Click the "Pay Now" button on your invoice. When the payment options appear, select Affirm as your payment method.</div>
             </li>
-            <li className="flex items-start gap-3 text-slate-600 text-sm">
+            <li className="flex items-start gap-3 text-slate-600 text-xl">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
               <div><span className="font-semibold text-slate-800">Pick Your Plan</span> — Follow the brief prompts to enter your details. You'll receive an instant decision and can choose the monthly payment plan that works best for you (including 0% APR options for qualifying customers).</div>
             </li>
