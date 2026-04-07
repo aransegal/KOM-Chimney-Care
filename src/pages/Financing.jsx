@@ -7,7 +7,7 @@ const options = [
 {
   icon: Clock,
   title: "Instant Approval",
-  description: "Get approved in seconds via QuickBooks Affirm.",
+  description: "Get approved in seconds via QuickBooks Affirm."
 },
 {
   icon: DollarSign,
@@ -88,7 +88,7 @@ export default function Financing() {
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8">
-          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">How It Works (3 Easy Steps)</h3>
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">Frequently Asked Questions</h3>
           <ul className="space-y-2 mb-8">
             {["No prepayment penalties", "Available on all installation packages", "Approval does not affect credit score"].map((item) =>
             <li key={item} className="flex items-center gap-2 text-slate-600 text-sm">
