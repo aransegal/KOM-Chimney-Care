@@ -38,7 +38,7 @@ Pay Over Time</h1>
 
           </p>
           <div className="mt-6 flex justify-center">
-            <img src="https://cdn.affirm.com/images/black_logo-transparent_bg.png" alt="Affirm" className="h-10" />
+            <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/803d0aa16_Affirm_Logosvg.png" alt="Affirm" className="h-12" />
           </div>
         </div>
 
