@@ -32,7 +32,7 @@ export default function Financing() {
     <div className="min-h-screen bg-green-50 py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Financing Available!</h1>
+          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today, Pay Over Time</h1>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             Don't let upfront costs hold you back. Financing plans are available so you can get the hot water you need — today!
           </p>
