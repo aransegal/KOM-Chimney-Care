@@ -200,6 +200,9 @@ export default function Layout({ children, currentPageName }) {
                 {["Water Heaters Installation", "24/7 Emergency Services"].map((s) =>
                 <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 )}
+                <li>
+                  <Link to="/OwnerSupport" className="hover:text-green-400 transition-colors">Owner Support</Link>
+                </li>
               </ul>
             </div>
             <div>
@@ -208,9 +211,6 @@ export default function Layout({ children, currentPageName }) {
                 {["About Us", "KOM USA"].map((s) =>
                 <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 )}
-                <li>
-                  <Link to="/OwnerSupport" className="hover:text-green-400 transition-colors">Owner Support</Link>
-                </li>
               </ul>
             </div>
             <div>
