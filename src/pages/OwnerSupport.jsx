@@ -84,7 +84,7 @@ function ProductRow({ product }) {
         
         <div className="flex items-center gap-4 flex-1 min-w-0">
           <div className="flex-shrink-0 flex gap-1.5">
-            <span className="text-xs font-semibold bg-green-100 text-green-700 px-2 py-0.5 rounded-full whitespace-nowrap">{product.gallons}</span>
+            <span className="bg-green-100 text-green-700 px-2 py-0.5 text-xs font-semibold rounded-full whitespace-nowrap">{product.gallons}</span>
             <span className="text-xs font-semibold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:inline">{product.type}</span>
             {product.name.toLowerCase().includes('tall') && <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:inline">Tall</span>}
             {product.name.toLowerCase().includes('short') && <span className="text-xs font-semibold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:inline">Short</span>}
