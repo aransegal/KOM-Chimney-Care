@@ -37,7 +37,7 @@ export default function FinancingSection() {
         <div className="text-center mb-12">
           
           <h2 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Financing Available!</h2>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">Don't let upfront costs hold you back. We offer flexible financing plans via so you can get the hot water you need — today.
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">Don't let upfront costs hold you back. We offer flexible financing plans via 
 
           </p>
         </div>
