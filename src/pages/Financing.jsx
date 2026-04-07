@@ -60,25 +60,25 @@ Pay Over Time</h1>
         <div className="bg-white border border-green-200 rounded-2xl p-8">
           <h3 className="text-2xl font-extrabold text-slate-900 mb-4">What's included</h3>
           <ul className="space-y-4 mb-8">
-            <li className="flex items-start gap-3 text-slate-600 text-xl">
+            <li className="flex items-start gap-3 text-slate-600">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">1</span>
               <div>
-                <div className="font-semibold text-slate-800">Receive Your Invoice</div>
-                <div>Once our technician completes your quote or service, we will email you a digital invoice via QuickBooks. Open the invoice on your phone or computer.</div>
+                <div className="font-semibold text-slate-800 text-xl">Receive Your Invoice</div>
+                <div className="text-base">Once our technician completes your quote or service, we will email you a digital invoice via QuickBooks. Open the invoice on your phone or computer.</div>
               </div>
             </li>
-            <li className="flex items-start gap-3 text-slate-600 text-xl">
+            <li className="flex items-start gap-3 text-slate-600">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">2</span>
               <div>
-                <div className="font-semibold text-slate-800">Select &quot;Affirm&quot; at Checkout</div>
-                <div>Click the &quot;Pay Now&quot; button on your invoice. When the payment options appear, select Affirm as your payment method.</div>
+                <div className="font-semibold text-slate-800 text-xl">Select &quot;Affirm&quot; at Checkout</div>
+                <div className="text-base">Click the &quot;Pay Now&quot; button on your invoice. When the payment options appear, select Affirm as your payment method.</div>
               </div>
             </li>
-            <li className="flex items-start gap-3 text-slate-600 text-xl">
+            <li className="flex items-start gap-3 text-slate-600">
               <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-600 text-white text-xs font-bold flex items-center justify-center mt-0.5">3</span>
               <div>
-                <div className="font-semibold text-slate-800">Pick Your Plan</div>
-                <div>Follow the brief prompts to enter your details. You'll receive an instant decision and can choose the monthly payment plan that works best for you (including 0% APR options for qualifying customers).</div>
+                <div className="font-semibold text-slate-800 text-xl">Pick Your Plan</div>
+                <div className="text-base">Follow the brief prompts to enter your details. You'll receive an instant decision and can choose the monthly payment plan that works best for you (including 0% APR options for qualifying customers).</div>
               </div>
             </li>
           </ul>
