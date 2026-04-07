@@ -203,6 +203,9 @@ export default function Layout({ children, currentPageName }) {
                 <li>
                   <Link to="/OwnerSupport" className="hover:text-green-400 transition-colors">Owner Support</Link>
                 </li>
+                <li>
+                  <Link to="/Financing" className="hover:text-green-400 transition-colors">Financing</Link>
+                </li>
               </ul>
             </div>
             <div>
