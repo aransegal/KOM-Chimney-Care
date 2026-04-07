@@ -57,6 +57,7 @@ export default function Layout({ children, currentPageName }) {
 
   const navLinks = [
   { label: "Products", id: "pricing" },
+  { label: "Financing", id: "financing" },
   { label: "About Us", id: "about" },
   { label: "Contact Us", id: "contact" }];
 
@@ -230,6 +231,7 @@ export default function Layout({ children, currentPageName }) {
             <p>© 2026 KOM Water Heaters. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
+              <button onClick={() => scrollToSection("financing")} className="hover:text-white transition-colors text-slate-500">Financing</button>
               <Link to={createPageUrl("PrivacyPolicy")} className="hover:text-white transition-colors">Privacy Policy</Link>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
               {isAdmin && (
