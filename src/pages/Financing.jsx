@@ -120,6 +120,15 @@ export default function Financing() {
             </tbody>
           </table>
         </div>
+        <div className="bg-green-700 rounded-2xl p-8 mt-6 text-center">
+          <h3 className="text-2xl font-extrabold text-white mb-2">Still have questions about financing?</h3>
+          <p className="text-green-100 mb-5">Our team is happy to walk you through your options.</p>
+          <a href="tel:+13138040844">
+            <Button className="bg-white text-green-700 hover:bg-green-50 font-bold px-6">
+              <Phone className="w-4 h-4 mr-2" /> Give Us a Call
+            </Button>
+          </a>
+        </div>
       </div>
     </div>);
 
