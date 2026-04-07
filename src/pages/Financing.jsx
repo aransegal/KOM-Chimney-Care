@@ -34,19 +34,19 @@ export default function Financing() {
         <div className="text-center mb-12">
           <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today
 Pay Over Time</h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
-            Don't let upfront costs hold you back. Financing plans are available so you can get the hot water you need — today!
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’ve partnered with Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments. Heat
+
           </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           {options.map(({ icon: Icon, title, description, highlight }) => <div
-              key={title}
-              className={`rounded-2xl p-6 border-2 flex flex-col gap-3 transition-all hover:shadow-lg ${
-              highlight ?
-              "bg-green-700 border-green-700 text-white" :
-              "bg-white border-slate-200 text-slate-800"}`
-              }>
+            key={title}
+            className={`rounded-2xl p-6 border-2 flex flex-col gap-3 transition-all hover:shadow-lg ${
+            highlight ?
+            "bg-green-700 border-green-700 text-white" :
+            "bg-white border-slate-200 text-slate-800"}`
+            }>
               
               <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${highlight ? "bg-green-600" : "bg-green-100"}`}>
                 <Icon className={`w-5 h-5 ${highlight ? "text-white" : "text-green-700"}`} />
