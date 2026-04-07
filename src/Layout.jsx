@@ -102,13 +102,13 @@ export default function Layout({ children, currentPageName }) {
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
-              {isAdmin && (
-                <Link to={createPageUrl("AdminDashboard")}>
+              {isAdmin &&
+              <Link to={createPageUrl("AdminDashboard")}>
                   <Button variant="outline" size="sm" className="border-orange-300 text-orange-600 hover:bg-orange-50">
                     Admin
                   </Button>
                 </Link>
-              )}
+              }
               <a
                 href="tel:+13138040844" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors"><Phone className="w-4 h-4" /> (313) 804-0844
 
@@ -164,13 +164,13 @@ export default function Layout({ children, currentPageName }) {
                     Book Installation
                   </Button>
                 </Link>
-                {isAdmin && (
-                  <Link to={createPageUrl("AdminDashboard")} onClick={() => setMobileMenuOpen(false)}>
+                {isAdmin &&
+              <Link to={createPageUrl("AdminDashboard")} onClick={() => setMobileMenuOpen(false)}>
                     <Button variant="outline" className="w-full border-orange-300 text-orange-600 hover:bg-orange-50">
                       Admin Dashboard
                     </Button>
                   </Link>
-                )}
+              }
               </div>
             </div>
           </div>
@@ -201,7 +201,7 @@ export default function Layout({ children, currentPageName }) {
                 <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 )}
                 <li>
-                  <Link to="/OwnerSupport" className="hover:text-green-400 transition-colors">Owner Support</Link>
+                  
                 </li>
                 <li>
                   <Link to="/Financing" className="hover:text-green-400 transition-colors">Financing</Link>
@@ -237,12 +237,12 @@ export default function Layout({ children, currentPageName }) {
             <p>© 2026 KOM Water Heaters. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
-              <button onClick={() => scrollToSection("financing")} className="hover:text-white transition-colors text-slate-500">Financing</button>
+              
               <Link to={createPageUrl("PrivacyPolicy")} className="hover:text-white transition-colors">Privacy Policy</Link>
               <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-              {isAdmin && (
-                <Link to={createPageUrl("AdminDashboard")} className="hover:text-white transition-colors">Admin</Link>
-              )}
+              {isAdmin &&
+              <Link to={createPageUrl("AdminDashboard")} className="hover:text-white transition-colors">Admin</Link>
+              }
             </div>
           </div>
         </div>
