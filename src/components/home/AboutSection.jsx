@@ -80,7 +80,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <div>
-            <span className="text-orange-600 mb-3 text-sm font-semibold text-center uppercase tracking-widest block">ABOUT US</span>
+            <span className="text-orange-600 mb-3 text-4xl font-semibold text-center uppercase tracking-widest block">ABOUT US</span>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
               Your Neighborhood Water Heater Specialists
             </h2>
