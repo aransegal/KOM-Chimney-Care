@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { DollarSign, CheckCircle, Clock, CreditCard, BadgePercent } from "lucide-react";
+import { DollarSign, CheckCircle, Clock, CreditCard, Wallet } from "lucide-react";
 
 const options = [
   {
-    icon: BadgePercent,
+    icon: Clock,
     title: "Instant Approval",
     description: "Get approved in seconds via QuickBooks Affirm.",
     highlight: true,
@@ -17,7 +17,7 @@ const options = [
     highlight: false,
   },
   {
-    icon: Clock,
+    icon: Wallet,
     title: "Budget-Friendly",
     description: "Split your total into monthly payments over 3 to 36 months.",
     highlight: false,
