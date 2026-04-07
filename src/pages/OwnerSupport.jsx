@@ -86,7 +86,7 @@ function ProductRow({ product }) {
           <div className="flex-shrink-0 flex gap-1.5">
             
             
-            {product.name.toLowerCase().includes('tall') && <span className="text-xs font-semibold bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full whitespace-nowrap hidden sm:inline">Tall</span>}
+            
             
           </div>
           <span className="text-sm font-semibold text-slate-800 truncate">{product.name}</span>
