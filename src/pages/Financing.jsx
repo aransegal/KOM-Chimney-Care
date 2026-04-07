@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
-import { DollarSign, CheckCircle, Clock, CreditCard, Wallet } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Clock, DollarSign, Wallet, CreditCard, CheckCircle, Phone } from "lucide-react";
 
 const options = [
   {
@@ -14,35 +14,31 @@ const options = [
     icon: DollarSign,
     title: "No Hidden Fees",
     description: "You'll see exactly what you owe upfront. No late fees, no service fees, and no surprises.",
-    highlight: false,
   },
   {
     icon: Wallet,
     title: "Budget-Friendly",
     description: "Split your total into monthly payments over 3 to 36 months.",
-    highlight: false,
   },
   {
     icon: CreditCard,
     title: "No Credit Impact",
     description: 'Checking your eligibility is a "soft pull" and will not affect your credit score.',
-    highlight: false,
   },
 ];
 
-export default function FinancingSection() {
+export default function Financing() {
   return (
-    <section id="financing" className="py-24 bg-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-green-50 py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-
-          <h2 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Financing Available!</h2>
+          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Financing Available!</h1>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             Don't let upfront costs hold you back. Financing plans are available so you can get the hot water you need — today!
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
           {options.map(({ icon: Icon, title, description, highlight }) => (
             <div
               key={title}
@@ -61,14 +57,31 @@ export default function FinancingSection() {
           ))}
         </div>
 
-        <div className="flex justify-center">
-          <Link to="/Financing">
-            <Button className="bg-green-700 hover:bg-green-800 text-white px-10 h-12 text-base">
-              Learn More
-            </Button>
-          </Link>
+        <div className="bg-white border border-green-200 rounded-2xl p-8">
+          <h3 className="text-2xl font-extrabold text-slate-900 mb-4">What's included</h3>
+          <ul className="space-y-2 mb-8">
+            {["No prepayment penalties", "Available on all installation packages", "Approval does not affect credit score"].map((item) => (
+              <li key={item} className="flex items-center gap-2 text-slate-600 text-sm">
+                <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <div className="flex flex-col sm:flex-row gap-3">
+            <Link to={createPageUrl("Booking")}>
+              <Button className="bg-green-700 hover:bg-green-800 text-white px-8 h-12 text-base w-full sm:w-auto">
+                Book with Financing
+              </Button>
+            </Link>
+            <a href="tel:+13138040844">
+              <Button variant="outline" className="border-green-700 text-green-700 hover:bg-green-50 px-8 h-12 text-base w-full sm:w-auto">
+                <Phone className="w-4 h-4 mr-2" />
+                Call to Learn More
+              </Button>
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
