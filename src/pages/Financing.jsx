@@ -69,15 +69,15 @@ Pay Over Time</h1>
           </ul>
           <div className="flex flex-col sm:flex-row gap-3">
             <Link to={createPageUrl("Booking")}>
-              <Button className="bg-green-700 hover:bg-green-800 text-white px-8 h-12 text-base w-full sm:w-auto">
-                Book with Financing
-              </Button>
+              
+
+              
             </Link>
             <a href="tel:+13138040844">
-              <Button variant="outline" className="border-green-700 text-green-700 hover:bg-green-50 px-8 h-12 text-base w-full sm:w-auto">
-                <Phone className="w-4 h-4 mr-2" />
-                Call to Learn More
-              </Button>
+              
+
+
+              
             </a>
           </div>
         </div>
