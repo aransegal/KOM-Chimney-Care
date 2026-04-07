@@ -34,7 +34,7 @@ export default function Financing() {
         <div className="text-center mb-12">
           <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today
 Pay Over Time</h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water Heaters, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’ve partnered with Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water Heaters, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’re using Q
 
           </p>
         </div>
