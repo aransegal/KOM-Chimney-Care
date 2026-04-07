@@ -81,10 +81,10 @@ export default function ServicesPricingSection() {
 
                 {/* Product image */}
                 <div className="flex items-center justify-center p-4 pt-2 bg-slate-50">
-                  <img
-                  src={PRODUCT_IMAGE}
-                  alt={product.name}
-                  className="h-32 object-contain" />
+                  <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/0e4da4c63_xf3bhqwpy6ogb146wkjg__23999.jpg"
+
+                alt={product.name} className="h-32 object-contain" />
+                
                 </div>
 
                 {/* Info */}
