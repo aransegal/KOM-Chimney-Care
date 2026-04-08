@@ -41,80 +41,80 @@ const products = [
 {
   name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Specification Guide": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--Wi1F284t--/ozzvl5hkatozdfsinf2z.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--oSEZFE34--/nr4j0lvnigntjbsmjwqv.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--ks1Y1m9J--/vwl1jpiyourdywvdi4av.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--oSEZFE34--/nr4j0lvnigntjbsmjwqv.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--hoGImRWq--/it6r4ohcmnnvg1furf9t.pdf"
   }
 },
 {
   name: "GE RealMAX Premium 50-Gallon Tall Natural Gas Atmospheric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Specification Guide": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--U45mN9yg--/uqv6vjhuierc9rrxja3e.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--vs_2etUY--/zztiehlizpwjhargenur.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--eXi2YMm5--/vcc43pp6sj7w5brj3lar.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--8ja00UKB--/vfdkuxdobjbszpyqoj1z.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--eXi2YMm5--/vcc43pp6sj7w5brj3lar.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--vs_2etUY--/zztiehlizpwjhargenur.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--hoGImRWq--/it6r4ohcmnnvg1furf9t.pdf"
   }
 },
 {
   name: "GE Smart 30 Gallon Short Electric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Service Manual": "",
-    "Specification Guide": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--8h4ooQd6--/khrw7b6qwimjnjsaw0oy.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--LVNnlhJe--/8144d8ab5252f8f6299adc075b4ba7e4fc969ed2.pdf",
+    "Service Manual": "https://products-salsify.geappliances.com/image/upload/s--FcsjJMHj--/jufhk5pnjwsaczrzmss9.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--IHDtgm8r--/b8x7vkhgb3lj0aiqcmpv.pdf"
   }
 },
 {
   name: "GE Smart 30 Gallon Tall Electric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Service Manual": "",
-    "Specification Guide": "",
-    "Submittal Sheet": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--Ab5q5vtk--/okn3uf29xuvmbsazhkcm.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--SMmA316J--/0b73cac116d06c38db933191b59fdae89129d7d6.pdf",
+    "Service Manual": "https://products-salsify.geappliances.com/image/upload/s--FcsjJMHj--/jufhk5pnjwsaczrzmss9.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Submittal Sheet": "https://products-salsify.geappliances.com/image/upload/s--kKwzgk61--/dkoswlu2fpexkkreelbn.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--IHDtgm8r--/b8x7vkhgb3lj0aiqcmpv.pdf"
   }
 },
 {
   name: "GE Smart 40 Gallon Short Electric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Service Manual": "",
-    "Specification Guide": "",
-    "Submittal Sheet": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--c7ItX9d7--/mer1ccagqsmprgkjcxic.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--fX7kEGaf--/3200af3d3a182bb79ced242cd83f6c0fbe337ef7.pdf",
+    "Service Manual": "https://products-salsify.geappliances.com/image/upload/s--FcsjJMHj--/jufhk5pnjwsaczrzmss9.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Submittal Sheet": "https://products-salsify.geappliances.com/image/upload/s--9qnB_QJD--/gzripftk7cysr81zk1wg.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--IHDtgm8r--/b8x7vkhgb3lj0aiqcmpv.pdf"
   }
 },
 {
   name: "GE Smart 40 Gallon Tall Electric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Service Manual": "",
-    "Specification Guide": "",
-    "Submittal Sheet": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--UN1vUqlJ--/ppskl7nidutqlrteam1g.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--ZHJ9ewoG--/39302343bcd5e327dcf6af59af56d6445de50e07.pdf",
+    "Service Manual": "https://products-salsify.geappliances.com/image/upload/s--FcsjJMHj--/jufhk5pnjwsaczrzmss9.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--t-HnlmFh--/byxibfcluwzsib2quvmc.pdf",
+    "Submittal Sheet": "https://products-salsify.geappliances.com/image/upload/s--YkRlQZsR--/pxuteas7fmzbxl9a9wjz.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--CmUzolcA--/dsdmkwqqovmaokam82yr.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--IHDtgm8r--/b8x7vkhgb3lj0aiqcmpv.pdf"
   }
 }];
 
