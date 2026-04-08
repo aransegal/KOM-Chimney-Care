@@ -63,7 +63,7 @@ const products = [
   }
 },
 {
-  name: "GE® Smart 30 Gallon Short Electric Water Heater",
+  name: "GE Smart 30 Gallon Short Electric Water Heater",
   docs: {
     "Energy Guide": "",
     "Installation Instructions": "",
@@ -76,21 +76,7 @@ const products = [
   }
 },
 {
-  name: "GE® Smart 30 Gallon Tall Electric Water Heater",
-  docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Service Manual": "",
-    "Specification Guide": "",
-    "Submittal Sheet": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
-  }
-},
-{
-  name: "GE® Smart 40 Gallon Short Electric Water Heater",
+  name: "GE Smart 30 Gallon Tall Electric Water Heater",
   docs: {
     "Energy Guide": "",
     "Installation Instructions": "",
@@ -104,7 +90,21 @@ const products = [
   }
 },
 {
-  name: "GE® Smart 40 Gallon Tall Electric Water Heater",
+  name: "GE Smart 40 Gallon Short Electric Water Heater",
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Service Manual": "",
+    "Specification Guide": "",
+    "Submittal Sheet": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
+},
+{
+  name: "GE Smart 40 Gallon Tall Electric Water Heater",
   docs: {
     "Energy Guide": "",
     "Installation Instructions": "",
