@@ -41,13 +41,13 @@ const products = [
 {
   name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Specification Guide": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
+    "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--3mCU6Ld2--/mngg1wbilxp835nfvqtu.pdf",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--vs_2etUY--/zztiehlizpwjhargenur.pdf",
+    "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--eXi2YMm5--/vcc43pp6sj7w5brj3lar.pdf",
+    "Quick Specs": "https://products-salsify.geappliances.com/image/upload/s--C_-4hLt4--/pel9wtsacotfhthoyfah.pdf",
+    "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--eXi2YMm5--/vcc43pp6sj7w5brj3lar.pdf",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--vs_2etUY--/zztiehlizpwjhargenur.pdf",
+    "Warranty": "https://products-salsify.geappliances.com/image/upload/s--hoGImRWq--/it6r4ohcmnnvg1furf9t.pdf"
   }
 },
 {
