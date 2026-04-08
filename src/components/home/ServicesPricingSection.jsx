@@ -61,7 +61,7 @@ export default function ServicesPricingSection() {
             {products.map((product) =>
             <div
               key={product.name}
-              className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:shadow-slate-400/50 border-slate-200`
+              className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:shadow-green-700/30 border-slate-200 hover:border-green-700`
               }>
 
               
