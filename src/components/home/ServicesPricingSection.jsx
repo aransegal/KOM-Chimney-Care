@@ -5,8 +5,10 @@ import { CheckCircle, Phone, AlertTriangle } from "lucide-react";
 
 const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
 
+const DEFAULT_IMAGE = "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/0e4da4c63_xf3bhqwpy6ogb146wkjg__23999.jpg";
+
 const products = [
-{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950" },
+{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/313d84272_xf3bhqwpy6ogb146wkjg__23999.jpg" },
 { name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850" },
 { name: "40 Gal Tall Natural Gas Atmospheric", price: "$1,850", popular: true },
 { name: "50 Gal Tall Natural Gas Atmospheric", price: "$2,300" },
@@ -81,7 +83,7 @@ export default function ServicesPricingSection() {
 
                 {/* Product image */}
                 <div className="flex items-center justify-center p-4 pt-2 bg-slate-50">
-                  <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/0e4da4c63_xf3bhqwpy6ogb146wkjg__23999.jpg"
+                  <img src={product.image || DEFAULT_IMAGE}
 
                 alt={product.name} className="h-32 object-contain" />
                 

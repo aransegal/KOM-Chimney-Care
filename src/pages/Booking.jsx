@@ -13,8 +13,10 @@ const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM –
 
 const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
 
+const DEFAULT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
+
 const products = [
-{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950" },
+{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/313d84272_xf3bhqwpy6ogb146wkjg__23999.jpg" },
 { name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850" },
 { name: "40 Gal Tall Natural Gas Atmospheric", price: "$1,850", popular: true },
 { name: "50 Gal Tall Natural Gas Atmospheric", price: "$2,300" },
@@ -202,7 +204,7 @@ export default function Booking() {
                   {/* Selected product highlight */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
                     <div className="flex items-center gap-5">
-                      <img src={PRODUCT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
+                      <img src={selectedProduct.image || DEFAULT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
                       <div>
                         <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected</div>
                         <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
@@ -230,7 +232,7 @@ export default function Booking() {
                           </div>
                   }
                         <div className="bg-slate-50 pt-7 p-3 flex items-center justify-center">
-                          <img src={PRODUCT_IMAGE} alt={product.name} className="h-20 object-contain" />
+                          <img src={product.image || DEFAULT_IMAGE} alt={product.name} className="h-20 object-contain" />
                         </div>
                         <div className="p-3 flex flex-col flex-1 bg-white">
                           <p className="text-xs font-semibold mb-1 leading-snug text-slate-700">
