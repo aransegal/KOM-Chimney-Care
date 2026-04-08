@@ -17,7 +17,7 @@ const DEFAULT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/objec
 
 const products = [
 { name: "40 Gal Short Natural Gas Power Vent", price: "$2,950", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/313d84272_xf3bhqwpy6ogb146wkjg__23999.jpg" },
-{ name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850" },
+{ name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/6689d43e4_f1oomqrcddmuee732i4k__20622.jpg" },
 { name: "40 Gal Tall Natural Gas Atmospheric", price: "$1,850", popular: true },
 { name: "50 Gal Tall Natural Gas Atmospheric", price: "$2,300" },
 { name: "30 Gal Short Electric", price: "$1,750" },
