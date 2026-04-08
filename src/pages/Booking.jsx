@@ -23,7 +23,7 @@ const products = [
 { name: "30 Gal Short Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/33e57728a_enlo4swfeumewxxc4jko__78942.jpg" },
 { name: "30 Gal Tall Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/339be5113_nqsyyosfufglej4x3sne__989761757215193.jpg" },
 { name: "40 Gal Short Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/14fc469f6_b9oonh88ocq79dknqm5m__97490.jpg" },
-{ name: "40 Gal Tall Electric", price: "$1,750" }];
+{ name: "40 Gal Tall Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/e992cbccc_7a1bb2bdfec02272d5c3e4f178d1e81bb5cd4b58__06280.jpg" }];
 
 
 export default function Booking() {
