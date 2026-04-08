@@ -16,83 +16,123 @@ const DOC_COLORS = {
 const products = [
 {
   name: "GE RealMAX Choice 40-Gallon Short Natural Gas Power Vent Water Heater",
-  type: "Gas Power Vent",
-  gallons: "40 Gal",
-  folderId: "1e1KEfDeXz6K2D-_ovLiX_5QzmFetiFpb",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE RealMAX Choice 40-Gallon Tall Natural Gas Power Vent Water Heater",
-  type: "Gas Power Vent",
-  gallons: "40 Gal",
-  folderId: "1P2Ub_V7mwJn3VVWvUO1aCHKy61gEr8cU",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
-  type: "Gas Atmospheric",
-  gallons: "40 Gal",
-  folderId: "1DKvaam8-XBXOTp-NO0GKOOIt-pGYMbfm",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE RealMAX Premium 50-Gallon Tall Natural Gas Atmospheric Water Heater",
-  type: "Gas Atmospheric",
-  gallons: "50 Gal",
-  folderId: "1BAiIwPT6hNLVzq0vkFOWBioDgUYaJUIj",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Specification Guide", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE® Smart 30 Gallon Short Electric Water Heater",
-  type: "Electric Smart",
-  gallons: "30 Gal",
-  folderId: "13VfFodwWebYHHBz0NAjgQwKMuVUU54fL",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Service Manual": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE® Smart 30 Gallon Tall Electric Water Heater",
-  type: "Electric Smart",
-  gallons: "30 Gal",
-  folderId: "1Q5cUR3a7Kc1pLGpWiGJS2z5JIhYnwVBj",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Service Manual": "",
+    "Specification Guide": "",
+    "Submittal Sheet": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE® Smart 40 Gallon Short Electric Water Heater",
-  type: "Electric Smart",
-  gallons: "40 Gal",
-  folderId: "1IBXd5SQh5VQeCUqVwgY22ksif7u20Phl",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Service Manual": "",
+    "Specification Guide": "",
+    "Submittal Sheet": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 },
 {
   name: "GE® Smart 40 Gallon Tall Electric Water Heater",
-  type: "Electric Smart",
-  gallons: "40 Gal",
-  folderId: "1ajOrsEb6hWPLV3f_K4xik1l8TPHlsu1N",
-  docs: ["Energy Guide", "Installation Instructions", "Quick Reference Guide", "Quick Specs", "Service Manual", "Specification Guide", "Submittal Sheet", "Use and Care Manual", "Warranty"]
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Service Manual": "",
+    "Specification Guide": "",
+    "Submittal Sheet": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
+  }
 }];
 
 
 function ProductRow({ product }) {
   const [expanded, setExpanded] = useState(false);
-  const folderUrl = `https://drive.google.com/drive/folders/${product.folderId}`;
+  const docEntries = Object.entries(product.docs);
 
   return (
     <div className="border border-slate-200 rounded-xl overflow-hidden">
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center justify-between px-5 py-4 bg-white hover:bg-slate-50 transition-colors text-left">
-        
         <div className="flex items-center gap-4 flex-1 min-w-0">
-          <div className="flex-shrink-0 flex gap-1.5">
-            
-            
-            
-            
-          </div>
           <span className="text-sm font-semibold text-slate-800 truncate">{product.name}</span>
         </div>
         <div className="flex items-center gap-3 ml-3 flex-shrink-0">
-          <span className="text-xs text-slate-400 hidden sm:inline">{product.docs.length} documents</span>
+          <span className="text-xs text-slate-400 hidden sm:inline">{docEntries.length} documents</span>
           {expanded ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
         </div>
       </button>
@@ -100,22 +140,22 @@ function ProductRow({ product }) {
       {expanded &&
       <div className="border-t border-slate-100 px-5 py-4 bg-slate-50">
           <div className="flex flex-wrap gap-2">
-            {product.docs.map((doc) =>
+            {docEntries.map(([docName, url]) =>
           <a
-            key={doc}
-            href={folderUrl}
+            key={docName}
+            href={url || undefined}
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors ${DOC_COLORS[doc] || "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"}`}>
-            
-                <FileText className="w-3 h-3" />
-                {doc}
-                <ExternalLink className="w-3 h-3 opacity-50" />
-              </a>
+            onClick={!url ? (e) => e.preventDefault() : undefined}
+            className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-medium transition-colors ${!url ? "opacity-40 cursor-not-allowed" : ""} ${DOC_COLORS[docName] || "bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100"}`}>
+              <FileText className="w-3 h-3" />
+              {docName}
+              {url && <ExternalLink className="w-3 h-3 opacity-50" />}
+            </a>
           )}
           </div>
           <p className="text-xs text-slate-400 mt-3">
-            Documents open in Google Drive. Click any document to view or download.
+            Click any document to open the PDF in a new tab.
           </p>
         </div>
       }
@@ -143,7 +183,7 @@ export default function OwnerSupport() {
           </div>
           <div className="divide-y divide-slate-100">
             {products.map((product) =>
-            <div key={product.folderId} className="px-3 py-2">
+            <div key={product.name} className="px-3 py-2">
                 <ProductRow product={product} />
               </div>
             )}
