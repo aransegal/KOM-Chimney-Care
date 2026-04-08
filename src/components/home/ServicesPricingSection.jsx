@@ -21,7 +21,7 @@ const installationFeatures = [
 "All brand installs",
 "Permit handling",
 "Final inspection",
-"1-year labor warranty",
+"3-month labor warranty",
 "Same-day available"];
 
 
