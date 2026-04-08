@@ -29,18 +29,6 @@ const products = [
 {
   name: "GE RealMAX Choice 40-Gallon Tall Natural Gas Power Vent Water Heater",
   docs: {
-    "Energy Guide": "",
-    "Installation Instructions": "",
-    "Quick Reference Guide": "",
-    "Quick Specs": "",
-    "Specification Guide": "",
-    "Use and Care Manual": "",
-    "Warranty": ""
-  }
-},
-{
-  name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
-  docs: {
     "Energy Guide": "https://products-salsify.geappliances.com/image/upload/s--Wi1F284t--/ozzvl5hkatozdfsinf2z.pdf",
     "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
     "Quick Reference Guide": "https://products-salsify.geappliances.com/image/upload/s--oSEZFE34--/nr4j0lvnigntjbsmjwqv.pdf",
@@ -48,6 +36,18 @@ const products = [
     "Specification Guide": "https://products-salsify.geappliances.com/image/upload/s--oSEZFE34--/nr4j0lvnigntjbsmjwqv.pdf",
     "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
     "Warranty": "https://products-salsify.geappliances.com/image/upload/s--hoGImRWq--/it6r4ohcmnnvg1furf9t.pdf"
+  }
+},
+{
+  name: "GE RealMAX Premium 40-Gallon Tall Natural Gas Atmospheric Water Heater",
+  docs: {
+    "Energy Guide": "",
+    "Installation Instructions": "",
+    "Quick Reference Guide": "",
+    "Quick Specs": "",
+    "Specification Guide": "",
+    "Use and Care Manual": "",
+    "Warranty": ""
   }
 },
 {
