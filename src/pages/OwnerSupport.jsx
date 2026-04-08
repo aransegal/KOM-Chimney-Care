@@ -132,7 +132,7 @@ function ProductRow({ product }) {
           <span className="text-sm font-semibold text-slate-800 truncate">{product.name}</span>
         </div>
         <div className="flex items-center gap-3 ml-3 flex-shrink-0">
-          <span className="text-xs text-slate-400 hidden sm:inline">{docEntries.length} documents</span>
+
           {expanded ? <ChevronUp className="w-4 h-4 text-slate-400" /> : <ChevronDown className="w-4 h-4 text-slate-400" />}
         </div>
       </button>
