@@ -18,11 +18,11 @@ const products = [
   name: "GE RealMAX Choice 40-Gallon Short Natural Gas Power Vent Water Heater",
   docs: {
     "Energy Guide": "https://media.base44.com/files/public/699c9ea61bf0c459e3994bae/e9e1bbcd9_EnergyGuide.pdf",
-    "Installation Instructions": "",
+    "Installation Instructions": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
     "Quick Reference Guide": "https://media.base44.com/files/public/699c9ea61bf0c459e3994bae/d236b182e_QuickReferenceGuide.pdf",
     "Quick Specs": "https://media.base44.com/files/public/699c9ea61bf0c459e3994bae/91cdb4027_QuickSpecs.pdf",
     "Specification Guide": "https://media.base44.com/files/public/699c9ea61bf0c459e3994bae/e79d3f9cc_SpecificationGuide.pdf",
-    "Use and Care Manual": "",
+    "Use and Care Manual": "https://products-salsify.geappliances.com/image/upload/s--TZLqG1lP--/setjxxx26tbk7dnp6ohq.pdf",
     "Warranty": "https://media.base44.com/files/public/699c9ea61bf0c459e3994bae/c03156877_Warranty.pdf"
   }
 },
