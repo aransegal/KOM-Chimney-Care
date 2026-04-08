@@ -68,7 +68,7 @@ export default function Booking() {
         ...b,
         customer_first_name: b.customer_first_name || nameParts[0] || "",
         customer_last_name: b.customer_last_name || nameParts.slice(1).join(" ") || "",
-        customer_email: b.customer_email || user.email || "",
+        customer_email: b.customer_email || user.email || ""
       }));
       // Fetch last booking
       const bookings = await base44.entities.Booking.filter({ created_by: user.email }, "-created_date", 1);
@@ -118,9 +118,9 @@ export default function Booking() {
 
 
 
+
         // Email failed (e.g. non-registered user), booking still confirmed
-      }}setBookingRef(ref);setSubmitted(true);setLoading(false);
-  };
+      }}setBookingRef(ref);setSubmitted(true);setLoading(false);};
 
   if (submitted) {
     return (
@@ -248,7 +248,7 @@ export default function Booking() {
               {!selectedProduct &&
             <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 mb-6">
                   <div className="flex items-center gap-5">
-                    <img src={PRODUCT_IMAGE} alt="No product" className="h-24 object-contain flex-shrink-0 opacity-30" />
+                    
                     <div>
                       <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Product Selected</div>
                       <div className="text-xl font-extrabold text-slate-900">Continue without a product?</div>
@@ -288,31 +288,31 @@ export default function Booking() {
               <p className="text-slate-500 mb-6">We'll use this to confirm your appointment.</p>
 
               {/* Autofill from last booking */}
-              {lastBooking && !autofillDismissed && (
-                <div className="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+              {lastBooking && !autofillDismissed &&
+            <div className="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                   <UserCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <div className="font-semibold text-blue-900 text-sm mb-0.5">Use info from your last booking?</div>
                     <div className="text-blue-700 text-xs mb-3">{lastBooking.customer_name} · {lastBooking.customer_phone} · {lastBooking.customer_address}</div>
                     <div className="flex gap-2">
                       <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white h-8 px-4 text-xs" onClick={() => {
-                        const nameParts = (lastBooking.customer_name || "").split(" ");
-                        setBooking((b) => ({
-                          ...b,
-                          customer_first_name: nameParts[0] || "",
-                          customer_last_name: nameParts.slice(1).join(" ") || "",
-                          customer_email: lastBooking.customer_email || b.customer_email,
-                          customer_phone: lastBooking.customer_phone || "",
-                          customer_address: lastBooking.customer_address || "",
-                          customer_company: lastBooking.customer_company || "",
-                        }));
-                        setAutofillDismissed(true);
-                      }}>Yes, use this info</Button>
+                    const nameParts = (lastBooking.customer_name || "").split(" ");
+                    setBooking((b) => ({
+                      ...b,
+                      customer_first_name: nameParts[0] || "",
+                      customer_last_name: nameParts.slice(1).join(" ") || "",
+                      customer_email: lastBooking.customer_email || b.customer_email,
+                      customer_phone: lastBooking.customer_phone || "",
+                      customer_address: lastBooking.customer_address || "",
+                      customer_company: lastBooking.customer_company || ""
+                    }));
+                    setAutofillDismissed(true);
+                  }}>Yes, use this info</Button>
                       <Button size="sm" variant="outline" className="h-8 px-4 text-xs" onClick={() => setAutofillDismissed(true)}>No thanks</Button>
                     </div>
                   </div>
                 </div>
-              )}
+            }
               <div className="space-y-4 mb-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
