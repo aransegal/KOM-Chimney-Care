@@ -60,9 +60,9 @@ export default function ServicesPricingSection() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {products.map((product) =>
             <div
-              key={product.name}
-              className={`relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:shadow-slate-400/50 border-slate-200`
-              }>
+              key={product.name} className="bg-[hsl(var(--background))] rounded-2xl relative border-2 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:shadow-slate-400/50 border-slate-200">
+
+              
 
                 {product.popular ?
               <div className="text-center pt-2 px-2">
