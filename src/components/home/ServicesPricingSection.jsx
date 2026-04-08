@@ -82,7 +82,7 @@ export default function ServicesPricingSection() {
                 </div>
 
                 {/* Product image */}
-                <div className="flex items-center justify-center p-4 pt-2 bg-slate-50">
+                <div className="bg-transparent pt-2 p-4 flex items-center justify-center">
                   <img src={product.image || DEFAULT_IMAGE}
 
                 alt={product.name} className="h-32 object-contain" />
