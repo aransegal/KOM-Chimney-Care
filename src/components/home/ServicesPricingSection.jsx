@@ -6,14 +6,14 @@ import { CheckCircle, Phone, AlertTriangle } from "lucide-react";
 const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
 
 const products = [
-{ name: "Electric 40 Gallon", price: "$1,895" },
-{ name: "Electric 50 Gallon", price: "$1,995" },
-{ name: "Gas 40 Gallon", price: "$2,095", popular: true },
-{ name: "Gas 50 Gallon", price: "$2,195" },
-{ name: "Electric Power Vent 40 Gallon", price: "$2,695" },
-{ name: "Electric Power Vent 50 Gallon", price: "$2,795" },
-{ name: "Gas Power Vent 40 Gallon", price: "$2,895" },
-{ name: "Gas Power Vent 50 Gallon", price: "$2,995" }];
+{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950" },
+{ name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850" },
+{ name: "40 Gal Tall Natural Gas Atmospheric", price: "$1,850", popular: true },
+{ name: "50 Gal Tall Natural Gas Atmospheric", price: "$2,300" },
+{ name: "30 Gal Short Electric", price: "$1,750" },
+{ name: "30 Gal Tall Electric", price: "$1,750" },
+{ name: "40 Gal Short Electric", price: "$1,750" },
+{ name: "40 Gal Tall Electric", price: "$1,750" }];
 
 
 const installationFeatures = [
