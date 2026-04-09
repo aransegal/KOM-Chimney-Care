@@ -9,7 +9,7 @@ const steps = [
   {
     number: "2",
     title: "Schedule a Diagnostics Appointment",
-    description: "Book a diagnostics visit to verify your selection can be installed properly. A $79 booking fee is applied toward your service total.",
+    description: "Book a diagnostics visit to verify your selection can be installed properly.",
   },
   {
     number: "3",
