@@ -141,7 +141,7 @@ export default function ServicesPricingSection() {
           </h2>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             We believe in honest, upfront pricing. A{" "}
-            <span className="font-bold text-green-700">$79 booking fee</span> secures your appointment — applied toward your service total.
+            <span className="font-bold text-green-700">$79 booking fee</span> secures your diagnostics appointment — applied toward your service total.
           </p>
         </div>
         <div></div>
