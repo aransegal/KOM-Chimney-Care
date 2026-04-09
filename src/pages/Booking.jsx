@@ -53,6 +53,7 @@ export default function Booking() {
   });
   const [fieldErrors, setFieldErrors] = useState({});
   const [confirmNoProduct, setConfirmNoProduct] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [bookingRef, setBookingRef] = useState("");
@@ -500,14 +501,30 @@ export default function Booking() {
                 </div>
               </div>
 
+              {/* Terms Checkbox */}
+              <div className="flex items-start gap-3 mb-6">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={agreedToTerms}
+                  onChange={(e) => setAgreedToTerms(e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-orange-600 cursor-pointer flex-shrink-0"
+                />
+                <label htmlFor="terms" className="text-sm text-slate-600 cursor-pointer">
+                  I agree to the{" "}
+                  <Link to={'/PrivacyPolicy'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
+                  and authorize KOM Water Heaters to contact me regarding my booking.
+                </label>
+              </div>
+
               <div className="flex justify-between">
                 <Button variant="outline" onClick={back}>
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
                 onClick={handleSubmit}
-                disabled={loading}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-10">
+                disabled={loading || !agreedToTerms}
+                className="bg-orange-600 hover:bg-orange-700 text-white px-10 disabled:opacity-50">
 
                   {loading ? "Confirming..." : "Confirm Booking →"}
                 </Button>
