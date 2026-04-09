@@ -161,7 +161,7 @@ export default function Layout({ children, currentPageName }) {
                 </a>
                 <Link to={createPageUrl("Booking")} onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-green-700 hover:bg-green-800 text-white">
-                    Book Installation
+                    Book Diagnostic
                   </Button>
                 </Link>
                 {isAdmin &&
