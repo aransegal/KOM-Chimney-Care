@@ -89,7 +89,7 @@ export default function Layout({ children, currentPageName }) {
               {navLinks.map((link) =>
               <button
                 key={link.id}
-                onClick={() => scrollToSection(link.id)} className="text-slate-950 text-sm font-medium transition-colors hover:text-green-600">
+                onClick={() => scrollToSection(link.id)} className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">
 
 
 
