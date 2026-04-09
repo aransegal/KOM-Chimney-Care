@@ -255,7 +255,7 @@ export default function Booking() {
                     <div>
                       <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Product Selected</div>
                       <div className="text-xl font-extrabold text-slate-900">Not sure which product you want?</div>
-                      <div className="text-sm text-amber-700 mt-1">Press Next to continue to book an appointment without a selection.</div>
+                      <div className="text-sm text-amber-700 mt-1">Press Next to continue to book a diagnostics appointment without a selection.</div>
                     </div>
                   </div>
                   
