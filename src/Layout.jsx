@@ -239,7 +239,7 @@ export default function Layout({ children, currentPageName }) {
               <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
               
               <Link to={createPageUrl("PrivacyPolicy")} className="hover:text-white transition-colors">Privacy Policy</Link>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <Link to="/TermsOfService" className="hover:text-white transition-colors">Terms of Service</Link>
               {isAdmin &&
               <Link to={createPageUrl("AdminDashboard")} className="hover:text-white transition-colors">Admin</Link>
               }

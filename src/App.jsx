@@ -8,6 +8,7 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import OwnerSupport from './pages/OwnerSupport';
+import TermsOfService from './pages/TermsOfService';
 import Financing from './pages/Financing';
 
 const { Pages, Layout, mainPage } = pagesConfig;
@@ -62,6 +63,7 @@ const AuthenticatedApp = () => {
       ))}
       <Route path="/OwnerSupport" element={<LayoutWrapper currentPageName="OwnerSupport"><OwnerSupport /></LayoutWrapper>} />
       <Route path="/Financing" element={<LayoutWrapper currentPageName="Financing"><Financing /></LayoutWrapper>} />
+      <Route path="/TermsOfService" element={<LayoutWrapper currentPageName="TermsOfService"><TermsOfService /></LayoutWrapper>} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
