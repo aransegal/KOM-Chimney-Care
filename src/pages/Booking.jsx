@@ -288,7 +288,7 @@ export default function Booking() {
           {step === 1 &&
           <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Your Contact Information</h2>
-              <p className="text-slate-500 mb-6">We'll use this to confirm your appointment.</p>
+              <p className="text-slate-500 mb-6">We'll use this to confirm your diagnostics appointment.</p>
 
               {/* Autofill from last booking */}
               {lastBooking && !autofillDismissed &&
