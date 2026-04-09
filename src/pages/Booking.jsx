@@ -495,7 +495,7 @@ export default function Booking() {
                   <div>
                     <div className="font-bold text-orange-800 mb-1">$79 Booking Fee</div>
                     <div className="text-orange-700 text-sm">
-                      A $79 booking deposit secures your appointment and is applied toward your service total. Our team will contact you to collect payment and confirm your appointment.
+                      A $79 booking deposit secures your diagnostics appointment and is applied toward your service total. Our team will contact you to collect payment and confirm your appointment.
                     </div>
                   </div>
                 </div>
