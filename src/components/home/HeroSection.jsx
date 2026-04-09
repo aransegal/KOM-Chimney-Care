@@ -37,7 +37,7 @@ export default function HeroSection() {
             <Link to={createPageUrl("Booking")} className="w-full sm:w-auto">
               <Button size="lg" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 rounded-md bg-green-700 hover:bg-green-800 text-white text-base px-8 h-14 shadow-lg shadow-green-900/40 w-full sm:min-w-[275px] min-w-0">
                 <CalendarCheck className="mr-2 w-5 h-5" />
-                Book Installation
+                Book Appointment
               </Button>
             </Link>
             <a href="tel:+13138040844" className="w-full sm:w-auto">
