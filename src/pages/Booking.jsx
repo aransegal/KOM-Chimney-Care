@@ -399,7 +399,7 @@ export default function Booking() {
           {/* STEP 2: Schedule */}
           {step === 2 &&
           <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Your diagnostics Appointment</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Your Diagnostics Appointment</h2>
               <p className="text-slate-500 mb-6">Select a preferred date and time window to schedule an appointment with our experts.</p>
               <div className="space-y-5 mb-6">
                 <div>
