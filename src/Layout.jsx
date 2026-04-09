@@ -119,7 +119,7 @@ export default function Layout({ children, currentPageName }) {
 
               </a>
               <Link to={createPageUrl("Booking")}>
-                <Button className="bg-green-700 hover:bg-green-800 text-white px-5 shadow-md">
+                <Button className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 h-9 py-2 bg-green-700 hover:bg-green-800 text-white px-5 shadow-md">
                   Book Installation
                 </Button>
               </Link>
