@@ -53,6 +53,7 @@ export default function Booking() {
   });
   const [fieldErrors, setFieldErrors] = useState({});
   const [confirmNoProduct, setConfirmNoProduct] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [bookingRef, setBookingRef] = useState("");
@@ -124,9 +125,9 @@ export default function Booking() {
 
 
 
-
         // Email failed (e.g. non-registered user), booking still confirmed
-      }}setBookingRef(ref);setSubmitted(true);setLoading(false);};if (submitted) {return <div className="min-h-screen bg-slate-50 flex items-center justify-center pt-20 px-4">
+      }}setBookingRef(ref);setSubmitted(true);setLoading(false);};if (submitted) {return (
+      <div className="min-h-screen bg-slate-50 flex items-center justify-center pt-20 px-4">
         <div className="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
             <CheckCircle className="w-10 h-10 text-green-600" />
@@ -151,7 +152,7 @@ export default function Booking() {
             Back to Home
           </Button>
         </div>
-      </div>;
+      </div>);
 
   }
 
@@ -217,34 +218,34 @@ export default function Booking() {
 
             <>
                   <p className="text-slate-500 mb-6">Select a product to install or skip to continue without a specific selection.</p>
-                  <div className="text-slate-500 mb-6">Select a product to install or click Next to continue without a specific selection. 
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+                    {products.map((product) =>
+                <button
+                  key={product.name}
+                  onClick={() => {
+                    setSelectedProduct(product);
+                  }}
+                  className="relative rounded-xl border-2 border-slate-200 hover:border-green-400 overflow-hidden flex flex-col transition-all hover:shadow-md text-left">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </div>
+                        {product.popular &&
+                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase whitespace-nowrap z-10">
+                            Most Popular
+                          </div>
+                  }
+                        <div className="bg-transparent pt-7 p-3 flex items-center justify-center">
+                          <img src={product.image || DEFAULT_IMAGE} alt={product.name} className="h-20 object-contain" />
+                        </div>
+                        <div className="p-3 flex flex-col flex-1 bg-white">
+                          <p className="text-slate-700 mb-1 text-xs font-semibold text-center leading-snug">
+                            {product.name}
+                          </p>
+                          <p className="text-slate-900 text-lg font-extrabold text-center">
+                            {product.price}
+                          </p>
+                        </div>
+                      </button>
+                )}
+                  </div>
                 </>
             }
               {!selectedProduct &&
@@ -500,14 +501,30 @@ export default function Booking() {
                 </div>
               </div>
 
+              {/* Terms Checkbox */}
+              <div className="flex items-start gap-3 mb-6">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={agreedToTerms}
+                  onChange={(e) => setAgreedToTerms(e.target.checked)}
+                  className="mt-1 h-4 w-4 accent-orange-600 cursor-pointer flex-shrink-0"
+                />
+                <label htmlFor="terms" className="text-sm text-slate-600 cursor-pointer">
+                  I agree to the{" "}
+                  <Link to={'/PrivacyPolicy'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
+                  and authorize KOM Water Heaters to contact me regarding my booking.
+                </label>
+              </div>
+
               <div className="flex justify-between">
                 <Button variant="outline" onClick={back}>
                   <ChevronLeft className="mr-1 w-4 h-4" /> Back
                 </Button>
                 <Button
                 onClick={handleSubmit}
-                disabled={loading}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-10">
+                disabled={loading || !agreedToTerms}
+                className="bg-orange-600 hover:bg-orange-700 text-white px-10 disabled:opacity-50">
 
                   {loading ? "Confirming..." : "Confirm Booking →"}
                 </Button>
