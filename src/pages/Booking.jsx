@@ -217,7 +217,7 @@ export default function Booking() {
                 </> :
 
             <>
-                  <p className="text-slate-500 mb-6">Select a product to install or choose Next to continue to book an appointment without a specific selection.</p>
+                  <p className="text-slate-500 mb-6">Select a product to install or choose Next to continue to book an appointment without a selection.</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     {products.map((product) =>
                 <button
