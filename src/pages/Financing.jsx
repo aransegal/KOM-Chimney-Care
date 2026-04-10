@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
@@ -27,6 +28,8 @@ const options = [
 
 
 export default function Financing() {
+  useEffect(() => { window.scrollTo(0, 0); }, []);
+
   return (
     <div className="min-h-screen bg-green-50 py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
