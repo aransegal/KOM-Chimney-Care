@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Phone, AlertTriangle } from "lucide-react";
+import { CheckCircle, Phone, AlertTriangle, X } from "lucide-react";
 
 const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
 
@@ -28,7 +29,29 @@ const installationFeatures = [
 
 
 export default function ServicesPricingSection() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   return (
+    <>
+    {lightboxImage && (
+      <div
+        className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+        onClick={() => setLightboxImage(null)}
+      >
+        <button
+          className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/70"
+          onClick={() => setLightboxImage(null)}
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <img
+          src={lightboxImage}
+          alt="Product"
+          className="max-h-[80vh] max-w-[80vw] object-contain rounded-xl shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        />
+      </div>
+    )}
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -85,9 +108,12 @@ export default function ServicesPricingSection() {
 
                 {/* Product image */}
                 <div className="bg-transparent pt-2 p-4 flex items-center justify-center">
-                  <img src={product.image || DEFAULT_IMAGE}
-
-                alt={product.name} className="h-32 object-contain" />
+                  <img
+                    src={product.image || DEFAULT_IMAGE}
+                    alt={product.name}
+                    className="h-32 object-contain cursor-zoom-in"
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLightboxImage(product.image || DEFAULT_IMAGE); }}
+                  />
                 
                 </div>
 
@@ -147,6 +173,7 @@ export default function ServicesPricingSection() {
         <div></div>
 
       </div>
-    </section>);
+    </section>
+    </>);
 
 }
