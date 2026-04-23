@@ -55,10 +55,10 @@ export default function EmergencyPopup() {
             ))}
           </ul>
 
-          <a href="tel:+13138040844" className="block mb-3">
+          <a href="tel:+17346662338" className="block mb-3">
             <Button className="w-full bg-red-600 hover:bg-red-700 text-white h-13 text-base font-bold gap-2">
               <Phone className="w-5 h-5" />
-              Call (313) 804-0844 Now
+              Call (734) 666-2338 Now
             </Button>
           </a>
           <button
