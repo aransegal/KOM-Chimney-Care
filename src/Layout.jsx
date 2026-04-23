@@ -110,7 +110,7 @@ export default function Layout({ children, currentPageName }) {
                 </Link>
               }
               <a
-                href="tel:+13138040844" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors"><Phone className="w-4 h-4" /> (313) 804-0844
+                href="tel:+17346662338" className="text-gray-900 text-sm font-semibold flex items-center gap-1.5 hover:text-green-600 transition-colors"><Phone className="w-4 h-4" /> (734) 666-2338
 
 
 
@@ -153,11 +153,11 @@ export default function Layout({ children, currentPageName }) {
               <Link to={createPageUrl("Account")} onClick={() => setMobileMenuOpen(false)} className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">My Orders</Link>
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 <a
-                href="tel:+13138040844"
+                href="tel:+17346662338"
                 className="flex items-center gap-2 py-3 px-3 text-slate-700 font-semibold">
 
                   <Phone className="w-4 h-4 text-green-600" />
-                  (313) 804-0844
+                  (734) 666-2338
                 </a>
                 <Link to={createPageUrl("Booking")} onClick={() => setMobileMenuOpen(false)}>
                   <Button className="w-full bg-green-700 hover:bg-green-800 text-white">
@@ -221,7 +221,7 @@ export default function Layout({ children, currentPageName }) {
               <ul className="space-y-3 text-slate-400 text-sm">
                 <li className="flex items-center gap-2">
                   <Phone className="w-4 h-4 text-green-500 flex-shrink-0" />
-                  (313) 804-0844
+                  (734) 666-2338
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-4 h-4 flex-shrink-0 text-orange-500 text-center">@</span>

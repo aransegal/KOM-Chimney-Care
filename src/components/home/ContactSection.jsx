@@ -38,9 +38,9 @@ export default function ContactSection() {
             {
               icon: Phone,
               title: "Call or Text",
-              info: "(313) 804-0844",
+              info: "(734) 666-2338",
               sub: "24/7 for emergencies",
-              href: "tel:+13138040844"
+              href: "tel:+17346662338"
             },
             {
               icon: Mail,

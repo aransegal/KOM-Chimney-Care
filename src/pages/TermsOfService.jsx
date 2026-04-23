@@ -286,7 +286,7 @@ export default function TermsOfService() {
               <p>Detroit, MI 48206</p>
               <p>United States</p>
               <p><a href="mailto:Kom.construction.llc@gmail.com" className="text-green-700 hover:underline">Kom.construction.llc@gmail.com</a></p>
-              <p><a href="tel:+13138040844" className="text-green-700 hover:underline">+1 313-804-0844</a></p>
+              <p><a href="tel:+17346662338" className="text-green-700 hover:underline">+1 734-666-2338</a></p>
             </address>
           </section>
 

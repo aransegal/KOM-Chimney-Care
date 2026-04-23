@@ -40,7 +40,7 @@ export default function HeroSection() {
                 Book Diagnostic
               </Button>
             </Link>
-            <a href="tel:+13138040844" className="w-full sm:w-auto">
+            <a href="tel:+17346662338" className="w-full sm:w-auto">
               <Button size="lg" variant="outline" className="inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 bg-background shadow-sm rounded-md border-0 border-red-500 bg-red-600 hover:bg-red-700 text-white hover:text-white px-8 h-14 w-full sm:min-w-[275px] min-w-0">
                 <AlertTriangle className="mr-2 w-5 h-5" />
                 24/7 Emergency Service
