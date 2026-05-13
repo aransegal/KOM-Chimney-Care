@@ -67,7 +67,11 @@ Modern water heaters are also significantly more energy efficient than older mod
 
 Typical recommendations:
 
-• Homes with large tubs, multiple bathrooms, or heavy appliance use may require larger systems or tankless upgrades.
+• 1–2 people → 40 gallon
+• 3–4 people → 50 gallon
+• 5+ people → 50–75 gallon
+
+Homes with large tubs, multiple bathrooms, or heavy appliance use may require larger systems or tankless upgrades.
 
 Our diagnostics appointment helps verify the correct sizing before installation.`
   },
