@@ -59,6 +59,7 @@ export default function Layout({ children, currentPageName }) {
   { label: "Products", id: "pricing" },
   { label: "Financing", id: "financing" },
   { label: "About Us", id: "about" },
+  { label: "FAQ", id: "faq" },
   { label: "Contact Us", id: "contact" }];
 
 
@@ -237,6 +238,7 @@ export default function Layout({ children, currentPageName }) {
             <p>© 2026 KOM Water Heaters. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
+              <button onClick={() => scrollToSection("faq")} className="hover:text-white transition-colors">FAQ</button>
               
               <Link to={createPageUrl("PrivacyPolicy")} className="hover:text-white transition-colors">Privacy Policy</Link>
               <Link to="/TermsOfService" className="hover:text-white transition-colors">Terms of Service</Link>
