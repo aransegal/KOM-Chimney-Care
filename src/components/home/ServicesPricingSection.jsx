@@ -25,7 +25,8 @@ const installationFeatures = [
 "Permit handling",
 "Final inspection",
 "3-month labor warranty",
-"Same-day available"];
+"Same-day available",
+"Manufacturer warranty on parts"];
 
 
 export default function ServicesPricingSection() {
