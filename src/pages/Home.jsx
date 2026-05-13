@@ -7,6 +7,7 @@ import EmergencyPopup from "../components/home/EmergencyPopup";
 import ReviewsStrip from "../components/home/ReviewsStrip";
 import FinancingSection from "../components/home/FinancingSection";
 import ProcessSection from "../components/home/ProcessSection";
+import FAQSection from "../components/home/FAQSection";
 
 export default function Home() {
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Home() {
       <ReviewsStrip />
       <FinancingSection />
       <AboutSection />
+      <FAQSection />
       <ContactSection />
     </>
   );
