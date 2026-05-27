@@ -82,7 +82,7 @@ export default function Layout({ children, currentPageName }) {
                 <img
                   src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/175bae279_logowide1200x630nobackground.png"
                   alt="KOM Water Heaters"
-                  className="h-12 w-auto" />
+                  className="h-12 w-auto mix-blend-multiply" />
               </button>
             </div>
 
