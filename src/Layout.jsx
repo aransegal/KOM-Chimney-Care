@@ -80,7 +80,7 @@ export default function Layout({ children, currentPageName }) {
                 onClick={() => scrollToSection("hero")}
                 className="flex items-center">
                 <img
-                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/175bae279_logowide1200x630nobackground.png"
+                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/4c137aafe_logowide1200x630whitebackground.png"
                   alt="KOM Water Heaters"
                   className="h-12 w-auto" />
               </button>
