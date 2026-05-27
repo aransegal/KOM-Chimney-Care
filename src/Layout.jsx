@@ -80,10 +80,9 @@ export default function Layout({ children, currentPageName }) {
                 onClick={() => scrollToSection("hero")}
                 className="flex items-center">
                 <img
-                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/050781541_logowide1200x630.png"
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
                   alt="KOM Water Heaters"
-                  className="h-12 w-auto"
-                  style={{ mixBlendMode: 'multiply' }} />
+                  className="h-12 w-auto" />
               </button>
             </div>
 
@@ -187,9 +186,9 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
                 <img
-                   src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/050781541_logowide1200x630.png"
-                   alt="KOM Water Heaters"
-                   className="h-10 w-auto brightness-0 invert" />
+                  src="https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/3c3926438_logo_-_gradient_-_no_bckground-removebg-preview.png"
+                  alt="KOM Water Heaters"
+                  className="h-10 w-auto brightness-0 invert" />
 
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">Professional water heater installation and repairs. 
