@@ -26,7 +26,7 @@ export default function HeroSection() {
 
 
           <div className="mb-6">
-            <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Water Heater</h1>
+            <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Chimney Care</h1>
             <h1 className="text-green-700 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Experts</h1>
             <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>You Can Trust</h1>
           </div>
