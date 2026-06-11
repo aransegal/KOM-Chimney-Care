@@ -170,9 +170,7 @@ export default function OwnerSupport() {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-3">Owner Support</h1>
-          <p className="text-slate-500 text-lg max-w-2xl mx-auto">Find installation instructions, manuals, warranty documents, and more for your water heater.
-
-          </p>
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">Find installation instructions, manuals, warranty documents, and more for your water heater unit.</p>
         </div>
 
         {/* Product Documents Table */}

@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
 
         <div className="space-y-6 text-slate-700 text-sm leading-relaxed">
 
-          <p>KOM Construction LLC, doing business as KOM Water Heaters ("KOM," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and protect information when you visit the KOM Water Heaters website and any related pages, forms, or communications that link to this Privacy Policy (collectively, the "Site"), contact us, request information, book a diagnostic appointment, schedule service, or otherwise interact with us.</p>
+          <p>KOM Construction LLC, doing business as KOM Chimney Care ("KOM," "we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, disclose, and protect information when you visit the KOM Chimney Care website and any related pages, forms, or communications that link to this Privacy Policy (collectively, the "Site"), contact us, request information, book a diagnostic appointment, schedule service, or otherwise interact with us.</p>
 
           <p>By using the Site or submitting information to us, you agree to the practices described in this Privacy Policy.</p>
 
@@ -224,7 +224,7 @@ export default function PrivacyPolicy() {
             <h2 className="text-base font-bold text-slate-900 mb-2">13. Contact Us</h2>
             <p className="mb-3">If you have questions about this Privacy Policy or our privacy practices, contact us at:</p>
             <address className="not-italic space-y-1">
-              <p><strong>KOM Construction LLC d/b/a KOM Water Heaters</strong></p>
+              <p><strong>KOM Construction LLC d/b/a KOM Chimney Care</strong></p>
               <p>2712 Northwestern St</p>
               <p>Detroit, MI 48206</p>
               <p>United States</p>

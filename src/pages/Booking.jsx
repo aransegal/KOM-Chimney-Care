@@ -512,8 +512,10 @@ export default function Booking() {
                 />
                 <label htmlFor="terms" className="text-sm text-slate-600 cursor-pointer">
                   I agree to the{" "}
-                  <Link to={'/PrivacyPolicy'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
-                  and authorize KOM Water Heaters to contact me regarding my booking.
+                  <Link to={'/TermsOfService'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
+                  and{" "}
+                  <Link to={'/PrivacyPolicy'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Privacy Policy</Link>
+                  , and authorize KOM Chimney Care to contact me regarding my booking.
                 </label>
               </div>
 

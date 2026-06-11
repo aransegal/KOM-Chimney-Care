@@ -11,16 +11,18 @@ export default function TermsOfService() {
 
         <div className="space-y-6 text-slate-700 text-sm leading-relaxed">
 
-          <p>Welcome to KOM Water Heaters. These Terms of Service ("Terms") govern your access to and use of the website located at [www.komwaterheaters.com] and any related pages, forms, content, communications, and services offered through the site (collectively, the "Site").</p>
+          <p>Welcome to KOM Chimney Care. These Terms of Service ("Terms") govern your access to and use of this website and any related pages, forms, content, communications, and services offered through the site (collectively, the "Site").</p>
 
-          <p>These Terms form a binding agreement between you and KOM Construction LLC, doing business as KOM Water Heaters ("KOM," "we," "us," or "our"). By accessing or using the Site, submitting a request, booking an appointment, or otherwise engaging with us through the Site, you agree to these Terms. If you do not agree, do not use the Site.</p>
+          <p>These Terms form a binding agreement between you and KOM Construction LLC, doing business as KOM Chimney Care ("KOM," "we," "us," or "our"). By accessing or using the Site, submitting a request, booking an appointment, or otherwise engaging with us through the Site, you agree to these Terms. If you do not agree, do not use the Site.</p>
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">1. Services Covered by These Terms</h2>
             <p className="mb-2">KOM Water Heaters offers the services displayed on the Site, which currently include:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
-              <li>New water heater installation</li>
-              <li>Emergency water heater service</li>
+              <li>Chimney cleaning and sweeping</li>
+              <li>Chimney inspection</li>
+              <li>Chimney repair</li>
+              <li>Emergency chimney service</li>
             </ul>
             <p>Any additional services, products, or service plans are offered only if expressly shown on the Site or confirmed by KOM in writing.</p>
           </section>
@@ -280,7 +282,7 @@ export default function TermsOfService() {
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">28. Contact Information</h2>
             <address className="not-italic space-y-1">
-              <p><strong>KOM Water Heaters</strong></p>
+              <p><strong>KOM Chimney Care</strong></p>
               <p>Legal Business Name: KOM Construction LLC</p>
               <p>2712 Northwestern St</p>
               <p>Detroit, MI 48206</p>

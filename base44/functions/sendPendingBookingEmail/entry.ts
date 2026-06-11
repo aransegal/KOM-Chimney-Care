@@ -15,7 +15,7 @@ Deno.serve(async (req) => {
 <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">
   <h2 style="color:#d97706;">Booking Received – We'll Be in Touch Shortly! 🕐</h2>
   <p>Hi ${booking.customer_name},</p>
-  <p>Thank you for booking with <strong>KOM Water Heaters</strong>! We've received your request and a specialist will contact you within 2 hours to confirm your appointment.</p>
+  <p>Thank you for booking with <strong>KOM Chimney Care</strong>! We've received your request and a specialist will contact you within 2 hours to confirm your appointment.</p>
   <br>
   <table style="width:100%;border-collapse:collapse;background:#f9fafb;border-radius:8px;padding:16px;">
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Booking Ref</td><td style="padding:8px 12px;font-weight:700;color:#111827;">${booking.booking_number}</td></tr>
@@ -26,14 +26,14 @@ Deno.serve(async (req) => {
   </table>
   <br>
   <p>Need immediate assistance? Call us directly:</p>
-  <p style="font-size:18px;font-weight:700;color:#d97706;">📞 (313) 804-0844</p>
+  <p style="font-size:18px;font-weight:700;color:#d97706;">📞 (734) 666-2338</p>
   <br>
-  <p style="color:#6b7280;font-size:13px;">Thank you for choosing KOM Water Heaters!</p>
+  <p style="color:#6b7280;font-size:13px;">Thank you for choosing KOM Chimney Care!</p>
 </div>`;
 
         try {
             await base44.asServiceRole.integrations.Core.SendEmail({
-                from_name: "KOM Water Heaters",
+                from_name: "KOM Chimney Care",
                 to: booking.customer_email,
                 subject: `Booking Received – ${booking.booking_number}`,
                 body: emailBody,

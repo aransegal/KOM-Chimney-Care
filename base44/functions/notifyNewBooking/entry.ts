@@ -16,7 +16,7 @@ Deno.serve(async (req) => {
         }
 
         const emailSubject = `New Booking Request - ${booking.customer_name}`;
-        const emailBody = `<p>A new booking request has been submitted on KOM Water Heaters.</p>
+        const emailBody = `<p>A new booking request has been submitted on KOM Chimney Care.</p>
 <br>
 <p><strong>Customer:</strong> ${booking.customer_name}</p>
 <p><strong>Phone:</strong> ${booking.customer_phone}</p>

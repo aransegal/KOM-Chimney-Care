@@ -4,265 +4,143 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "How much does a new water heater cost?",
-    answer: `The average cost to replace a residential water heater in the United States ranges from $1,500 to $3,500 installed, depending on:
+    question: "How often should I have my chimney cleaned?",
+    answer: `The National Fire Protection Association (NFPA 211) recommends that chimneys, fireplaces, and vents be inspected at least once a year and cleaned as needed.
 
-• Tank size (40 vs 50 gallon)
-• Gas vs electric
-• Power vent requirements
-• Plumbing modifications
-• Permit and code upgrades
-• Emergency installation timing
+As a general rule:
+• If you use your fireplace regularly (weekly during heating season), clean it annually before the season starts.
+• If you use it occasionally, clean it every 1–2 years.
+• Wood-burning fireplaces require more frequent cleaning than gas fireplaces due to creosote buildup.
 
-At KOM Water Heaters, most standard installations fall within this range and include professional installation, removal of the old unit, and code-compliant connections.
-
-Power vent systems and tankless upgrades typically cost more due to venting and electrical requirements.`
+At KOM Chimney Care, we recommend scheduling your cleaning in late summer or early fall before you begin using your fireplace for the season.`
   },
   {
-    question: "How long does a water heater last?",
-    answer: `Most traditional tank water heaters last:
+    question: "What is a chimney inspection and do I need one?",
+    answer: `A chimney inspection is a professional evaluation of your chimney's condition, structure, and safety.
 
-• 8–12 years for standard gas models
-• 10–15 years for electric models
-• 15–20+ years for tankless systems
+The NFPA recommends three levels of inspection:
+• Level 1 — Basic visual check, recommended annually for fireplaces in regular use.
+• Level 2 — More detailed examination, required when buying or selling a home, after a chimney fire, or after any changes to the system.
+• Level 3 — Invasive inspection for suspected hidden damage.
 
-Lifespan depends heavily on:
+You need an inspection if:
+• You haven't had one in over a year
+• You recently moved into a home
+• You've had a chimney fire
+• You notice smoke, odors, or draft issues
 
-• Water quality
-• Maintenance frequency
-• Sediment buildup
-• Usage patterns
-• Installation quality
-
-Annual flushing and anode rod inspections can significantly extend the life of a water heater.`
+KOM Chimney Care performs all levels of inspection and will advise the appropriate level for your situation.`
   },
   {
-    question: "What are signs that my water heater is failing?",
-    answer: `Common warning signs include:
+    question: "What is creosote and why is it dangerous?",
+    answer: `Creosote is a dark, tar-like byproduct of burning wood. It builds up on the interior walls of your chimney flue over time.
 
-• Water not getting hot enough
-• Running out of hot water quickly
-• Rust-colored water
-• Water leaking around the tank
-• Rumbling or popping noises
-• Higher utility bills
-• Pilot light issues (gas units)
-• Water taking longer to heat
+There are three stages:
+• Stage 1 — Light, flaky deposits. Easiest to remove.
+• Stage 2 — Harder, shiny or crunchy buildup. Requires professional tools.
+• Stage 3 — Thick, glazed coating. Highly flammable and very difficult to remove.
 
-If your water heater is over 10 years old and showing multiple symptoms, replacement is often more cost-effective than repeated repairs.`
+Creosote is the leading cause of chimney fires. Even a small amount of Stage 3 creosote can ignite and reach temperatures over 2,000°F.
+
+Annual cleaning removes creosote before it reaches dangerous levels.`
   },
   {
-    question: "Should I repair or replace my water heater?",
-    answer: `A good rule of thumb:
+    question: "Why is smoke coming back into my house?",
+    answer: `Smoke or backdraft into the living space is a common complaint and can have several causes:
 
-• If the repair costs less than 30–40% of replacement cost and the unit is under 8 years old, repair may make sense.
-• If the tank is leaking, replacement is usually required.
-• If the unit is over 10 years old and experiencing repeated issues, replacement is typically the smarter long-term investment.
+• Negative air pressure in the home (tight insulation, exhaust fans pulling air down the chimney)
+• Cold chimney flue that hasn't warmed up yet
+• Blocked or partially blocked flue (debris, animal nest, creosote buildup)
+• Chimney too short relative to the roofline
+• Damaged or missing chimney cap
+• Improper damper operation
 
-Modern water heaters are also significantly more energy efficient than older models, which can reduce monthly utility costs.`
+In most cases this is fixable. We diagnose the root cause during inspection and provide a clear repair recommendation.`
   },
   {
-    question: "How do I know what size water heater I need?",
-    answer: `The correct size depends on the number of people in the home and simultaneous hot water usage.
+    question: "Why does my fireplace or chimney smell bad?",
+    answer: `Common chimney odors and their causes:
 
-Typical recommendations:
+• Campfire or smoky smell — Creosote buildup reacting with humidity or warm air. Most common in summer.
+• Musty or damp smell — Water intrusion, usually from a missing or damaged chimney cap or deteriorated crown.
+• Animal smell — Animal nest or, in severe cases, an animal trapped inside the flue.
 
-• 1–2 people → 40 gallon
-• 3–4 people → 50 gallon
-• 5+ people → 50–75 gallon
+Odors are often worse during humid weather or when AC is running because negative air pressure pulls air down through the chimney.
 
-Homes with large tubs, multiple bathrooms, or heavy appliance use may require larger systems or tankless upgrades.
-
-Our diagnostics appointment helps verify the correct sizing before installation.`
+A cleaning and inspection will identify the source. A chimney cap is often the most effective long-term fix.`
   },
   {
-    question: "What is the difference between gas and electric water heaters?",
-    answer: `Gas Water Heaters:
-• Heat water faster
-• Lower operating cost in many areas
-• Continue working during some power outages
-• Require venting
+    question: "Can water leak into a chimney? What causes it?",
+    answer: `Yes. Water is one of the most common and damaging chimney problems.
 
-Electric Water Heaters:
-• Lower upfront equipment cost
-• Simpler installation
-• More energy efficient at point-of-use
-• Slower recovery rate
+Sources of water intrusion include:
+• Missing or damaged chimney cap — allows rain directly into the flue
+• Cracked or deteriorated chimney crown (the mortar slab at the top of the chimney)
+• Failed or missing flashing (the metal seal where the chimney meets the roof)
+• Cracked or spalling masonry — freeze/thaw cycles cause bricks to crack over time
+• No waterproof sealant on masonry
 
-Gas models are often preferred for larger households with higher hot water demand.`
+Left untreated, water damage can cause rusted dampers, deteriorated flue liners, structural damage to the chimney, and water stains on interior walls or ceilings.
+
+KOM Chimney Care inspects and repairs all water intrusion points.`
   },
   {
-    question: "What is a power vent water heater?",
-    answer: `A power vent water heater uses an electric fan to push exhaust gases outside through PVC venting.
+    question: "What if an animal is nesting in my chimney?",
+    answer: `Animals — especially chimney swifts, squirrels, raccoons, and birds — commonly nest in chimneys.
 
-Advantages include:
-• More flexible venting options
-• Better installation flexibility
-• Higher efficiency in some homes
+Important notes:
+• Chimney swifts are a federally protected migratory species. If they are nesting, you must wait until they leave before cleaning or capping the chimney. Do not attempt to remove them.
+• Squirrels and raccoons can be removed by a licensed wildlife removal service before chimney work begins.
+• After removal, we can install a quality chimney cap to prevent future entry.
 
-Power vent systems are commonly required when traditional chimney venting is unavailable.
-
-They are typically more expensive than standard atmospheric vent systems due to electrical and venting requirements.`
+Never light a fire if you suspect an animal blockage — this is dangerous and can result in a flue fire or carbon monoxide buildup in the home.`
   },
   {
-    question: "How often should a water heater be flushed?",
-    answer: `Most manufacturers recommend flushing a tank water heater once per year.
+    question: "How long does a chimney cleaning take?",
+    answer: `A standard chimney cleaning typically takes 45 minutes to 1.5 hours for a single fireplace.
 
-Flushing helps remove sediment buildup that can:
-• Reduce efficiency
-• Increase energy bills
-• Cause overheating
-• Create rumbling noises
-• Shorten tank lifespan
+Factors that can affect duration:
+• Severity of creosote buildup
+• Number of fireplaces or flues
+• Whether an inspection is performed at the same time
+• Accessibility of the chimney (roof pitch, height)
 
-Homes with hard water may require more frequent maintenance.`
+We take care to protect your home — using drop cloths and high-efficiency vacuums to contain soot and debris throughout the process.`
   },
   {
-    question: "Why is my water heater making rumbling or popping noises?",
-    answer: `These noises are usually caused by sediment buildup at the bottom of the tank.
+    question: "Does the homeowner need to be present during service?",
+    answer: `Yes, we require an authorized adult (18+) to be present during the service appointment.
 
-As water becomes trapped beneath hardened sediment, steam bubbles form and create popping or rumbling sounds.
+This is necessary to:
+• Provide access to the fireplace, attic, or roof as needed
+• Review findings and receive any recommendations directly
+• Authorize any additional work if needed
+• Confirm the work is complete before the technician leaves
 
-This can:
-• Reduce efficiency by 10–20%
-• Increase heating time
-• Damage the tank over time
-
-Professional flushing may help if the unit is not too old.`
+If you cannot be present, please contact us in advance to discuss arrangements. We cannot begin work on an unoccupied property without prior authorization.`
   },
   {
-    question: "Why is my hot water running out quickly?",
-    answer: `Possible causes include:
-• Sediment buildup
-• Broken dip tube
-• Failed heating element
-• Thermostat issues
-• Undersized tank
-• Aging water heater
+    question: "How do I book a chimney cleaning or inspection?",
+    answer: `Booking is simple:
 
-In many cases, homes outgrow their original water heater size over time due to additional occupants or increased hot water usage.`
+1. Click "Book Diagnostic" from anywhere on our site.
+2. Select a date and time window that works for you.
+3. Provide your contact information and service address.
+4. A KOM specialist will call you within 2 hours to confirm your appointment.
+
+A $79 diagnostic fee secures your appointment and is applied toward the cost of your service.
+
+For same-day or emergency service, call us directly at (734) 666-2338 — we're available 24/7.`
   },
   {
-    question: "Why is my water heater leaking?",
-    answer: `Leaks can come from:
-• Loose fittings
-• Drain valves
-• Temperature & pressure relief valve
-• Internal tank corrosion
+    question: "What is your cancellation policy?",
+    answer: `We understand that plans change.
 
-If the actual tank body is leaking, replacement is usually necessary because the steel tank itself cannot be permanently repaired.
+• You may reschedule your appointment at any time by calling us or replying to your confirmation email.
+• The $79 diagnostic fee is non-refundable once the appointment is confirmed by our team.
+• If we need to reschedule due to weather, technician availability, or other operational factors, we will contact you as soon as possible and offer the next available slot at no additional charge.
 
-Water heater leaks should be addressed immediately to avoid water damage and mold issues.`
-  },
-  {
-    question: "What temperature should a water heater be set to?",
-    answer: `The U.S. Department of Energy recommends setting residential water heaters to 120°F (49°C).
-
-This temperature:
-• Reduces energy consumption
-• Lowers scalding risk
-• Provides sufficient hot water for most homes
-
-Higher temperatures increase energy usage and can create burn hazards.`
-  },
-  {
-    question: "Are tankless water heaters worth it?",
-    answer: `Tankless water heaters can be a good investment for some homeowners.
-
-Benefits include:
-• Endless hot water
-• Longer lifespan (often 20+ years)
-• Lower standby energy loss
-• Space savings
-
-However:
-• Installation costs are higher
-• Gas and electrical upgrades may be needed
-• Simultaneous high-demand usage can still create limitations
-
-Tankless systems work best for homes planning long-term occupancy and energy-efficiency upgrades.`
-  },
-  {
-    question: "How energy efficient are modern water heaters?",
-    answer: `Modern water heaters are significantly more efficient than systems installed 10–15 years ago.
-
-High-efficiency models can reduce water heating energy usage by:
-• 10–20% for standard tank systems
-• 20–35% for tankless systems
-• Up to 60% for hybrid heat pump models
-
-Water heating typically accounts for around 18–20% of a home's energy bill, making efficiency an important consideration.`
-  },
-  {
-    question: "Do you remove the old water heater?",
-    answer: `Yes. KOM Water Heaters removes and disposes of old water heaters as part of the installation process.
-
-Old tanks are typically recycled according to local regulations.`
-  },
-  {
-    question: "How fast can a water heater be installed?",
-    answer: `In many standard replacement cases, installation can be completed within 2–4 hours once diagnostics are approved.
-
-More complex installations involving:
-• Venting upgrades
-• Gas line modifications
-• Electrical upgrades
-• Relocation of the unit
-
-may require additional time.
-
-KOM Water Heaters aims to complete approved installations within 48 hours whenever possible.`
-  },
-  {
-    question: "Is a leaking water heater dangerous?",
-    answer: `Yes, it can be.
-
-A leaking water heater may create:
-• Water damage
-• Mold growth
-• Electrical hazards
-• Gas safety concerns
-• Pressure-related risks
-
-If you notice significant leaking:
-• Shut off power or gas to the unit
-• Shut off the water supply if possible
-• Contact a licensed professional immediately`
-  },
-  {
-    question: "How can I make my water heater last longer?",
-    answer: `Best practices include:
-• Annual tank flushing
-• Replacing the anode rod every 3–5 years
-• Keeping temperature at 120°F
-• Addressing leaks early
-• Installing a water softener in hard water areas
-• Scheduling periodic inspections
-
-Proper maintenance can extend tank lifespan by several years.`
-  },
-  {
-    question: "Why does my hot water smell bad?",
-    answer: `A rotten egg or sulfur smell is commonly caused by bacteria reacting with the anode rod inside the tank.
-
-Possible solutions include:
-• Flushing the system
-• Replacing the anode rod
-• Disinfecting the tank
-
-This issue is more common in homes with well water.`
-  },
-  {
-    question: "Do I need a permit to replace a water heater?",
-    answer: `In many Michigan municipalities, yes.
-
-Permits and inspections help ensure:
-• Proper venting
-• Safe gas connections
-• Electrical compliance
-• Plumbing code compliance
-
-Professional installation also helps maintain manufacturer warranty coverage and insurance compliance.`
+For questions about your specific booking, contact us at Kom.construction.llc@gmail.com or call (734) 666-2338.`
   }
 ];
 
@@ -294,7 +172,7 @@ export default function FAQSection() {
         <div className="text-center mb-14">
           <span className="text-green-600 font-semibold text-sm tracking-widest uppercase mb-3 block">FAQ</span>
           <h2 className="text-slate-900 text-4xl font-extrabold sm:text-5xl mb-4">Frequently Asked Questions</h2>
-          <p className="text-slate-600 text-xl max-w-2xl mx-auto">Everything you need to know about water heater installation, repair, and maintenance.</p>
+          <p className="text-slate-600 text-xl max-w-2xl mx-auto">Everything you need to know about chimney cleaning, inspection, and care.</p>
         </div>
         <div className="space-y-3">
           {faqs.map((faq) => (

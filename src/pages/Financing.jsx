@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { Clock, DollarSign, Wallet, CreditCard, CheckCircle, Phone } from "lucide-react";
+import { Clock, DollarSign, Wallet, CreditCard, Phone } from "lucide-react";
 
 const options = [
 {
@@ -34,33 +32,29 @@ export default function Financing() {
     <div className="min-h-screen bg-green-50 py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Comfort Today
-          </h1>
+          <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Home's Safety</h1>
           <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Pay Over Time</h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Water Heaters, we know that a reliable water heater is essential for your home, but an unexpected replacement doesn't always fit the monthly budget. That’s why we’re using QuickBooks Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.
-
-          </p>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Chimney Care, we know that chimney services are essential for your home's safety, but an unexpected repair doesn't always fit the monthly budget. That's why we're using QuickBooks Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.</p>
           <div className="mt-6 flex justify-center">
             <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/803d0aa16_Affirm_Logosvg.png" alt="Affirm" className="h-12" />
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-          {options.map(({ icon: Icon, title, description, highlight }) => <div
-            key={title}
-            className={`rounded-2xl p-6 border-2 flex flex-col gap-3 transition-all hover:shadow-lg ${
-            highlight ?
-            "bg-green-700 border-green-700 text-white" :
-            "bg-white border-slate-200 text-slate-800"}`
-            }>
-              
+          {options.map(({ icon: Icon, title, description, highlight }) => (
+            <div
+              key={title}
+              className={`rounded-2xl p-6 border-2 flex flex-col gap-3 transition-all hover:shadow-lg ${
+                highlight ? "bg-green-700 border-green-700 text-white" : "bg-white border-slate-200 text-slate-800"
+              }`}
+            >
               <div className={`w-11 h-11 rounded-xl flex items-center justify-center ${highlight ? "bg-green-600" : "bg-green-100"}`}>
                 <Icon className={`w-5 h-5 ${highlight ? "text-white" : "text-green-700"}`} />
               </div>
               <h3 className={`font-bold text-lg ${highlight ? "text-white" : "text-slate-900"}`}>{title}</h3>
               <p className={`text-sm leading-relaxed ${highlight ? "text-green-100" : "text-slate-500"}`}>{description}</p>
             </div>
-          )}
+          ))}
         </div>
 
         <div className="bg-white border border-green-200 rounded-2xl p-8 mb-8">
@@ -126,13 +120,13 @@ export default function Financing() {
         <div className="bg-green-700 rounded-2xl p-8 mt-6 text-center">
           <h3 className="text-2xl font-extrabold text-white mb-2">Still have questions about financing?</h3>
           <p className="text-green-100 mb-5">Our team is happy to walk you through your options.</p>
-          <a href="tel:+13138040844">
+          <a href="tel:+17346662338">
             <Button className="bg-white text-green-700 hover:bg-green-50 font-bold px-6">
               <Phone className="w-4 h-4 mr-2" /> Give Us a Call
             </Button>
           </a>
         </div>
       </div>
-    </div>);
-
+    </div>
+  );
 }

@@ -66,9 +66,21 @@ export default function AdminDashboard() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["leads"] }),
   });
 
-  if (!authChecked || !user) return (
+  if (!authChecked) return (
     <div className="min-h-screen bg-slate-100 flex items-center justify-center">
       <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
+    </div>
+  );
+
+  if (!user) return (
+    <div className="min-h-screen bg-slate-100 flex items-center justify-center px-4">
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-10 max-w-sm w-full text-center">
+        <div className="w-14 h-14 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <span className="text-red-600 text-2xl font-bold">✕</span>
+        </div>
+        <h2 className="text-xl font-bold text-slate-900 mb-2">Access Denied</h2>
+        <p className="text-slate-500 text-sm">You do not have permission to view this page. Admin access is required.</p>
+      </div>
     </div>
   );
 

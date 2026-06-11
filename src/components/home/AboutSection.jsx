@@ -22,12 +22,12 @@ const values = [
 {
   icon: Shield,
   title: "Safety First",
-  description: "Every installation and repair follows strict safety codes. All our technicians are fully licensed and regularly trained."
+  description: "Every cleaning and inspection follows strict safety codes. All our technicians are fully licensed and regularly trained."
 },
 {
   icon: Award,
   title: "Quality Work",
-  description: "We use only manufacturer-approved parts and proven methods to ensure your water heater runs reliably for years."
+  description: "We use industry-approved methods and equipment to ensure your chimney is clean, safe, and code-compliant."
 },
 {
   icon: Users,
@@ -82,21 +82,22 @@ export default function AboutSection() {
           <div>
             <span className="text-orange-600 mb-3 text-4xl font-semibold text-center uppercase tracking-widest block">ABOUT US</span>
             <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6">
-              Your Neighborhood Water Heater Specialists
+              Your Neighborhood Chimney Care Specialists
             </h2>
-            <p className="text-slate-600 mb-6 text-xl font-medium leading-relaxed">KOM Water Heaters was founded with one mission: provide homeowners and businesses with fast, honest, and expertly executed water heater services at a fair price.
-
-            </p>
-            
-
+            <p className="text-slate-600 mb-6 text-xl font-medium leading-relaxed">KOM Chimney Care was founded with one mission: provide homeowners and businesses with fast, honest, and expertly executed chimney cleaning and inspection services at a fair price.</p>
 
             <div className="grid grid-cols-2 gap-4">
-              {stats.map((stat) => null
+              {stats.map((stat) => (
+                <div key={stat.label} className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
+                  <div className="text-3xl font-extrabold text-green-700">{stat.value}</div>
+                  <div className="text-slate-500 text-sm mt-1">{stat.label}</div>
+                </div>
+              ))
 
 
 
 
-              )}
+              }
             </div>
           </div>
           <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-100">
