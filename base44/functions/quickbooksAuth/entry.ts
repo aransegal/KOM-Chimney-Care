@@ -14,9 +14,9 @@ const SCOPES = "com.intuit.quickbooks.accounting";
 const AUTH_URL = "https://appcenter.intuit.com/connect/oauth2";
 const TOKEN_URL = "https://oauth.platform.intuit.com/oauth2/v1/tokens/bearer";
 
-// A shared secret stored in app secrets to validate the OAuth callback state.
-// If not set, state validation is skipped with a warning.
-const OAUTH_STATE_SECRET = Deno.env.get("QUICKBOOKS_OAUTH_STATE") || "quickbooks_auth";
+// QUICKBOOKS_OAUTH_STATE must be configured as an app secret.
+// If missing, getAuthUrl and the callback will both hard-fail.
+const OAUTH_STATE_SECRET = Deno.env.get("QUICKBOOKS_OAUTH_STATE");
 
 Deno.serve(async (req) => {
     try {
@@ -38,6 +38,9 @@ Deno.serve(async (req) => {
 
         // Step 1: Generate auth URL — admin only
         if (action === "getAuthUrl" || (!code && !realmId)) {
+            if (!OAUTH_STATE_SECRET) {
+                return Response.json({ error: 'QuickBooks OAuth is not configured. Set QUICKBOOKS_OAUTH_STATE as an app secret before connecting.' }, { status: 500 });
+            }
             const user = await base44.auth.me();
             if (!user || user.role !== 'admin') {
                 return Response.json({ error: 'Forbidden' }, { status: 403 });
@@ -49,6 +52,10 @@ Deno.serve(async (req) => {
         // Step 2: OAuth callback — Intuit redirects here, no user session available.
         // Validate the state parameter as a lightweight integrity check.
         if (code && realmId) {
+            if (!OAUTH_STATE_SECRET) {
+                console.error("quickbooksAuth: QUICKBOOKS_OAUTH_STATE is not configured");
+                return Response.json({ error: 'OAuth state not configured' }, { status: 500 });
+            }
             if (stateParam !== OAUTH_STATE_SECRET) {
                 console.warn("quickbooksAuth: state mismatch, possible CSRF", stateParam);
                 return Response.json({ error: 'Invalid state parameter' }, { status: 400 });

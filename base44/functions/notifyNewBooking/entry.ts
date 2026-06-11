@@ -1,41 +1,61 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
 
-// This function is called by a Base44 entity automation when a new Booking is created.
-// It is NOT called directly from the frontend.
-// Protection: requires either a valid entity automation payload (event.entity_id present)
-// OR admin auth for manual testing.
+// Authentication strategy:
+// - Automation calls: must pass the NOTIFY_NEW_BOOKING_SECRET in the request body
+//   as { secret: "...", event: {...}, data: {...} }  (via function_args in the automation config)
+// - Admin manual calls (dashboard testing): must be authenticated as admin user.
+//   Pass { admin_test: true, booking_id: "..." } — no secret required for admin.
+// - All other callers: rejected.
+
+const NOTIFY_SECRET = Deno.env.get("NOTIFY_NEW_BOOKING_SECRET");
+
+// Hardcoded admin recipient list — never pulled from request payload
+const ADMIN_EMAILS = [
+    "aran.segal@gmail.com",
+    "Kom.construction.llc@gmail.com",
+];
 
 Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
 
-        const isAutomationPayload = payload.event?.entity_id || payload.data?.id;
+        const providedSecret = payload.secret || payload.args?.secret;
+        const isAdminTest = payload.admin_test === true;
 
-        // If this doesn't look like an automation payload, require admin auth
-        if (!isAutomationPayload) {
+        if (isAdminTest) {
+            // Admin manual test path — require admin auth
             const user = await base44.auth.me();
             if (!user || user.role !== 'admin') {
                 return Response.json({ error: 'Forbidden' }, { status: 403 });
             }
+        } else {
+            // Automation path — require shared secret
+            if (!NOTIFY_SECRET) {
+                console.error("notifyNewBooking: NOTIFY_NEW_BOOKING_SECRET is not configured");
+                return Response.json({ error: 'Server misconfiguration' }, { status: 500 });
+            }
+            if (!providedSecret || providedSecret !== NOTIFY_SECRET) {
+                return Response.json({ error: 'Forbidden' }, { status: 403 });
+            }
         }
 
+        // Resolve booking data
         let booking = payload.data;
+        const entityId = payload.event?.entity_id || payload.booking_id;
 
-        // If payload was too large or missing, fetch the booking directly
-        if (!booking && payload.event?.entity_id) {
+        if (!booking && entityId) {
             try {
-                booking = await base44.asServiceRole.entities.Booking.get(payload.event.entity_id);
+                booking = await base44.asServiceRole.entities.Booking.get(entityId);
             } catch (_) {
                 return Response.json({ error: 'Booking not found' }, { status: 404 });
             }
         }
 
         if (!booking) {
-            return Response.json({ error: 'No booking data found' }, { status: 400 });
+            return Response.json({ error: 'No booking data' }, { status: 400 });
         }
 
-        // Validate booking has minimum required fields
         if (!booking.customer_name || !booking.booking_number) {
             return Response.json({ error: 'Invalid booking data' }, { status: 400 });
         }
@@ -61,18 +81,15 @@ Deno.serve(async (req) => {
 <br>
 <p style="color:#999;font-size:12px;">If you'd like to unsubscribe and stop receiving these emails <a href="mailto:Kom.construction.llc@gmail.com?subject=Unsubscribe">click here</a>.</p>`;
 
-        await Promise.all([
-            base44.asServiceRole.integrations.Core.SendEmail({
-                to: "aran.segal@gmail.com",
-                subject: emailSubject,
-                body: emailBody,
-            }),
-            base44.asServiceRole.integrations.Core.SendEmail({
-                to: "Kom.construction.llc@gmail.com",
-                subject: emailSubject,
-                body: emailBody,
-            }),
-        ]);
+        await Promise.all(
+            ADMIN_EMAILS.map((to) =>
+                base44.asServiceRole.integrations.Core.SendEmail({
+                    to,
+                    subject: emailSubject,
+                    body: emailBody,
+                })
+            )
+        );
 
         return Response.json({ success: true });
     } catch (error) {
