@@ -1,19 +1,48 @@
-import { createClientFromRequest } from 'npm:@base44/sdk@0.8.20';
+import { createClientFromRequest } from 'npm:@base44/sdk@0.8.31';
+
+// This function is called by a Base44 entity automation when a new Booking is created.
+// It is NOT called directly from the frontend.
+// Protection: requires either a valid entity automation payload (event.entity_id present)
+// OR admin auth for manual testing.
 
 Deno.serve(async (req) => {
     try {
         const base44 = createClientFromRequest(req);
         const payload = await req.json();
+
+        const isAutomationPayload = payload.event?.entity_id || payload.data?.id;
+
+        // If this doesn't look like an automation payload, require admin auth
+        if (!isAutomationPayload) {
+            const user = await base44.auth.me();
+            if (!user || user.role !== 'admin') {
+                return Response.json({ error: 'Forbidden' }, { status: 403 });
+            }
+        }
+
         let booking = payload.data;
 
-        // If payload was too large, fetch the booking directly
+        // If payload was too large or missing, fetch the booking directly
         if (!booking && payload.event?.entity_id) {
-            booking = await base44.asServiceRole.entities.Booking.get(payload.event.entity_id);
+            try {
+                booking = await base44.asServiceRole.entities.Booking.get(payload.event.entity_id);
+            } catch (_) {
+                return Response.json({ error: 'Booking not found' }, { status: 404 });
+            }
         }
 
         if (!booking) {
-            return Response.json({ error: "No booking data found" }, { status: 400 });
+            return Response.json({ error: 'No booking data found' }, { status: 400 });
         }
+
+        // Validate booking has minimum required fields
+        if (!booking.customer_name || !booking.booking_number) {
+            return Response.json({ error: 'Invalid booking data' }, { status: 400 });
+        }
+
+        const serviceLabel = booking.selected_product
+            ? booking.selected_product.split('(')[0].trim()
+            : (booking.service_type || 'chimney service').replace(/_/g, ' ');
 
         const emailSubject = `New Booking Request - ${booking.customer_name}`;
         const emailBody = `<p>A new booking request has been submitted on KOM Chimney Care.</p>
@@ -22,8 +51,7 @@ Deno.serve(async (req) => {
 <p><strong>Phone:</strong> ${booking.customer_phone}</p>
 <p><strong>Email:</strong> ${booking.customer_email || 'N/A'}</p>
 <p><strong>Address:</strong> ${booking.customer_address}</p>
-<p><strong>Service:</strong> ${booking.service_type}</p>
-<p><strong>Heater Type:</strong> ${booking.heater_type || 'N/A'}</p>
+<p><strong>Service:</strong> ${serviceLabel}</p>
 <p><strong>Preferred Date:</strong> ${booking.preferred_date}</p>
 <p><strong>Preferred Time:</strong> ${booking.preferred_time}</p>
 <p><strong>Notes:</strong> ${booking.notes || 'None'}</p>
@@ -48,6 +76,7 @@ Deno.serve(async (req) => {
 
         return Response.json({ success: true });
     } catch (error) {
-        return Response.json({ error: error.message }, { status: 500 });
+        console.error("notifyNewBooking error:", error.message);
+        return Response.json({ error: 'An error occurred' }, { status: 500 });
     }
 });
