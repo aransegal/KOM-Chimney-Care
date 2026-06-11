@@ -1,0 +1,71 @@
+{
+  "name": "ServiceRequest",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Customer full name"
+    },
+    "email": {
+      "type": "string",
+      "description": "Customer email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Customer phone number"
+    },
+    "address": {
+      "type": "string",
+      "description": "Service address"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "installation",
+        "repair",
+        "maintenance",
+        "emergency"
+      ],
+      "description": "Type of service requested"
+    },
+    "heater_type": {
+      "type": "string",
+      "enum": [
+        "tank",
+        "tankless",
+        "hybrid",
+        "solar",
+        "unknown"
+      ],
+      "description": "Water heater type"
+    },
+    "message": {
+      "type": "string",
+      "description": "Additional details"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "scheduled",
+        "completed",
+        "cancelled"
+      ],
+      "default": "new"
+    },
+    "source": {
+      "type": "string",
+      "description": "Lead source"
+    },
+    "is_emergency": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "name",
+    "phone",
+    "service_type"
+  ]
+}

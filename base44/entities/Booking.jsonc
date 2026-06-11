@@ -1,0 +1,102 @@
+{
+  "name": "Booking",
+  "type": "object",
+  "properties": {
+    "booking_number": {
+      "type": "string"
+    },
+    "customer_name": {
+      "type": "string"
+    },
+    "customer_company": {
+      "type": "string",
+      "description": "Company name (optional)"
+    },
+    "customer_email": {
+      "type": "string"
+    },
+    "customer_phone": {
+      "type": "string"
+    },
+    "customer_address": {
+      "type": "string"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "installation",
+        "repair",
+        "maintenance",
+        "emergency"
+      ]
+    },
+    "heater_type": {
+      "type": "string",
+      "enum": [
+        "tank",
+        "tankless",
+        "hybrid",
+        "solar",
+        "unknown"
+      ]
+    },
+    "selected_product": {
+      "type": "string",
+      "description": "Selected product name and price"
+    },
+    "preferred_date": {
+      "type": "string"
+    },
+    "preferred_time": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "confirmed",
+        "in_progress",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "unpaid",
+        "paid",
+        "refunded"
+      ],
+      "default": "unpaid"
+    },
+    "booking_fee": {
+      "type": "number",
+      "default": 79
+    },
+    "total_estimate": {
+      "type": "number"
+    },
+    "technician_name": {
+      "type": "string"
+    },
+    "technician_notes": {
+      "type": "string"
+    },
+    "is_emergency": {
+      "type": "boolean",
+      "default": false
+    },
+    "completion_date": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "customer_name",
+    "customer_phone",
+    "service_type"
+  ]
+}

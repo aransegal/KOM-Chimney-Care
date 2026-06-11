@@ -30,9 +30,7 @@ export default function HeroSection() {
             <h1 className="text-green-700 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>Experts</h1>
             <h1 className="text-zinc-900 font-extrabold leading-none" style={{ fontSize: "clamp(3rem, 8vw, 7rem)" }}>You Can Trust</h1>
           </div>
-          <p className="mb-10 text-xl leading-relaxed max-w-2xl text-[hsl(var(--card))]">Fast, professional water heater installation, repair, and maintenance. Licensed technicians, transparent pricing, and same-day service available.
-
-
+          <p className="mb-10 text-xl leading-relaxed max-w-2xl text-[hsl(var(--card))]">Fast, professional chimney cleaning, inspection, and repair. Licensed technicians, transparent pricing, and same-day service available.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-14 sm:justify-center">
