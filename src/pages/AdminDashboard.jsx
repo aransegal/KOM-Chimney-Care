@@ -26,6 +26,7 @@ export default function AdminDashboard() {
   const [filter, setFilter] = useState("all");
   const [selected, setSelected] = useState(null);
   const [qbLoading, setQbLoading] = useState(null);
+  const [qbNotConnected, setQbNotConnected] = useState(false);
   const [user, setUser] = useState(null);
   const [authChecked, setAuthChecked] = useState(false);
   const queryClient = useQueryClient();
@@ -86,11 +87,16 @@ export default function AdminDashboard() {
 
   const handleCreateQBProject = async (booking) => {
     setQbLoading(booking.id);
+    setQbNotConnected(false);
     try {
       const res = await base44.functions.invoke("createQuickbooksProject", { booking_id: booking.id });
-      alert(`QuickBooks project created!\nProject: ${res.data.project_name}`);
+      if (res.data?.not_connected) {
+        setQbNotConnected(true);
+      } else {
+        alert(`QuickBooks project created!\nProject: ${res.data.project_name}`);
+      }
     } catch (e) {
-      alert("Error creating QuickBooks project: " + (e.message || "Unknown error"));
+      setQbNotConnected(true);
     }
     setQbLoading(null);
   };
@@ -140,6 +146,18 @@ export default function AdminDashboard() {
             <RefreshCw className="w-4 h-4 mr-2" /> Refresh
           </Button>
         </div>
+
+        {/* QuickBooks not connected banner */}
+        {qbNotConnected && (
+          <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4 mb-6 flex items-start gap-3">
+            <span className="text-amber-500 text-lg leading-none mt-0.5">⚠️</span>
+            <div>
+              <div className="font-semibold text-amber-800 text-sm">QuickBooks is not connected</div>
+              <div className="text-amber-700 text-sm mt-0.5">Complete the OAuth setup before creating QuickBooks projects. Go to Dashboard → Code → Functions → quickbooksAuth and run it with <code className="bg-amber-100 px-1 rounded text-xs">action: "getAuthUrl"</code> to start the flow.</div>
+            </div>
+            <button onClick={() => setQbNotConnected(false)} className="ml-auto text-amber-400 hover:text-amber-600 text-lg leading-none flex-shrink-0">✕</button>
+          </div>
+        )}
 
         {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">

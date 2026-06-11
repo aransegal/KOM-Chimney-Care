@@ -113,8 +113,8 @@ Deno.serve(async (req) => {
 
         if (!accessToken || !refreshToken || !realmId) {
             return Response.json({
-                error: "QuickBooks not fully connected. Please complete OAuth setup first.",
-                instruction: "Go to Dashboard > Code > Functions > quickbooksAuth and call it with action=getAuthUrl to start the OAuth flow."
+                not_connected: true,
+                error: "QuickBooks is not connected. Complete OAuth setup first."
             }, { status: 400 });
         }
 
@@ -139,6 +139,7 @@ Deno.serve(async (req) => {
         });
 
     } catch (error) {
-        return Response.json({ error: error.message }, { status: 500 });
+        console.error("createQuickbooksProject error:", error.message);
+        return Response.json({ not_connected: false, error: "An error occurred creating the QuickBooks project. Check function logs for details." }, { status: 500 });
     }
 });
