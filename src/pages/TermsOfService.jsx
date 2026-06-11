@@ -17,7 +17,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">1. Services Covered by These Terms</h2>
-            <p className="mb-2">KOM Water Heaters offers the services displayed on the Site, which currently include:</p>
+            <p className="mb-2">KOM Chimney Care offers the services displayed on the Site, which currently include:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
               <li>Chimney cleaning and sweeping</li>
               <li>Chimney inspection</li>
@@ -47,15 +47,15 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-base font-bold text-slate-900 mb-2">4. Booking and Installation Process</h2>
-            <p className="mb-2">For standard new water heater installation orders, the process is generally as follows:</p>
+            <h2 className="text-base font-bold text-slate-900 mb-2">4. Booking and Service Process</h2>
+            <p className="mb-2">For standard chimney-care service appointments, the process is generally as follows:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
-              <li><strong>Customer selection.</strong> The client browses KOM's selection and chooses the water heater that appears to fit the client's needs and budget.</li>
-              <li><strong>Diagnostic visit.</strong> The client books a diagnostic visit so KOM can verify that the selected unit can be properly and safely installed at the service location.</li>
-              <li><strong>Approval and installation.</strong> If diagnostics are approved, KOM arranges for installation to be completed through an external vendor within 48 hours after approval.</li>
+              <li><strong>Service selection.</strong> The client browses KOM's service offerings and selects the chimney-care service that appears to fit their needs.</li>
+              <li><strong>Diagnostic visit.</strong> The client books a diagnostic visit so KOM can assess site conditions and confirm the appropriate scope of service work.</li>
+              <li><strong>Approval and service.</strong> If diagnostics are approved, KOM arranges for service work to be completed through an external vendor within 48 hours after approval.</li>
             </ul>
-            <p className="mb-2">This process applies to standard installation workflow. Emergency service may follow a different operational process depending on the nature of the issue.</p>
-            <p>The 48-hour installation target applies after diagnostic approval and is subject to reasonable operational conditions, including customer availability, access to the site, product availability, safety conditions, and circumstances beyond KOM's reasonable control.</p>
+            <p className="mb-2">This process applies to standard service workflow. Emergency service may follow a different operational process depending on the nature of the issue.</p>
+            <p>The 48-hour service target applies after diagnostic approval and is subject to reasonable operational conditions, including customer availability, access to the site, parts availability, safety conditions, and circumstances beyond KOM's reasonable control.</p>
           </section>
 
           <section>
@@ -66,43 +66,42 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-base font-bold text-slate-900 mb-2">6. Website Pricing and Standard Installation Assumptions</h2>
-            <p className="mb-2">Prices displayed on the Site are intended to apply to the specific listed product and service package shown on the corresponding page.</p>
-            <p className="mb-2">Unless expressly stated otherwise, posted prices assume a standard residential installation, including reasonable access and compatibility with the customer's existing setup.</p>
-            <p className="mb-2">Additional charges may apply where required by actual site conditions or installation requirements, including for example:</p>
+            <h2 className="text-base font-bold text-slate-900 mb-2">6. Website Pricing and Standard Service Assumptions</h2>
+            <p className="mb-2">Prices displayed on the Site are intended to apply to the specific listed service package shown on the corresponding page.</p>
+            <p className="mb-2">Unless expressly stated otherwise, posted prices assume a standard residential service appointment, including reasonable access and standard site conditions.</p>
+            <p className="mb-2">Additional charges may apply where required by actual site conditions or service requirements, including for example:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
               <li>permit requirements;</li>
               <li>code compliance upgrades;</li>
               <li>venting changes;</li>
               <li>electrical upgrades;</li>
-              <li>gas-line modifications;</li>
+              <li>flue liner or structural conditions;</li>
               <li>access limitations;</li>
               <li>hauling or disposal requirements outside the standard scope;</li>
               <li>non-standard plumbing conditions; or</li>
-              <li>other conditions discovered before or during the diagnostic visit or installation.</li>
+              <li>other conditions discovered before or during the diagnostic visit or service work.</li>
             </ul>
             <p>Where additional charges apply, KOM or its external vendor will communicate the revised scope or pricing before proceeding.</p>
           </section>
 
           <section>
-            <h2 className="text-base font-bold text-slate-900 mb-2">7. Product Listings, Images, and Availability</h2>
-            <p className="mb-2">Product photos, model descriptions, capacities, features, and brand references on the Site are for general display and marketing purposes.</p>
-            <p className="mb-2">Actual installed products may vary due to:</p>
+            <h2 className="text-base font-bold text-slate-900 mb-2">7. Service Listings and Availability</h2>
+            <p className="mb-2">Service descriptions, images, and references on the Site are for general display and marketing purposes.</p>
+            <p className="mb-2">Actual service scope may vary due to:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
-              <li>model updates;</li>
-              <li>inventory availability;</li>
+              <li>site conditions discovered during the diagnostic visit;</li>
               <li>code requirements;</li>
-              <li>venting or compatibility constraints; or</li>
-              <li>equivalent substitution approved by the customer.</li>
+              <li>access or safety constraints; or</li>
+              <li>revised scope agreed upon by the customer.</li>
             </ul>
-            <p>KOM does not guarantee that every displayed unit will be available at all times.</p>
+            <p>KOM does not guarantee that every listed service will be available at all times or for all property types.</p>
           </section>
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">8. Quotes, Estimates, and Approval</h2>
             <p className="mb-2">Any information on the Site, in a message, or in a preliminary communication is informational unless and until KOM confirms the applicable service details.</p>
             <p className="mb-2">If site conditions, code requirements, compatibility issues, or other job-specific facts differ from what was originally assumed, KOM may issue a revised recommendation, revised scope, or revised price.</p>
-            <p>No installation work will proceed unless the customer approves the applicable scope and price.</p>
+            <p>No service work will proceed unless the customer approves the applicable scope and price.</p>
           </section>
 
           <section>
@@ -112,9 +111,9 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-base font-bold text-slate-900 mb-2">10. External Vendor Installation</h2>
-            <p className="mb-2">KOM may fulfill installation services through one or more external vendors, contractors, or service providers.</p>
-            <p className="mb-2">By booking services through KOM, you acknowledge and agree that installation work may be performed by a third-party vendor engaged by KOM.</p>
+            <h2 className="text-base font-bold text-slate-900 mb-2">10. External Vendor Services</h2>
+            <p className="mb-2">KOM may fulfill chimney-care services through one or more external vendors, contractors, or service providers.</p>
+            <p className="mb-2">By booking services through KOM, you acknowledge and agree that service work may be performed by a third-party vendor engaged by KOM.</p>
             <p>KOM remains the customer-facing contracting party unless explicitly stated otherwise in writing, but scheduling, dispatch, performance timing, and onsite execution may involve third-party personnel.</p>
           </section>
 
@@ -134,16 +133,16 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">12. Permits, Code Compliance, and Site Conditions</h2>
-            <p className="mb-2">Installation requirements may vary depending on local code, municipal requirements, existing infrastructure, venting configuration, gas or electrical setup, shutoff conditions, drainage, or other site-specific conditions.</p>
-            <p>Unless expressly included in writing, Site pricing should not be interpreted to include unrelated plumbing work, structural work, finish work, carpentry, drywall repair, painting, flooring repair, restoration, or other general construction work.</p>
+            <p className="mb-2">Service requirements may vary depending on local code, municipal requirements, existing infrastructure, venting configuration, masonry condition, or other site-specific conditions.</p>
+            <p>Unless expressly included in writing, Site pricing should not be interpreted to include unrelated structural work, finish work, carpentry, drywall repair, painting, flooring repair, restoration, or other general construction work.</p>
           </section>
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">13. Payments</h2>
             <p className="mb-2">The customer agrees to pay all charges applicable to the approved service, including, where applicable:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
-              <li>installation charges;</li>
-              <li>product costs;</li>
+              <li>service charges;</li>
+              <li>parts and materials costs;</li>
               <li>diagnostic appointment fees;</li>
               <li>permit fees;</li>
               <li>taxes; and</li>
@@ -162,8 +161,8 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">15. Workmanship Warranty</h2>
-            <p className="mb-2">KOM provides a <strong>3-month workmanship warranty</strong> on labor for covered installation work, beginning on the date installation is completed.</p>
-            <p className="mb-2">This workmanship warranty applies only to labor-related defects in the installation performed through KOM and does not apply to:</p>
+            <p className="mb-2">KOM provides a <strong>3-month workmanship warranty</strong> on labor for covered service work, beginning on the date service is completed.</p>
+            <p className="mb-2">This workmanship warranty applies only to labor-related defects in the service work performed through KOM and does not apply to:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
               <li>manufacturer defects;</li>
               <li>equipment failure unrelated to workmanship;</li>
@@ -188,7 +187,7 @@ export default function TermsOfService() {
               <li>diagnostic appointments;</li>
               <li>scheduling;</li>
               <li>appointment reminders;</li>
-              <li>installation coordination;</li>
+              <li>service coordination;</li>
               <li>invoices;</li>
               <li>customer support; and</li>
               <li>related operational matters.</li>

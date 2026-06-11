@@ -7,23 +7,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock, UserCircle } from "lucide-react";
 import { createPageUrl } from "@/utils";
 
-const STEPS = ["Choose Product", "Your Details", "Schedule", "Confirm"];
+const STEPS = ["Choose Service", "Your Details", "Schedule", "Confirm"];
 
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
 
-const PRODUCT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
-
-const DEFAULT_IMAGE = "https://qtrypzzcjebvfcihiynt.supabase.co/storage/v1/object/public/base44-prod/public/699c9ea61bf0c459e3994bae/d217301d4_image.png";
 
 const products = [
-{ name: "40 Gal Short Natural Gas Power Vent", price: "$2,950", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/313d84272_xf3bhqwpy6ogb146wkjg__23999.jpg" },
-{ name: "40 Gal Tall Natural Gas Power Vent", price: "$2,850", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/6689d43e4_f1oomqrcddmuee732i4k__20622.jpg" },
-{ name: "40 Gal Tall Natural Gas Atmospheric", price: "$1,850", popular: true, image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/7c156e8bb_lkxn1usngnks9sdai2ut__28189.jpg" },
-{ name: "50 Gal Tall Natural Gas Atmospheric", price: "$2,300", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/069b1d1b6_i7vjydgpc3fwoxk3jhfr__69227.jpg" },
-{ name: "30 Gal Short Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/33e57728a_enlo4swfeumewxxc4jko__78942.jpg" },
-{ name: "30 Gal Tall Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/339be5113_nqsyyosfufglej4x3sne__989761757215193.jpg" },
-{ name: "40 Gal Short Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/14fc469f6_b9oonh88ocq79dknqm5m__97490.jpg" },
-{ name: "40 Gal Tall Electric", price: "$1,750", image: "https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/e992cbccc_7a1bb2bdfec02272d5c3e4f178d1e81bb5cd4b58__06280.jpg" }];
+{ name: "Chimney Inspection", price: "Starting from $79" },
+{ name: "Chimney Cleaning / Sweep", price: "Quote after inspection" },
+{ name: "Fireplace & Chimney Safety Check", price: "Starting from $79" },
+{ name: "Chimney Cap / Animal Guard Service", price: "Quote after inspection" },
+{ name: "Chimney Leak / Water Intrusion Assessment", price: "Starting from $79" },
+{ name: "Smoke / Draft Problem Diagnosis", price: "Starting from $79" },
+{ name: "Creosote Buildup Cleaning", price: "Quote after inspection", popular: true },
+{ name: "Annual Chimney Maintenance", price: "Quote after inspection" }];
 
 
 export default function Booking() {
@@ -143,7 +140,7 @@ export default function Booking() {
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-orange-800 font-medium">Next Step: A KOM specialist will call you at <span className="font-bold">{booking.customer_phone}</span> to confirm your appointment details.</p>
           </div>
-          <a href="tel:+13138040844">
+          <a href="tel:+17346662338">
             <Button variant="outline" className="w-full border-2 border-orange-600 text-orange-600 hover:bg-orange-50 mb-3">
               <Phone className="mr-2 w-4 h-4" /> Call Us Directly
             </Button>
@@ -161,7 +158,7 @@ export default function Booking() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Book New Installation</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Book a Chimney Service</h1>
           <p className="text-slate-500">Secure your diagnostics appointment with a $79 booking fee — applied to your service total.</p>
         </div>
 
@@ -198,18 +195,17 @@ export default function Booking() {
           {/* STEP 0: Chosen Installation */}
           {step === 0 &&
           <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Product</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose a Service</h2>
               {selectedProduct ?
             <>
-                  <p className="text-slate-500 mb-6">You selected the following product. You can change your selection below.</p>
+                  <p className="text-slate-500 mb-6">You selected the following service. You can change your selection below.</p>
                   {/* Selected product highlight */}
                   <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
                     <div className="flex items-center gap-5">
-                      <img src={selectedProduct.image || DEFAULT_IMAGE} alt={selectedProduct.name} className="h-24 object-contain flex-shrink-0" />
                       <div>
-                        <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected</div>
+                        <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected Service</div>
                         <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
-                        <div className="text-2xl font-extrabold text-green-700 mt-1">{selectedProduct.price}</div>
+                        <div className="text-lg font-semibold text-green-700 mt-1">{selectedProduct.price}</div>
                       </div>
                     </div>
 
@@ -217,7 +213,7 @@ export default function Booking() {
                 </> :
 
             <>
-                  <p className="text-slate-500 mb-6">Select a product to install or Click Next to continue to book a diagnostics appointment without a selection.</p>
+                  <p className="text-slate-500 mb-6">Select a service below, or click Next to continue to book a general diagnostics appointment.</p>
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     {products.map((product) =>
                 <button
@@ -232,14 +228,11 @@ export default function Booking() {
                             Most Popular
                           </div>
                   }
-                        <div className="bg-transparent pt-7 p-3 flex items-center justify-center">
-                          <img src={product.image || DEFAULT_IMAGE} alt={product.name} className="h-20 object-contain" />
-                        </div>
-                        <div className="p-3 flex flex-col flex-1 bg-white">
+                        <div className="p-3 pt-6 flex flex-col flex-1 bg-white">
                           <p className="text-slate-700 mb-1 text-xs font-semibold text-center leading-snug">
                             {product.name}
                           </p>
-                          <p className="text-slate-900 text-lg font-extrabold text-center">
+                          <p className="text-green-700 text-sm font-semibold text-center mt-1">
                             {product.price}
                           </p>
                         </div>
@@ -253,9 +246,9 @@ export default function Booking() {
                   <div className="flex items-center gap-5">
                     
                     <div>
-                      <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Product Selected</div>
-                      <div className="text-xl font-extrabold text-slate-900">Not sure which product you want?</div>
-                      <div className="text-sm text-amber-700 mt-1">Press Next to continue to book a diagnostics appointment without a selection.</div>
+                      <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Service Selected</div>
+                      <div className="text-xl font-extrabold text-slate-900">Not sure which service you need?</div>
+                      <div className="text-sm text-amber-700 mt-1">Press Next to book a general diagnostics appointment — our technician will assess on-site.</div>
                     </div>
                   </div>
                   
@@ -378,7 +371,7 @@ export default function Booking() {
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Additional Notes</label>
                   <Textarea
                   rows={3}
-                  placeholder="Describe your issue, location of unit, or any other details..."
+                  placeholder="Describe your chimney issue, fireplace type, or any other details..."
                   value={booking.notes}
                   onChange={(e) => setBooking({ ...booking, notes: e.target.value })} />
                 </div>
@@ -433,7 +426,7 @@ export default function Booking() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-2 text-blue-700 text-sm font-medium">
                   <Clock className="w-4 h-4" />
-                  Need same-day or emergency? Call us at (313) 804-0844
+                  Need same-day or emergency? Call us at (734) 666-2338
                 </div>
               </div>
               <div className="flex justify-between">
@@ -461,9 +454,9 @@ export default function Booking() {
                 <div className="grid grid-cols-2 gap-2">
                   {selectedProduct &&
                 <>
-                      <div className="text-slate-500">Product</div>
+                      <div className="text-slate-500">Service</div>
                       <div className="font-semibold text-slate-900">{selectedProduct.name}</div>
-                      <div className="text-slate-500">Price</div>
+                      <div className="text-slate-500">Pricing</div>
                       <div className="font-semibold text-slate-900">{selectedProduct.price}</div>
                     </>
                 }

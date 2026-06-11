@@ -191,14 +191,12 @@ export default function Layout({ children, currentPageName }) {
                     className="h-10 w-auto brightness-0 invert" />
 
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">Professional water heater installation and repairs. 
-
-              </p>
+              <p className="text-slate-400 text-sm leading-relaxed">Professional chimney cleaning, inspections, and fireplace safety services.</p>
             </div>
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Services</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
-                {["Water Heaters Installation", "24/7 Emergency Services"].map((s) =>
+                {["Chimney Cleaning & Sweeping", "Chimney Inspections", "24/7 Emergency Services"].map((s) =>
                 <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 )}
                 <li>
@@ -235,7 +233,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
           </div>
           <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-sm">
-            <p>© 2026 KOM Water Heaters. All rights reserved.</p>
+            <p>© 2026 KOM Chimney Care. All rights reserved.</p>
             <div className="flex gap-6">
               <Link to="/OwnerSupport" className="hover:text-white transition-colors">Owner Support</Link>
               <button onClick={() => scrollToSection("faq")} className="hover:text-white transition-colors">FAQ</button>
