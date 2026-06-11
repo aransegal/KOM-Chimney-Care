@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
               <li>phone number;</li>
               <li>email address;</li>
               <li>service address and billing address;</li>
-              <li>information about your current water heater, installation needs, emergency issue, or property conditions;</li>
+              <li>information about your chimney, fireplace, or property conditions relevant to the service requested;</li>
               <li>preferred appointment dates and times;</li>
               <li>photos, videos, notes, or documents you send to us; and</li>
               <li>any other information you choose to provide through forms, calls, texts, emails, or other communications.</li>
@@ -96,13 +96,13 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-base font-bold text-slate-900 mb-2">3. How the Booking Process Affects Information We Collect</h2>
-            <p className="mb-2">Our standard installation flow generally involves the following steps:</p>
+            <p className="mb-2">Our standard service flow generally involves the following steps:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
-              <li>the client browses our selection and chooses a water heater;</li>
-              <li>the client books a diagnostic visit so we can verify that the selected unit can be properly installed; and</li>
-              <li>if diagnostics are approved, KOM arranges installation, which may be carried out through an external vendor.</li>
+              <li>the client browses our chimney services and selects a service or books a general diagnostic appointment;</li>
+              <li>the client books a diagnostic visit so our technician can assess the chimney or fireplace on-site; and</li>
+              <li>if the diagnostic is approved, KOM schedules and performs the service, which may be carried out through an external vendor or contractor.</li>
             </ul>
-            <p>As part of this process, we may collect and use your information to evaluate compatibility, confirm appointment details, communicate approval status, coordinate scheduling, and complete installation and follow-up support.</p>
+            <p>As part of this process, we may collect and use your information to evaluate service needs, confirm appointment details, communicate status updates, coordinate scheduling, and complete service and follow-up support.</p>
           </section>
 
           <section>

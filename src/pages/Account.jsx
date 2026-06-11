@@ -149,8 +149,8 @@ export default function Account() {
               >
                 <div className="flex items-start justify-between gap-3 mb-3">
                   <div>
-                    <div className="font-semibold text-slate-900 capitalize text-lg">
-                      {b.service_type?.replace("_", " ")} Service
+                    <div className="font-semibold text-slate-900 text-lg">
+                      {b.selected_product ? b.selected_product.split('(')[0].trim() : (b.service_type?.replace(/_/g, ' ') || 'Chimney Service')}
                     </div>
                     {b.booking_number && (
                       <div className="text-xs text-slate-400 font-mono mt-0.5">Booking #{b.booking_number}</div>
@@ -189,8 +189,8 @@ export default function Account() {
                 <div className="bg-white rounded-2xl shadow-xl max-w-md w-full p-6" onClick={(e) => e.stopPropagation()}>
                   <div className="flex items-start justify-between mb-5">
                     <div>
-                      <h3 className="text-xl font-bold text-slate-900 capitalize">
-                        {selectedBooking.service_type?.replace("_", " ")} Service
+                      <h3 className="text-xl font-bold text-slate-900">
+                        {selectedBooking.selected_product ? selectedBooking.selected_product.split('(')[0].trim() : (selectedBooking.service_type?.replace(/_/g, ' ') || 'Chimney Service')}
                       </h3>
                       {selectedBooking.booking_number && (
                         <div className="text-xs text-slate-400 font-mono mt-0.5">#{selectedBooking.booking_number}</div>

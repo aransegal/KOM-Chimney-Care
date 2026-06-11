@@ -140,10 +140,11 @@ export default function ContactSection() {
                     onChange={(e) => setForm({ ...form, service_type: e.target.value })}>
 
                       <option value="">Select a service...</option>
-                      <option value="installation">Installation</option>
-                      <option value="repair">Repair</option>
-                      <option value="maintenance">Maintenance</option>
-                      <option value="emergency">Emergency</option>
+                      <option value="maintenance">Chimney Cleaning / Sweep</option>
+                      <option value="maintenance">Chimney Inspection</option>
+                      <option value="repair">Chimney Repair</option>
+                      <option value="maintenance">Annual Maintenance</option>
+                      <option value="emergency">24/7 Emergency Service</option>
                     </select>
                   </div>
                   <div>
