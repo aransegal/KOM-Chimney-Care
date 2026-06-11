@@ -69,7 +69,7 @@ async function createProjectInQuickBooks(accessToken, realmId, booking) {
             DisplayName: projectName,
             ParentRef: { value: customerId },
             Job: true,
-            Notes: `Service: ${serviceLabel}\nAddress: ${booking.customer_address || "N/A"}\nDate: ${booking.preferred_date || "TBD"}\nTime: ${booking.preferred_time || "TBD"}\nHeater Type: ${booking.heater_type || "N/A"}\nBooking Fee: $${booking.booking_fee || 79}`,
+            Notes: `Service: ${serviceLabel}\nSelected Service: ${booking.selected_product || serviceLabel}\nAddress: ${booking.customer_address || "N/A"}\nDate: ${booking.preferred_date || "TBD"}\nTime: ${booking.preferred_time || "TBD"}\nBooking Fee: $${booking.booking_fee || 79}`,
         }),
     });
 

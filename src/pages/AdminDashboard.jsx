@@ -231,7 +231,11 @@ export default function AdminDashboard() {
                           <div className="font-medium text-slate-900">{b.customer_name}</div>
                           <div className="text-slate-400 text-xs">{b.customer_phone}</div>
                         </td>
-                        <td className="py-3 px-4 capitalize">{b.service_type?.replace("_", " ")}</td>
+                        <td className="py-3 px-4">
+                          {b.selected_product
+                            ? b.selected_product.split('(')[0].trim()
+                            : (b.service_type?.replace(/_/g, ' ') || '—')}
+                        </td>
                         <td className="py-3 px-4">
                           <div className="text-slate-700">{b.preferred_date || "—"}</div>
                           <div className="text-slate-400 text-xs">Booked: {b.created_date ? new Date(b.created_date).toLocaleDateString() : "—"}</div>
