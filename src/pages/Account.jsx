@@ -74,7 +74,7 @@ export default function Account() {
             <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Package className="w-8 h-8 text-white" />
             </div>
-            <h2 className="text-2xl font-bold mb-1">My Orders</h2>
+            <h2 className="text-2xl font-bold mb-1">My Bookings</h2>
             <p className="text-green-200 text-sm">Sign in to track your bookings and appointment status</p>
           </div>
 
@@ -116,7 +116,7 @@ export default function Account() {
         {/* Header */}
         <div className="flex items-center justify-between mb-8 flex-wrap gap-3">
           <div>
-            <h1 className="text-3xl font-bold text-slate-900">My Orders</h1>
+            <h1 className="text-3xl font-bold text-slate-900">My Bookings</h1>
             <p className="text-slate-500 mt-1">{user.email}</p>
           </div>
           <Button variant="outline" size="sm" onClick={() => base44.auth.logout()}>
@@ -216,15 +216,15 @@ export default function Account() {
                           <div className="flex gap-3">
                             <Package className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
                             <div className="flex justify-between w-full">
-                              <span className="text-slate-500">Product</span>
-                              <span className="font-medium text-slate-900">{productName}</span>
+                              <span className="text-slate-500">Service</span>
+                                  <span className="font-medium text-slate-900">{productName}</span>
                             </div>
                           </div>
                           {productPrice && (
                             <div className="flex gap-3">
                               <Tag className="w-4 h-4 text-slate-400 flex-shrink-0 mt-0.5" />
                               <div className="flex justify-between w-full">
-                                <span className="text-slate-500">Price</span>
+                                <span className="text-slate-500">Pricing</span>
                                 <span className="font-semibold text-green-700">{productPrice}</span>
                               </div>
                             </div>

@@ -33,7 +33,7 @@ export default function EmergencyPopup() {
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div>
-              <div className="font-bold text-lg">Water Heater Emergency?</div>
+              <div className="font-bold text-lg">Chimney or Fireplace Emergency?</div>
               <div className="text-red-200 text-sm">We're available right now</div>
             </div>
           </div>
@@ -47,7 +47,7 @@ export default function EmergencyPopup() {
           </div>
 
           <ul className="space-y-2 mb-6 text-sm text-slate-600">
-            {["No hot water", "Leaking water heater", "Strange noises or smells", "Pilot light issues"].map((issue) => (
+            {["Smoke entering the home", "Suspected chimney fire", "Strong chimney odor or blockage", "Animal nest or debris in flue", "Water leaking through chimney"].map((issue) => (
               <li key={issue} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-red-500 flex-shrink-0" />
                 {issue}

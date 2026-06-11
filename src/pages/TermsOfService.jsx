@@ -24,7 +24,7 @@ export default function TermsOfService() {
               <li>Chimney repair</li>
               <li>Emergency chimney service</li>
             </ul>
-            <p>Any additional services, products, or service plans are offered only if expressly shown on the Site or confirmed by KOM in writing.</p>
+            <p>Any additional services or service plans are offered only if expressly shown on the Site or confirmed by KOM in writing.</p>
           </section>
 
           <section>
@@ -62,7 +62,7 @@ export default function TermsOfService() {
             <h2 className="text-base font-bold text-slate-900 mb-2">5. Diagnostic Appointment Fee</h2>
             <p className="mb-2">A diagnostic appointment fee is charged when KOM approves the diagnostic appointment.</p>
             <p className="mb-2"><strong>That diagnostic appointment fee is non-refundable.</strong></p>
-            <p>The diagnostic appointment fee applies to the diagnostic visit itself. Unless KOM expressly states otherwise in writing, the diagnostic appointment fee is not a refundable deposit and is not refundable in the event the customer cancels, reschedules, is unavailable, declines installation, or the proposed installation does not proceed.</p>
+            <p>The diagnostic appointment fee applies to the diagnostic visit itself. Unless KOM expressly states otherwise in writing, the diagnostic appointment fee is not a refundable deposit and is not refundable in the event the customer cancels, reschedules, is unavailable, declines service, or the proposed service does not proceed.</p>
           </section>
 
           <section>
@@ -73,12 +73,11 @@ export default function TermsOfService() {
             <ul className="list-disc pl-6 space-y-1 mb-2">
               <li>permit requirements;</li>
               <li>code compliance upgrades;</li>
-              <li>venting changes;</li>
-              <li>electrical upgrades;</li>
+              <li>flue or ventilation issues;</li>
               <li>flue liner or structural conditions;</li>
               <li>access limitations;</li>
               <li>hauling or disposal requirements outside the standard scope;</li>
-              <li>non-standard plumbing conditions; or</li>
+              <li>non-standard chimney or fireplace conditions; or</li>
               <li>other conditions discovered before or during the diagnostic visit or service work.</li>
             </ul>
             <p>Where additional charges apply, KOM or its external vendor will communicate the revised scope or pricing before proceeding.</p>
@@ -171,7 +170,7 @@ export default function TermsOfService() {
               <li>water quality issues;</li>
               <li>freezing;</li>
               <li>utility or power issues;</li>
-              <li>pre-existing plumbing, venting, electrical, or structural conditions;</li>
+              <li>pre-existing chimney, venting, or structural conditions;</li>
               <li>work performed or modified by anyone not authorized by KOM; or</li>
               <li>damage caused by events outside KOM's reasonable control.</li>
             </ul>
@@ -238,7 +237,7 @@ export default function TermsOfService() {
             </ul>
 
             <h3 className="text-sm font-bold text-slate-800 mb-2">B. Service Claims</h3>
-            <p className="mb-2 uppercase font-semibold">To the maximum extent permitted by law, KOM shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or relating to any diagnostic visit, installation, emergency service, or related service transaction.</p>
+            <p className="mb-2 uppercase font-semibold">To the maximum extent permitted by law, KOM shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages arising out of or relating to any diagnostic visit, service appointment, emergency service, or related service transaction.</p>
             <p className="mb-2 uppercase font-semibold">To the maximum extent permitted by law, KOM's total liability for service-related claims shall not exceed the total amount paid by the customer to KOM for the specific service giving rise to the claim.</p>
             <p>These limitations apply only to the extent permitted by law and do not exclude liability that cannot lawfully be limited or excluded.</p>
           </section>

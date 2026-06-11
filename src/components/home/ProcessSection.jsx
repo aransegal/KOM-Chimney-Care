@@ -3,18 +3,18 @@ import { CheckCircle } from "lucide-react";
 const steps = [
   {
     number: "1",
-    title: "Choose Your Water Heater",
-    description: "Browse our selection and pick the water heater that fits your needs and budget.",
+    title: "Choose Your Chimney Service",
+    description: "Select cleaning, inspection, leak assessment, draft diagnosis, or book a general diagnostic appointment.",
   },
   {
     number: "2",
-    title: "Schedule a Diagnostics Appointment",
-    description: "Book a diagnostics visit to verify your selection can be installed properly.",
+    title: "Schedule a Diagnostic Appointment",
+    description: "Pick a date and time window so our technician can inspect the chimney or fireplace and confirm the right scope of work.",
   },
   {
     number: "3",
-    title: "Installation Within 48 Hours",
-    description: "Once diagnostics are approved, we complete your installation within 48 hours.",
+    title: "Get Service Recommendation & Completion",
+    description: "After inspection, we explain findings, pricing, and next steps. Approved work is scheduled as quickly as possible.",
   },
 ];
 

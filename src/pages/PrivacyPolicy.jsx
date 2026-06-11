@@ -35,11 +35,11 @@ export default function PrivacyPolicy() {
             <h3 className="text-sm font-bold text-slate-800 mb-2">B. Diagnostic, Booking, and Service Information</h3>
             <p className="mb-2">If you request or receive service from us, we may collect and maintain:</p>
             <ul className="list-disc pl-6 space-y-1 mb-4">
-              <li>the product or unit you selected on the Site;</li>
+              <li>the service you selected on the Site;</li>
               <li>diagnostic appointment request details;</li>
               <li>appointment approval and scheduling information;</li>
               <li>service history;</li>
-              <li>installation information;</li>
+              <li>service information;</li>
               <li>external vendor coordination information;</li>
               <li>invoice and payment status information;</li>
               <li>warranty-related information; and</li>
@@ -81,9 +81,9 @@ export default function PrivacyPolicy() {
             <p className="mb-2">We may use personal information for the following purposes:</p>
             <ul className="list-disc pl-6 space-y-1">
               <li>to respond to inquiries and communicate with you;</li>
-              <li>to help you select products or services;</li>
+              <li>to help you select services;</li>
               <li>to review, approve, and schedule diagnostic appointments;</li>
-              <li>to coordinate installations, including through external vendors or contractors;</li>
+              <li>to coordinate service work, including through external vendors or contractors;</li>
               <li>to provide customer support, follow-up, and warranty-related service;</li>
               <li>to process payments and maintain transaction records;</li>
               <li>to improve the Site, our operations, and customer experience;</li>
@@ -135,8 +135,8 @@ export default function PrivacyPolicy() {
               <li>call tracking or scheduling functions.</li>
             </ul>
 
-            <h3 className="text-sm font-bold text-slate-800 mb-2">B. External Installation Vendors and Contractors</h3>
-            <p className="mb-4">Because installation services may be performed through one or more external vendors or contractors, we may share relevant customer and job information with those parties as necessary to review, schedule, coordinate, and complete diagnostic visits, installations, emergency service, follow-up work, or warranty-related labor.</p>
+            <h3 className="text-sm font-bold text-slate-800 mb-2">B. External Service Vendors and Contractors</h3>
+            <p className="mb-4">Because service work may be performed through one or more external vendors or contractors, we may share relevant customer and job information with those parties as necessary to review, schedule, coordinate, and complete diagnostic visits, service appointments, emergency service, follow-up work, or warranty-related labor.</p>
 
             <h3 className="text-sm font-bold text-slate-800 mb-2">C. Legal and Safety Reasons</h3>
             <p className="mb-2">We may disclose information if we believe doing so is necessary to:</p>
@@ -161,11 +161,11 @@ export default function PrivacyPolicy() {
             <p className="mb-2">If you provide your phone number, email address, or other contact information, you agree that we may contact you regarding:</p>
             <ul className="list-disc pl-6 space-y-1 mb-2">
               <li>your inquiry;</li>
-              <li>product selection;</li>
+              <li>service selection;</li>
               <li>diagnostic appointment requests and approvals;</li>
               <li>scheduling;</li>
               <li>appointment reminders;</li>
-              <li>installation coordination;</li>
+              <li>service coordination;</li>
               <li>emergency service requests;</li>
               <li>invoices and payments;</li>
               <li>warranty support; and</li>

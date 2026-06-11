@@ -56,7 +56,7 @@ export default function Layout({ children, currentPageName }) {
   };
 
   const navLinks = [
-  { label: "Products", id: "pricing" },
+  { label: "Services", id: "pricing" },
   { label: "Financing", id: "financing" },
   { label: "About Us", id: "about" },
   { label: "FAQ", id: "faq" },
@@ -151,7 +151,7 @@ export default function Layout({ children, currentPageName }) {
                   {link.label}
                 </button>
             )}
-              <Link to={createPageUrl("Account")} onClick={() => setMobileMenuOpen(false)} className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">My Orders</Link>
+              <Link to={createPageUrl("Account")} onClick={() => setMobileMenuOpen(false)} className="block w-full text-left py-3 px-3 rounded-lg text-slate-700 font-medium hover:bg-green-50 hover:text-green-700 transition-colors">My Bookings</Link>
               <div className="pt-3 border-t border-slate-100 space-y-2">
                 <a
                 href="tel:+17346662338"
