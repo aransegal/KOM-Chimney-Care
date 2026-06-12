@@ -1,75 +1,45 @@
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { CheckCircle, Phone, AlertTriangle, Search, Flame, Shield, Wrench, Droplets, Wind, Layers, CalendarCheck } from "lucide-react";
+import { AlertTriangle, Phone } from "lucide-react";
+
+// Swap image URLs here at any time — one place per service
+const TILE_IMAGES = {
+  cleaning: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
+  cap: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
+  roundCap: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
+  capLiner: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80",
+};
 
 const services = [
   {
-    name: "Chimney Inspection",
-    description: "Level 1 & Level 2 inspections. Recommended annually and required when buying or selling a home.",
-    price: "Starting from $79",
-    popular: false,
-    icon: Search,
+    key: "cleaning",
+    name: "Chimney Cleaning",
+    description: "Professional removal of creosote, soot, and debris from your flue liner and firebox. Safe use starts here.",
+    startingFrom: "$299",
+    bookParam: "Chimney Cleaning",
   },
   {
-    name: "Chimney Cleaning / Sweep",
-    description: "Professional removal of creosote, soot, and debris from your flue liner and firebox.",
-    price: "Quote after inspection",
-    popular: true,
-    icon: Layers,
+    key: "cap",
+    name: "Chimney Cap",
+    description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
+    startingFrom: "$329",
+    bookParam: "Chimney Cap",
   },
   {
-    name: "Fireplace & Chimney Safety Check",
-    description: "Full system review — damper, crown, cap, flashing, liner, and firebox condition.",
-    price: "Starting from $79",
-    popular: false,
-    icon: Shield,
+    key: "roundCap",
+    name: "Round Cap",
+    description: "Stainless round chimney cap in sizes 4 to 10 inch. Special-order sizes available. Technician verifies fit on site.",
+    startingFrom: "$289",
+    bookParam: "Round Cap",
   },
   {
-    name: "Chimney Cap / Animal Guard",
-    description: "Installation or replacement of chimney caps and animal guards to prevent water, debris, and animal entry.",
-    price: "Quote after inspection",
-    popular: false,
-    icon: Wrench,
+    key: "capLiner",
+    name: "Cap Liner",
+    description: "Flue cap liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
+    startingFrom: "$499",
+    bookParam: "Cap Liner",
   },
-  {
-    name: "Chimney Leak Assessment",
-    description: "Diagnosis of water intrusion — crown, flashing, cap, masonry, or liner. Full written report provided.",
-    price: "Starting from $79",
-    popular: false,
-    icon: Droplets,
-  },
-  {
-    name: "Smoke / Draft Problem Diagnosis",
-    description: "Identify and resolve backdraft, negative pressure, or blocked flue causing smoke to enter the home.",
-    price: "Starting from $79",
-    popular: false,
-    icon: Wind,
-  },
-  {
-    name: "Creosote Buildup Cleaning",
-    description: "Heavy-duty cleaning for Stage 2 and Stage 3 creosote. Required before safe fireplace use.",
-    price: "Quote after inspection",
-    popular: false,
-    icon: Flame,
-  },
-  {
-    name: "Annual Chimney Maintenance",
-    description: "Comprehensive annual cleaning + inspection package. Best value for regular fireplace users.",
-    price: "Quote after inspection",
-    popular: false,
-    icon: CalendarCheck,
-  },
-];
-
-const serviceFeatures = [
-  "Licensed & insured technicians",
-  "Written inspection report",
-  "Same-day available",
-  "Drop cloths & vacuumed cleanup",
-  "3-month labor warranty",
-  "All fireplace types",
-  "Photo documentation included",
 ];
 
 export default function ServicesPricingSection() {
@@ -78,70 +48,64 @@ export default function ServicesPricingSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <h2 className="text-slate-900 mb-3 text-4xl font-extrabold text-center sm:text-5xl">Our Services</h2>
-        <p className="text-center text-slate-500 text-lg mb-5 max-w-2xl mx-auto">Professional chimney cleaning, inspection, and fireplace safety services.</p>
+        <p className="text-center text-slate-500 text-lg mb-4 max-w-2xl mx-auto">
+          Select the service or material you believe you need. Our technician will inspect, verify fit and sizing, and confirm final pricing on site.
+        </p>
 
-        {/* What's included */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-8 gap-y-2 mb-10 max-w-2xl mx-auto">
-          {serviceFeatures.map((f) => (
-            <div key={f} className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-green-600 flex-shrink-0" />
-              <span className="text-sm text-slate-600">{f}</span>
+        {/* Service tiles */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          {services.map((service) => (
+            <div
+              key={service.key}
+              className="rounded-2xl border-2 border-slate-200 hover:border-green-600 hover:shadow-xl hover:shadow-green-700/10 overflow-hidden flex flex-col transition-all duration-300 bg-white"
+            >
+              {/* Image */}
+              <div className="relative h-44 overflow-hidden bg-slate-100">
+                <img
+                  src={TILE_IMAGES[service.key]}
+                  alt={service.name}
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  onError={(e) => { e.target.style.display = "none"; }}
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col flex-1 p-5">
+                <h3 className="text-slate-900 font-extrabold text-lg mb-2 leading-tight">{service.name}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed flex-1 mb-4">{service.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-700 font-bold text-base">Starting from {service.startingFrom}</span>
+                </div>
+                <Link
+                  to={`${createPageUrl("Booking")}?service=${encodeURIComponent(service.bookParam)}`}
+                  className="mt-4 block"
+                >
+                  <Button size="sm" className="bg-green-700 hover:bg-green-800 text-white w-full font-semibold">
+                    Book &amp; Verify
+                  </Button>
+                </Link>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Service cards grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-16">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.name}
-                className="relative rounded-2xl border-2 overflow-hidden flex flex-col transition-all hover:shadow-xl hover:shadow-green-700/30 border-slate-200 hover:border-green-700"
-              >
-                {service.popular ? (
-                  <div className="text-center pt-2 px-2">
-                    <span className="bg-green-900 text-green-50 px-3 py-1 font-bold uppercase tracking-wide rounded-full inline-block whitespace-nowrap text-xs">MOST POPULAR</span>
-                  </div>
-                ) : (
-                  <div className="pt-2 px-2">
-                    <span className="inline-block text-[10px] px-3 py-1">&nbsp;</span>
-                  </div>
-                )}
+        {/* Disclaimer */}
+        <p className="text-center text-slate-400 text-sm mb-16 italic">
+          Final fit, sizing, and pricing are verified by the technician during the diagnostic visit.
+        </p>
 
-                {/* Icon */}
-                <div className="flex items-center justify-center pt-4 pb-2">
-                  <div className="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center">
-                    <Icon className="w-7 h-7 text-green-700" />
-                  </div>
-                </div>
-
-                {/* Title */}
-                <div className="text-center pt-1 px-3">
-                  <p className="text-slate-800 text-base font-bold leading-snug">{service.name}</p>
-                </div>
-
-                {/* Description */}
-                <div className="px-3 pt-2 flex-1">
-                  <p className="text-slate-500 text-xs leading-relaxed text-center">{service.description}</p>
-                </div>
-
-                {/* Price & CTA */}
-                <div className="p-4 flex flex-col bg-white justify-end">
-                  <p className="text-sm font-semibold mb-3 text-green-700 text-center">{service.price}</p>
-                  <Link to={createPageUrl("Booking") + `?service=${encodeURIComponent(service.name)}&price=${encodeURIComponent(service.price)}`}>
-                    <Button size="sm" className="bg-green-700 text-white px-3 text-sm font-semibold rounded-md w-full hover:bg-green-800">
-                      Book Service
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            );
-          })}
+        {/* Transparent Pricing */}
+        <div className="text-center mt-4">
+          <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
+          <h2 className="text-slate-900 mb-5 text-4xl font-extrabold text-center sm:text-5xl">No Hidden Fees. Ever.</h2>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+            We believe in honest, upfront pricing. A{" "}
+            <span className="font-bold text-green-700">$79 booking fee</span> secures your diagnostics appointment — applied toward your service total.
+          </p>
         </div>
 
         {/* Emergency */}
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-12">
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
               <AlertTriangle className="w-5 h-5 text-red-600" />
@@ -157,16 +121,6 @@ export default function ServicesPricingSection() {
               Call Emergency Line
             </Button>
           </a>
-        </div>
-
-        {/* Transparent Pricing */}
-        <div className="text-center mt-16">
-          <span className="text-green-700 font-semibold text-sm tracking-widest uppercase mb-3 block">Transparent Pricing</span>
-          <h2 className="text-slate-900 mb-5 text-4xl font-extrabold text-center sm:text-5xl">No Hidden Fees. Ever.</h2>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">
-            We believe in honest, upfront pricing. A{" "}
-            <span className="font-bold text-green-700">$79 booking fee</span> secures your diagnostics appointment — applied toward your service total.
-          </p>
         </div>
 
       </div>

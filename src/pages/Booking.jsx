@@ -6,33 +6,30 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { CheckCircle, ChevronRight, ChevronLeft, Phone, Shield, Clock, UserCircle } from "lucide-react";
 import { createPageUrl } from "@/utils";
+import RequestCart, { CATALOG } from "@/components/booking/RequestCart";
 
-const STEPS = ["Choose Service", "Your Details", "Schedule", "Confirm"];
-
+const STEPS = ["Request Items", "Your Details", "Schedule", "Confirm"];
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
-
-
-const products = [
-{ name: "Chimney Inspection", price: "Starting from $79" },
-{ name: "Chimney Cleaning / Sweep", price: "Quote after inspection" },
-{ name: "Fireplace & Chimney Safety Check", price: "Starting from $79" },
-{ name: "Chimney Cap / Animal Guard Service", price: "Quote after inspection" },
-{ name: "Chimney Leak / Water Intrusion Assessment", price: "Starting from $79" },
-{ name: "Smoke / Draft Problem Diagnosis", price: "Starting from $79" },
-{ name: "Creosote Buildup Cleaning", price: "Quote after inspection", popular: true },
-{ name: "Annual Chimney Maintenance", price: "Quote after inspection" }];
-
 
 export default function Booking() {
   const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
-  const preselectedProduct = urlParams.get("service") || urlParams.get("product") || "";
-  const preselectedPrice = urlParams.get("price") || "";
+  const preselectedCategory = urlParams.get("service") || urlParams.get("product") || "";
+
+  // Pre-populate cart if a category was passed from a homepage tile
+  const buildInitialCart = () => {
+    if (!preselectedCategory) return [];
+    for (const cat of CATALOG) {
+      if (cat.category.toLowerCase() === preselectedCategory.toLowerCase()) {
+        const item = cat.items[0];
+        return [{ ...item, qty: 1, category: cat.category }];
+      }
+    }
+    return [];
+  };
 
   const [step, setStep] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState(
-    preselectedProduct ? { name: preselectedProduct, price: preselectedPrice } : null
-  );
+  const [cartItems, setCartItems] = useState(buildInitialCart);
   const [booking, setBooking] = useState({
     service_type: "installation",
     heater_type: "tank",
@@ -49,7 +46,6 @@ export default function Booking() {
     is_emergency: false
   });
   const [fieldErrors, setFieldErrors] = useState({});
-  const [confirmNoProduct, setConfirmNoProduct] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -62,7 +58,6 @@ export default function Booking() {
     base44.auth.me().then(async (user) => {
       if (!user) return;
       setCurrentUser(user);
-      // Pre-fill name + email from account
       const nameParts = (user.full_name || "").split(" ");
       setBooking((b) => ({
         ...b,
@@ -70,7 +65,6 @@ export default function Booking() {
         customer_last_name: b.customer_last_name || nameParts.slice(1).join(" ") || "",
         customer_email: b.customer_email || user.email || ""
       }));
-      // Fetch last booking
       const bookings = await base44.entities.Booking.filter({ created_by: user.email }, "-created_date", 1);
       if (bookings && bookings.length > 0) setLastBooking(bookings[0]);
     }).catch(() => {});
@@ -93,18 +87,34 @@ export default function Booking() {
     return Object.keys(errors).length === 0;
   };
 
-  const handleStep1Next = () => {
-    if (validateStep1()) next();
+  const buildSelectedProductString = () => {
+    if (cartItems.length === 0) return "";
+    return cartItems
+      .map((ci) => `${ci.category} — ${ci.label} x${ci.qty} ($${ci.price * ci.qty})`)
+      .join("; ");
   };
+
+  const buildCartJson = () =>
+    JSON.stringify(
+      cartItems.map((ci) => ({
+        category: ci.category,
+        item: ci.label,
+        qty: ci.qty,
+        unit_price: ci.price,
+        subtotal: ci.price * ci.qty,
+      }))
+    );
 
   const handleSubmit = async () => {
     setLoading(true);
     const fullName = `${booking.customer_first_name} ${booking.customer_last_name}`.trim();
     const ref = "KOM-" + Date.now().toString().slice(-6);
+    const cartNote = cartItems.length > 0 ? `\n\n[REQUEST CART]\n${buildCartJson()}` : "";
     const created = await base44.entities.Booking.create({
       ...booking,
       customer_name: fullName,
-      selected_product: selectedProduct ? `${selectedProduct.name} (${selectedProduct.price})` : "",
+      selected_product: buildSelectedProductString(),
+      notes: (booking.notes || "") + cartNote,
       booking_number: ref,
       booking_fee: 79,
       payment_status: "unpaid",
@@ -114,16 +124,16 @@ export default function Booking() {
       try {
         await base44.functions.invoke("sendPendingBookingEmail", { booking_id: created.id });
       } catch (e) {
+        // Email may fail for non-registered users — booking still confirmed
+      }
+    }
+    setBookingRef(ref);
+    setSubmitted(true);
+    setLoading(false);
+  };
 
-
-
-
-
-
-
-
-        // Email failed (e.g. non-registered user), booking still confirmed
-      }}setBookingRef(ref);setSubmitted(true);setLoading(false);};if (submitted) {return (
+  if (submitted) {
+    return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center pt-20 px-4">
         <div className="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full text-center">
           <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-5">
@@ -138,7 +148,10 @@ export default function Booking() {
             We'll contact you within 2 hours to confirm your appointment. A $79 booking deposit secures your slot and will be applied toward your service total.
           </p>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
-            <p className="text-sm text-orange-800 font-medium">Next Step: A KOM specialist will call you at <span className="font-bold">{booking.customer_phone}</span> to confirm your appointment details.</p>
+            <p className="text-sm text-orange-800 font-medium">
+              Next Step: A KOM specialist will call you at{" "}
+              <span className="font-bold">{booking.customer_phone}</span> to confirm your appointment details.
+            </p>
           </div>
           <a href="tel:+17346662338">
             <Button variant="outline" className="w-full border-2 border-orange-600 text-orange-600 hover:bg-orange-50 mb-3">
@@ -149,8 +162,8 @@ export default function Booking() {
             Back to Home
           </Button>
         </div>
-      </div>);
-
+      </div>
+    );
   }
 
   return (
@@ -158,268 +171,173 @@ export default function Booking() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Header */}
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Book a Chimney Service</h1>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Book a Service &amp; Diagnostic</h1>
           <p className="text-slate-500">Secure your diagnostics appointment with a $79 booking fee — applied to your service total.</p>
         </div>
 
         {/* Step Indicator */}
         <div className="flex items-center justify-center mb-10">
-          {STEPS.map((label, i) =>
-          <div key={label} className="flex items-center">
+          {STEPS.map((label, i) => (
+            <div key={label} className="flex items-center">
               <div className="flex flex-col items-center">
-                <div
-                className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
-                i < step ?
-                "bg-orange-600 text-white" :
-                i === step ?
-                "bg-orange-600 text-white ring-4 ring-orange-100" :
-                "bg-white border-2 border-slate-300 text-slate-400"}`
-                }>
-
+                <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all ${
+                  i < step ? "bg-orange-600 text-white" : i === step ? "bg-orange-600 text-white ring-4 ring-orange-100" : "bg-white border-2 border-slate-300 text-slate-400"
+                }`}>
                   {i < step ? <CheckCircle className="w-4 h-4" /> : i + 1}
                 </div>
                 <span className={`text-xs mt-1 font-medium hidden sm:block ${i === step ? "text-orange-600" : "text-slate-400"}`}>
                   {label}
                 </span>
               </div>
-              {i < STEPS.length - 1 &&
-            <div className={`w-10 sm:w-16 h-0.5 mx-1 ${i < step ? "bg-orange-600" : "bg-slate-200"}`} />
-            }
+              {i < STEPS.length - 1 && (
+                <div className={`w-10 sm:w-16 h-0.5 mx-1 ${i < step ? "bg-orange-600" : "bg-slate-200"}`} />
+              )}
             </div>
-          )}
+          ))}
         </div>
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
 
-          {/* STEP 0: Chosen Installation */}
-          {step === 0 &&
-          <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose a Service</h2>
-              {selectedProduct ?
-            <>
-                  <p className="text-slate-500 mb-6">You selected the following service. You can change your selection below.</p>
-                  {/* Selected product highlight */}
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-green-50 border-2 border-green-600 rounded-2xl p-5 mb-6">
-                    <div className="flex items-center gap-5">
-                      <div>
-                        <div className="text-xs font-bold text-green-700 uppercase tracking-wide mb-1">Selected Service</div>
-                        <div className="text-xl font-extrabold text-slate-900">{selectedProduct.name}</div>
-                        <div className="text-lg font-semibold text-green-700 mt-1">{selectedProduct.price}</div>
-                      </div>
-                    </div>
-
-                  </div>
-                </> :
-
-            <>
-                  <p className="text-slate-500 mb-6">Select a service below, or click Next to continue to book a general diagnostics appointment.</p>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                    {products.map((product) =>
-                <button
-                  key={product.name}
-                  onClick={() => {
-                    setSelectedProduct(product);
-                  }}
-                  className="relative rounded-xl border-2 border-slate-200 hover:border-green-400 overflow-hidden flex flex-col transition-all hover:shadow-md text-left">
-
-                        {product.popular &&
-                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[9px] font-bold px-2 py-0.5 rounded-full tracking-wide uppercase whitespace-nowrap z-10">
-                            Most Popular
-                          </div>
-                  }
-                        <div className="p-3 pt-6 flex flex-col flex-1 bg-white">
-                          <p className="text-slate-700 mb-1 text-xs font-semibold text-center leading-snug">
-                            {product.name}
-                          </p>
-                          <p className="text-green-700 text-sm font-semibold text-center mt-1">
-                            {product.price}
-                          </p>
-                        </div>
-                      </button>
-                )}
-                  </div>
-                </>
-            }
-              {!selectedProduct &&
-            <div className="flex flex-col sm:flex-row sm:items-center gap-5 bg-amber-50 border-2 border-amber-400 rounded-2xl p-5 mb-6">
-                  <div className="flex items-center gap-5">
-                    
-                    <div>
-                      <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">No Service Selected</div>
-                      <div className="text-xl font-extrabold text-slate-900">Not sure which service you need?</div>
-                      <div className="text-sm text-amber-700 mt-1">Press Next to book a general diagnostics appointment — our technician will assess on-site.</div>
-                    </div>
-                  </div>
-                  
-
-
-
-
-
-
-
+          {/* STEP 0: Request Cart */}
+          {step === 0 && (
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-1">Select Services &amp; Materials</h2>
+              <RequestCart
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                preselectedCategory={preselectedCategory}
+              />
+              {cartItems.length === 0 && (
+                <div className="mt-5 bg-amber-50 border-2 border-amber-300 rounded-2xl p-4">
+                  <div className="text-xs font-bold text-amber-600 uppercase tracking-wide mb-1">Nothing selected yet</div>
+                  <div className="text-sm text-amber-700">You can still continue to book a general diagnostics visit — our technician will assess on-site.</div>
                 </div>
-            }
-              <div className="flex justify-between">
-                {selectedProduct ?
-              <Button variant="outline" onClick={() => setSelectedProduct(null)}>
-                    <ChevronLeft className="mr-1 w-4 h-4" /> Change
-                  </Button> :
-              <div />}
-                <Button
-                onClick={() => {if (!selectedProduct && !confirmNoProduct) {setConfirmNoProduct(true);} else {next();}}}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-
+              )}
+              <div className="flex justify-end mt-6">
+                <Button onClick={next} className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                   Next <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
               </div>
             </div>
-          }
+          )}
 
           {/* STEP 1: Customer Details */}
-          {step === 1 &&
-          <div>
+          {step === 1 && (
+            <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Your Contact Information</h2>
               <p className="text-slate-500 mb-6">We'll use this to confirm your diagnostics appointment.</p>
 
-              {/* Autofill from last booking */}
-              {lastBooking && !autofillDismissed &&
-            <div className="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+              {lastBooking && !autofillDismissed && (
+                <div className="flex items-start gap-4 bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                   <UserCircle className="w-6 h-6 text-blue-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1">
                     <div className="font-semibold text-blue-900 text-sm mb-0.5">Use info from your last booking?</div>
                     <div className="text-blue-700 text-xs mb-3">{lastBooking.customer_name} · {lastBooking.customer_phone} · {lastBooking.customer_address}</div>
                     <div className="flex gap-2">
                       <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white h-8 px-4 text-xs" onClick={() => {
-                    const nameParts = (lastBooking.customer_name || "").split(" ");
-                    setBooking((b) => ({
-                      ...b,
-                      customer_first_name: nameParts[0] || "",
-                      customer_last_name: nameParts.slice(1).join(" ") || "",
-                      customer_email: lastBooking.customer_email || b.customer_email,
-                      customer_phone: lastBooking.customer_phone || "",
-                      customer_address: lastBooking.customer_address || "",
-                      customer_company: lastBooking.customer_company || ""
-                    }));
-                    setAutofillDismissed(true);
-                  }}>Yes, use this info</Button>
+                        const nameParts = (lastBooking.customer_name || "").split(" ");
+                        setBooking((b) => ({
+                          ...b,
+                          customer_first_name: nameParts[0] || "",
+                          customer_last_name: nameParts.slice(1).join(" ") || "",
+                          customer_email: lastBooking.customer_email || b.customer_email,
+                          customer_phone: lastBooking.customer_phone || "",
+                          customer_address: lastBooking.customer_address || "",
+                          customer_company: lastBooking.customer_company || ""
+                        }));
+                        setAutofillDismissed(true);
+                      }}>Yes, use this info</Button>
                       <Button size="sm" variant="outline" className="h-8 px-4 text-xs" onClick={() => setAutofillDismissed(true)}>No thanks</Button>
                     </div>
                   </div>
                 </div>
-            }
+              )}
+
               <div className="space-y-4 mb-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">First Name *</label>
-                    <Input
-                    placeholder="John"
-                    value={booking.customer_first_name}
-                    onChange={(e) => {setBooking({ ...booking, customer_first_name: e.target.value });setFieldErrors((p) => ({ ...p, customer_first_name: null }));}}
-                    className={fieldErrors.customer_first_name ? "border-red-400" : ""} />
+                    <Input placeholder="John" value={booking.customer_first_name}
+                      onChange={(e) => { setBooking({ ...booking, customer_first_name: e.target.value }); setFieldErrors((p) => ({ ...p, customer_first_name: null })); }}
+                      className={fieldErrors.customer_first_name ? "border-red-400" : ""} />
                     {fieldErrors.customer_first_name && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_first_name}</p>}
                   </div>
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Last Name *</label>
-                    <Input
-                    placeholder="Smith"
-                    value={booking.customer_last_name}
-                    onChange={(e) => {setBooking({ ...booking, customer_last_name: e.target.value });setFieldErrors((p) => ({ ...p, customer_last_name: null }));}}
-                    className={fieldErrors.customer_last_name ? "border-red-400" : ""} />
+                    <Input placeholder="Smith" value={booking.customer_last_name}
+                      onChange={(e) => { setBooking({ ...booking, customer_last_name: e.target.value }); setFieldErrors((p) => ({ ...p, customer_last_name: null })); }}
+                      className={fieldErrors.customer_last_name ? "border-red-400" : ""} />
                     {fieldErrors.customer_last_name && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_last_name}</p>}
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Company <span className="text-slate-400 font-normal">(optional)</span></label>
-                  <Input
-                  placeholder="ABC Corp"
-                  value={booking.customer_company}
-                  onChange={(e) => setBooking({ ...booking, customer_company: e.target.value })} />
+                  <Input placeholder="ABC Corp" value={booking.customer_company}
+                    onChange={(e) => setBooking({ ...booking, customer_company: e.target.value })} />
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Phone Number *</label>
-                    <Input
-                    placeholder="(555) 000-0000"
-                    value={booking.customer_phone}
-                    onChange={(e) => {setBooking({ ...booking, customer_phone: e.target.value });setFieldErrors((p) => ({ ...p, customer_phone: null }));}}
-                    className={fieldErrors.customer_phone ? "border-red-400" : ""} />
+                    <Input placeholder="(555) 000-0000" value={booking.customer_phone}
+                      onChange={(e) => { setBooking({ ...booking, customer_phone: e.target.value }); setFieldErrors((p) => ({ ...p, customer_phone: null })); }}
+                      className={fieldErrors.customer_phone ? "border-red-400" : ""} />
                     {fieldErrors.customer_phone && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_phone}</p>}
                   </div>
                   <div>
                     <label className="text-sm font-medium text-slate-700 mb-1 block">Email Address</label>
-                    <Input
-                    type="email"
-                    placeholder="john@email.com"
-                    value={booking.customer_email}
-                    onChange={(e) => {setBooking({ ...booking, customer_email: e.target.value });setFieldErrors((p) => ({ ...p, customer_email: null }));}}
-                    className={fieldErrors.customer_email ? "border-red-400" : ""} />
+                    <Input type="email" placeholder="john@email.com" value={booking.customer_email}
+                      onChange={(e) => { setBooking({ ...booking, customer_email: e.target.value }); setFieldErrors((p) => ({ ...p, customer_email: null })); }}
+                      className={fieldErrors.customer_email ? "border-red-400" : ""} />
                     {fieldErrors.customer_email && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_email}</p>}
                   </div>
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Service Address *</label>
-                  <Input
-                  placeholder="123 Main St, City, State, ZIP"
-                  value={booking.customer_address}
-                  onChange={(e) => {setBooking({ ...booking, customer_address: e.target.value });setFieldErrors((p) => ({ ...p, customer_address: null }));}}
-                  className={fieldErrors.customer_address ? "border-red-400" : ""} />
+                  <Input placeholder="123 Main St, City, State, ZIP" value={booking.customer_address}
+                    onChange={(e) => { setBooking({ ...booking, customer_address: e.target.value }); setFieldErrors((p) => ({ ...p, customer_address: null })); }}
+                    className={fieldErrors.customer_address ? "border-red-400" : ""} />
                   {fieldErrors.customer_address && <p className="text-red-500 text-xs mt-1">{fieldErrors.customer_address}</p>}
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Additional Notes</label>
-                  <Textarea
-                  rows={3}
-                  placeholder="Describe your chimney issue, fireplace type, or any other details..."
-                  value={booking.notes}
-                  onChange={(e) => setBooking({ ...booking, notes: e.target.value })} />
+                  <Textarea rows={3} placeholder="Describe your chimney issue, fireplace type, or any other details..."
+                    value={booking.notes}
+                    onChange={(e) => setBooking({ ...booking, notes: e.target.value })} />
                 </div>
               </div>
               <div className="flex justify-between">
-                <Button variant="outline" onClick={back}>
-                  <ChevronLeft className="mr-1 w-4 h-4" /> Back
-                </Button>
-                <Button
-                onClick={handleStep1Next}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8">
+                <Button variant="outline" onClick={back}><ChevronLeft className="mr-1 w-4 h-4" /> Back</Button>
+                <Button onClick={() => { if (validateStep1()) next(); }} className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                   Next <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
               </div>
             </div>
-          }
+          )}
 
           {/* STEP 2: Schedule */}
-          {step === 2 &&
-          <div>
+          {step === 2 && (
+            <div>
               <h2 className="text-2xl font-bold text-slate-900 mb-2">Choose Your Diagnostics Appointment</h2>
               <p className="text-slate-500 mb-6">Select a preferred date and time window to schedule an appointment with our experts.</p>
               <div className="space-y-5 mb-6">
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-1 block">Preferred Date *</label>
-                  <Input
-                  type="date"
-                  min={new Date().toISOString().split("T")[0]}
-                  value={booking.preferred_date}
-                  onChange={(e) => setBooking({ ...booking, preferred_date: e.target.value })} />
-
+                  <Input type="date" min={new Date().toISOString().split("T")[0]}
+                    value={booking.preferred_date}
+                    onChange={(e) => setBooking({ ...booking, preferred_date: e.target.value })} />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-slate-700 mb-3 block">Preferred Time Window *</label>
                   <div className="grid grid-cols-2 gap-3">
-                    {TIME_SLOTS.map((slot) =>
-                  <button
-                    key={slot}
-                    onClick={() => setBooking({ ...booking, preferred_time: slot })}
-                    className={`py-3 px-4 rounded-xl border-2 text-sm font-medium transition-all ${
-                    booking.preferred_time === slot ?
-                    "border-orange-600 bg-orange-50 text-orange-700" :
-                    "border-slate-200 text-slate-600 hover:border-orange-300"}`
-                    }>
-
+                    {TIME_SLOTS.map((slot) => (
+                      <button key={slot} onClick={() => setBooking({ ...booking, preferred_time: slot })}
+                        className={`py-3 px-4 rounded-xl border-2 text-sm font-medium transition-all ${
+                          booking.preferred_time === slot ? "border-orange-600 bg-orange-50 text-orange-700" : "border-slate-200 text-slate-600 hover:border-orange-300"
+                        }`}>
                         {slot}
                       </button>
-                  )}
+                    ))}
                   </div>
                 </div>
               </div>
@@ -430,36 +348,35 @@ export default function Booking() {
                 </div>
               </div>
               <div className="flex justify-between">
-                <Button variant="outline" onClick={back}>
-                  <ChevronLeft className="mr-1 w-4 h-4" /> Back
-                </Button>
-                <Button
-                onClick={next}
-                disabled={!booking.preferred_date || !booking.preferred_time}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-8">
-
+                <Button variant="outline" onClick={back}><ChevronLeft className="mr-1 w-4 h-4" /> Back</Button>
+                <Button onClick={next} disabled={!booking.preferred_date || !booking.preferred_time}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-8">
                   Review Booking <ChevronRight className="ml-1 w-4 h-4" />
                 </Button>
               </div>
             </div>
-          }
+          )}
 
           {/* STEP 3: Confirm */}
-          {step === 3 &&
-          <div>
-              <h2 className="text-2xl font-bold text-slate-900 mb-2">Review & Confirm</h2>
+          {step === 3 && (
+            <div>
+              <h2 className="text-2xl font-bold text-slate-900 mb-2">Review &amp; Confirm</h2>
               <p className="text-slate-500 mb-6">Please review your booking details before confirming.</p>
 
               <div className="bg-slate-50 rounded-xl p-5 mb-6 space-y-3 text-sm">
                 <div className="grid grid-cols-2 gap-2">
-                  {selectedProduct &&
-                <>
-                      <div className="text-slate-500">Service</div>
-                      <div className="font-semibold text-slate-900">{selectedProduct.name}</div>
-                      <div className="text-slate-500">Pricing</div>
-                      <div className="font-semibold text-slate-900">{selectedProduct.price}</div>
+                  {cartItems.length > 0 && (
+                    <>
+                      <div className="col-span-2 font-bold text-slate-700 text-xs uppercase tracking-wide mb-1">Requested Items</div>
+                      {cartItems.map((ci) => (
+                        <div key={ci.id} className="col-span-2 flex justify-between bg-white rounded-lg px-3 py-2 border border-slate-200">
+                          <span className="text-slate-700">{ci.category} — {ci.label}{ci.qty > 1 ? ` ×${ci.qty}` : ""}</span>
+                          <span className="font-semibold text-slate-900">${(ci.price * ci.qty).toLocaleString()}</span>
+                        </div>
+                      ))}
+                      <div className="col-span-2 text-xs text-slate-400 italic mb-2">Final pricing subject to on-site verification.</div>
                     </>
-                }
+                  )}
                   <div className="text-slate-500">Name</div>
                   <div className="font-semibold text-slate-900">{booking.customer_first_name} {booking.customer_last_name}</div>
                   {booking.customer_company && <>
@@ -496,52 +413,43 @@ export default function Booking() {
 
               {/* Terms Checkbox */}
               <div className="flex items-start gap-3 mb-6">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  checked={agreedToTerms}
+                <input type="checkbox" id="terms" checked={agreedToTerms}
                   onChange={(e) => setAgreedToTerms(e.target.checked)}
-                  className="mt-1 h-4 w-4 accent-orange-600 cursor-pointer flex-shrink-0"
-                />
+                  className="mt-1 h-4 w-4 accent-orange-600 cursor-pointer flex-shrink-0" />
                 <label htmlFor="terms" className="text-sm text-slate-600 cursor-pointer">
                   I agree to the{" "}
-                  <Link to={'/TermsOfService'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
+                  <Link to="/TermsOfService" className="text-orange-600 underline hover:text-orange-700" target="_blank">Terms of Service</Link>{" "}
                   and{" "}
-                  <Link to={'/PrivacyPolicy'} className="text-orange-600 underline hover:text-orange-700" target="_blank">Privacy Policy</Link>
+                  <Link to="/PrivacyPolicy" className="text-orange-600 underline hover:text-orange-700" target="_blank">Privacy Policy</Link>
                   , and authorize KOM Chimney Care to contact me regarding my booking.
                 </label>
               </div>
 
               <div className="flex justify-between">
-                <Button variant="outline" onClick={back}>
-                  <ChevronLeft className="mr-1 w-4 h-4" /> Back
-                </Button>
-                <Button
-                onClick={handleSubmit}
-                disabled={loading || !agreedToTerms}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-10 disabled:opacity-50">
-
+                <Button variant="outline" onClick={back}><ChevronLeft className="mr-1 w-4 h-4" /> Back</Button>
+                <Button onClick={handleSubmit} disabled={loading || !agreedToTerms}
+                  className="bg-orange-600 hover:bg-orange-700 text-white px-10 disabled:opacity-50">
                   {loading ? "Confirming..." : "Confirm Booking →"}
                 </Button>
               </div>
             </div>
-          }
+          )}
         </div>
 
         {/* Trust Row */}
         <div className="flex flex-wrap justify-center gap-8 mt-10 text-slate-500 text-sm">
           {[
-          { icon: Shield, text: "Licensed Vendor" },
-          { icon: Clock, text: "Same-Day Available" },
-          { icon: CheckCircle, text: "Satisfaction Guaranteed" }].
-          map(({ icon: Icon, text }) =>
-          <div key={text} className="flex items-center gap-2">
+            { icon: Shield, text: "Licensed Vendor" },
+            { icon: Clock, text: "Same-Day Available" },
+            { icon: CheckCircle, text: "Satisfaction Guaranteed" }
+          ].map(({ icon: Icon, text }) => (
+            <div key={text} className="flex items-center gap-2">
               <Icon className="w-4 h-4 text-orange-500" />
               {text}
             </div>
-          )}
+          ))}
         </div>
       </div>
-    </div>);
-
+    </div>
+  );
 }
