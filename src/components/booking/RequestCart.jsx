@@ -72,8 +72,8 @@ function QtyControl({ qty, onChange, min = 1 }) {
 }
 
 // ─── Category Card ────────────────────────────────────────────────────────────
-function CategoryCard({ cat, cartItems, onAdd, onRemove, onQtyChange }) {
-  const [open, setOpen] = useState(false);
+function CategoryCard({ cat, cartItems, onAdd, onRemove, onQtyChange, defaultOpen }) {
+  const [open, setOpen] = useState(defaultOpen || false);
   const selectedInCat = cartItems.filter((ci) => cat.items.some((i) => i.id === ci.id));
   const hasSelection = selectedInCat.length > 0;
 
@@ -103,6 +103,11 @@ function CategoryCard({ cat, cartItems, onAdd, onRemove, onQtyChange }) {
 
       {open && (
         <div className="px-5 pb-5 space-y-2">
+          {cat.type === "size" && selectedInCat.length === 0 && (
+            <p className="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-1 font-medium">
+              Please select the size you need — our technician will verify the correct fit on site.
+            </p>
+          )}
           {cat.items.map((item) => {
             const inCart = cartItems.find((ci) => ci.id === item.id);
             return (
@@ -210,6 +215,10 @@ export default function RequestCart({ cartItems, setCartItems, preselectedCatego
             onAdd={handleAdd}
             onRemove={handleRemove}
             onQtyChange={handleQtyChange}
+            defaultOpen={
+              !!preselectedCategory &&
+              cat.category.toLowerCase() === preselectedCategory.toLowerCase()
+            }
           />
         ))}
       </div>

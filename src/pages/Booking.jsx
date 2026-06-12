@@ -14,18 +14,31 @@ const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM –
 export default function Booking() {
   const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
-  const preselectedCategory = urlParams.get("service") || urlParams.get("product") || "";
+  // Accept ?category= (new) or legacy ?service= / ?product=
+  const preselectedCategory = urlParams.get("category") || urlParams.get("service") || urlParams.get("product") || "";
 
-  // Pre-populate cart if a category was passed from a homepage tile
+  // Catalog slug → category name mapping for URL params
+  const SLUG_TO_CATEGORY = {
+    "chimney-cleaning": "Chimney Cleaning",
+    "chimney-cap": "Chimney Cap",
+    "round-cap": "Round Cap",
+    "cap-liner": "Cap Liner",
+  };
+  // Categories that should NOT auto-add (require size selection)
+  const NO_AUTO_ADD = new Set(["Round Cap", "Cap Liner"]);
+
+  const resolvedCategory = SLUG_TO_CATEGORY[preselectedCategory] || preselectedCategory;
+
+  // Pre-populate cart only for categories that don't require size selection
   const buildInitialCart = () => {
-    if (!preselectedCategory) return [];
-    for (const cat of CATALOG) {
-      if (cat.category.toLowerCase() === preselectedCategory.toLowerCase()) {
-        const item = cat.items[0];
-        return [{ ...item, qty: 1, category: cat.category }];
-      }
-    }
-    return [];
+    if (!resolvedCategory) return [];
+    const cat = CATALOG.find(
+      (c) => c.category.toLowerCase() === resolvedCategory.toLowerCase()
+    );
+    if (!cat) return [];
+    if (NO_AUTO_ADD.has(cat.category)) return []; // Must choose size manually
+    const item = cat.items[0];
+    return [{ ...item, qty: 1, category: cat.category }];
   };
 
   const [step, setStep] = useState(0);
@@ -206,7 +219,7 @@ export default function Booking() {
               <RequestCart
                 cartItems={cartItems}
                 setCartItems={setCartItems}
-                preselectedCategory={preselectedCategory}
+                preselectedCategory={resolvedCategory}
               />
               {cartItems.length === 0 && (
                 <div className="mt-5 bg-amber-50 border-2 border-amber-300 rounded-2xl p-4">

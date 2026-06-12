@@ -11,34 +11,40 @@ const TILE_IMAGES = {
   capLiner: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80",
 };
 
+// autoAdd: true  → first item is pre-added in the cart
+// autoAdd: false → category opens but customer must choose size
 const services = [
   {
     key: "cleaning",
     name: "Chimney Cleaning",
     description: "Professional removal of creosote, soot, and debris from your flue liner and firebox. Safe use starts here.",
     startingFrom: "$299",
-    bookParam: "Chimney Cleaning",
+    bookParam: "chimney-cleaning",
+    autoAdd: true,
   },
   {
     key: "cap",
     name: "Chimney Cap",
     description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
     startingFrom: "$329",
-    bookParam: "Chimney Cap",
+    bookParam: "chimney-cap",
+    autoAdd: true,
   },
   {
     key: "roundCap",
     name: "Round Cap",
     description: "Stainless round chimney cap in sizes 4 to 10 inch. Special-order sizes available. Technician verifies fit on site.",
     startingFrom: "$289",
-    bookParam: "Round Cap",
+    bookParam: "round-cap",
+    autoAdd: false,
   },
   {
     key: "capLiner",
     name: "Cap Liner",
     description: "Flue cap liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
     startingFrom: "$499",
-    bookParam: "Cap Liner",
+    bookParam: "cap-liner",
+    autoAdd: false,
   },
 ];
 
@@ -77,7 +83,7 @@ export default function ServicesPricingSection() {
                   <span className="text-green-700 font-bold text-base">Starting from {service.startingFrom}</span>
                 </div>
                 <Link
-                  to={`${createPageUrl("Booking")}?service=${encodeURIComponent(service.bookParam)}`}
+                  to={`${createPageUrl("Booking")}?category=${encodeURIComponent(service.bookParam)}`}
                   className="mt-4 block"
                 >
                   <Button size="sm" className="bg-green-700 hover:bg-green-800 text-white w-full font-semibold">

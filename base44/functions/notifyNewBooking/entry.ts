@@ -60,9 +60,12 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Invalid booking data' }, { status: 400 });
         }
 
-        const serviceLabel = booking.selected_product
-            ? booking.selected_product.split('(')[0].trim()
-            : (booking.service_type || 'chimney service').replace(/_/g, ' ');
+        const serviceLabel = booking.selected_product || (booking.service_type || 'chimney service').replace(/_/g, ' ');
+
+        // Strip [REQUEST CART] JSON blob from notes — never show raw JSON in emails
+        const cleanNotes = (booking.notes || '')
+            .replace(/\n*\[REQUEST CART\]\n[\s\S]*/m, '')
+            .trim();
 
         const emailSubject = `New Booking Request - ${booking.customer_name}`;
         const emailBody = `<p>A new booking request has been submitted on KOM Chimney Care.</p>
@@ -71,10 +74,10 @@ Deno.serve(async (req) => {
 <p><strong>Phone:</strong> ${booking.customer_phone}</p>
 <p><strong>Email:</strong> ${booking.customer_email || 'N/A'}</p>
 <p><strong>Address:</strong> ${booking.customer_address}</p>
-<p><strong>Service:</strong> ${serviceLabel}</p>
+<p><strong>Service / Items:</strong> ${serviceLabel || 'General Diagnostics'}</p>
 <p><strong>Preferred Date:</strong> ${booking.preferred_date}</p>
 <p><strong>Preferred Time:</strong> ${booking.preferred_time}</p>
-<p><strong>Notes:</strong> ${booking.notes || 'None'}</p>
+<p><strong>Notes:</strong> ${cleanNotes || 'None'}</p>
 <p><strong>Booking Ref:</strong> ${booking.booking_number}</p>
 <br>
 <p>Log in to the <a href="https://kom-heat-fix.base44.app/AdminDashboard">Admin Dashboard</a> to manage this booking.</p>
