@@ -31,8 +31,10 @@ Deno.serve(async (req) => {
             return Response.json({ success: false, error: "No customer email on file" });
         }
 
-        const serviceLabel = booking.selected_product
-            ? booking.selected_product.split('(')[0].trim()
+        // Build readable service label — never expose [REQUEST CART] JSON or truncate at "("
+        const rawProduct = booking.selected_product || '';
+        const serviceLabel = rawProduct
+            ? rawProduct.split(';').map(s => s.trim()).join('<br>')
             : (booking.service_type || 'chimney service').replace(/_/g, ' ');
 
         const emailBody = `
@@ -43,7 +45,7 @@ Deno.serve(async (req) => {
   <br>
   <table style="width:100%;border-collapse:collapse;background:#f9fafb;border-radius:8px;padding:16px;">
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Booking Ref</td><td style="padding:8px 12px;font-weight:700;color:#111827;">${booking.booking_number}</td></tr>
-    <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Service</td><td style="padding:8px 12px;text-transform:capitalize;">${serviceLabel}</td></tr>
+    <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;vertical-align:top;">Service / Items</td><td style="padding:8px 12px;">${serviceLabel}</td></tr>
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Date</td><td style="padding:8px 12px;">${booking.preferred_date}</td></tr>
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Time Window</td><td style="padding:8px 12px;">${booking.preferred_time}</td></tr>
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Address</td><td style="padding:8px 12px;">${booking.customer_address}</td></tr>
