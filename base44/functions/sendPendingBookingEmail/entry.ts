@@ -51,7 +51,7 @@ Deno.serve(async (req) => {
         const rawProduct = booking.selected_product || '';
         const serviceLabel = rawProduct
             ? rawProduct.split(';').map(s => s.trim()).join('<br>')
-            : (booking.service_type || 'general diagnostics').replace(/_/g, ' ');
+            : 'General Chimney Diagnostic';
 
         const emailBody = `
 <div style="font-family:sans-serif;max-width:600px;margin:0 auto;">

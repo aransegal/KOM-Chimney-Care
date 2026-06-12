@@ -60,7 +60,7 @@ Deno.serve(async (req) => {
             return Response.json({ error: 'Invalid booking data' }, { status: 400 });
         }
 
-        const serviceLabel = booking.selected_product || (booking.service_type || 'chimney service').replace(/_/g, ' ');
+        const serviceLabel = booking.selected_product || 'General Chimney Diagnostic';
 
         // Strip [REQUEST CART] JSON blob from notes — never show raw JSON in emails
         const cleanNotes = (booking.notes || '')
