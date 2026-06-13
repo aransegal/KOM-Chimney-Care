@@ -8,45 +8,45 @@ const TILE_IMAGES = {
   cleaning: "https://images.unsplash.com/photo-1594560225349-7d4541d32e87?w=600&q=80",
   cap: "https://images.unsplash.com/photo-1556009762-36a907690bda?w=600&q=80",
   roundCap: "https://images.unsplash.com/photo-1684962654190-b1f1cc7095c9?w=600&q=80",
-  capLiner: "https://images.unsplash.com/photo-1685537711146-d6c29e41eeb6?w=600&q=80",
+  capLiner: "https://images.unsplash.com/photo-1685537711146-d6c29e41eeb6?w=600&q=80"
 };
 
 // autoAdd: true  → first item is pre-added in the cart
 // autoAdd: false → category opens but customer must choose size
 const services = [
-  {
-    key: "cleaning",
-    name: "Chimney Cleaning",
-    description: "Professional removal of creosote, soot, and debris from your flue liner and firebox. Safe use starts here.",
-    startingFrom: "$299",
-    bookParam: "chimney-cleaning",
-    autoAdd: true,
-  },
-  {
-    key: "cap",
-    name: "Chimney Cap",
-    description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
-    startingFrom: "$329",
-    bookParam: "chimney-cap",
-    autoAdd: true,
-  },
-  {
-    key: "roundCap",
-    name: "Round Cap",
-    description: "Stainless round chimney cap in sizes 4 to 10 inch. Special-order sizes available. Technician verifies fit on site.",
-    startingFrom: "$289",
-    bookParam: "round-cap",
-    autoAdd: false,
-  },
-  {
-    key: "capLiner",
-    name: "Cap Liner",
-    description: "Flue cap liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
-    startingFrom: "$499",
-    bookParam: "cap-liner",
-    autoAdd: false,
-  },
-];
+{
+  key: "cleaning",
+  name: "Chimney Cleaning",
+  description: "Professional removal of creosote, soot, and debris from your flue liner and firebox. Safe use starts here.",
+  startingFrom: "$299",
+  bookParam: "chimney-cleaning",
+  autoAdd: true
+},
+{
+  key: "cap",
+  name: "Chimney Cap",
+  description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
+  startingFrom: "$329",
+  bookParam: "chimney-cap",
+  autoAdd: true
+},
+{
+  key: "roundCap",
+  name: "Round Cap",
+  description: "Stainless round chimney cap in sizes 4 to 10 inch. Special-order sizes available. Technician verifies fit on site.",
+  startingFrom: "$289",
+  bookParam: "round-cap",
+  autoAdd: false
+},
+{
+  key: "capLiner",
+  name: "Flue Liner",
+  description: "Flue cap liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
+  startingFrom: "$499",
+  bookParam: "cap-liner",
+  autoAdd: false
+}];
+
 
 export default function ServicesPricingSection() {
   return (
@@ -60,19 +60,19 @@ export default function ServicesPricingSection() {
 
         {/* Service tiles */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          {services.map((service) => (
-            <div
-              key={service.key}
-              className="rounded-2xl border-2 border-slate-200 hover:border-green-600 hover:shadow-xl hover:shadow-green-700/10 overflow-hidden flex flex-col transition-all duration-300 bg-white"
-            >
+          {services.map((service) =>
+          <div
+            key={service.key}
+            className="rounded-2xl border-2 border-slate-200 hover:border-green-600 hover:shadow-xl hover:shadow-green-700/10 overflow-hidden flex flex-col transition-all duration-300 bg-white">
+            
               {/* Image */}
               <div className="relative h-44 overflow-hidden bg-slate-100">
                 <img
-                  src={TILE_IMAGES[service.key]}
-                  alt={service.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  onError={(e) => { e.target.style.display = "none"; }}
-                />
+                src={TILE_IMAGES[service.key]}
+                alt={service.name}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                onError={(e) => {e.target.style.display = "none";}} />
+              
               </div>
 
               {/* Content */}
@@ -83,16 +83,16 @@ export default function ServicesPricingSection() {
                   <span className="text-green-700 font-bold text-base">Starting from {service.startingFrom}</span>
                 </div>
                 <Link
-                  to={`${createPageUrl("Booking")}?category=${encodeURIComponent(service.bookParam)}`}
-                  className="mt-4 block"
-                >
+                to={`${createPageUrl("Booking")}?category=${encodeURIComponent(service.bookParam)}`}
+                className="mt-4 block">
+                
                   <Button size="sm" className="bg-green-700 hover:bg-green-800 text-white w-full font-semibold">
                     Book &amp; Verify
                   </Button>
                 </Link>
               </div>
             </div>
-          ))}
+          )}
         </div>
 
         {/* Disclaimer */}
@@ -130,6 +130,6 @@ export default function ServicesPricingSection() {
         </div>
 
       </div>
-    </section>
-  );
+    </section>);
+
 }
