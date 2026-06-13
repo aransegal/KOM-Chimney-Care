@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Shield, Award, Users, ThumbsUp } from "lucide-react";
 
 const images = [
-"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/9228ae32e_Before_After_4.png",
-"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/c6398851e_Before_After_5.png",
-"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/c3e6c5e80_Before_After_6.png",
-"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/ae470ac68_Before_After_7.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/61449718c_Before_After_1.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/434d400d4_Before_After_2.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/6b2f8392e_Before_After_3.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/817288d1d_Before_After_4.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/7ce447c9c_Before_After_6.png",
+"https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/41da42644_Before_After_7.png",
 ];
 
 
@@ -41,15 +43,10 @@ const values = [
 
 function Slideshow() {
   const [current, setCurrent] = useState(0);
-  const [fading, setFading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setFading(true);
-      setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % images.length);
-        setFading(false);
-      }, 500);
+      setCurrent((prev) => (prev + 1) % images.length);
     }, 7000);
     return () => clearInterval(interval);
   }, []);
@@ -60,11 +57,11 @@ function Slideshow() {
       <img
         key={src}
         src={src}
-        alt={`Work photo ${i + 1}`}
+        alt={`Before & After ${i + 1}`}
         className="absolute inset-0 w-full h-full object-contain"
         style={{
-          opacity: i === current ? fading ? 0 : 1 : 0,
-          transition: "opacity 0.5s ease-in-out"
+          opacity: i === current ? 1 : 0,
+          transition: "opacity 0.75s ease-in-out"
         }} />
 
       )}
