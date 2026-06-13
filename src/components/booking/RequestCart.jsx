@@ -14,7 +14,7 @@ export const CATALOG = [
   },
   {
     id: "cap",
-    category: "Chimney Cap",
+    category: "Square Cap",
     type: "single",
     items: [
       { id: "cap_regular", label: "Regular Cap", price: 329 },
