@@ -24,7 +24,7 @@ const services = [
 },
 {
   key: "cap",
-  name: "Chimney Cap",
+  name: "Square Cap",
   description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
   startingFrom: "$329",
   bookParam: "chimney-cap",
