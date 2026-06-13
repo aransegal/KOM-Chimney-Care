@@ -36,7 +36,7 @@ export const CATALOG = [
   },
   {
     id: "cap_liner",
-    category: "Cap Liner",
+    category: "Liner",
     type: "size",
     items: [
       { id: "liner_4", label: '4 Inch', price: 499 },
