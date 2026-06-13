@@ -5,10 +5,10 @@ import { AlertTriangle, Phone } from "lucide-react";
 
 // Swap image URLs here at any time — one place per service
 const TILE_IMAGES = {
-  cleaning: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
-  cap: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-  roundCap: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-  capLiner: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=600&q=80",
+  cleaning: "https://images.unsplash.com/photo-1594560225349-7d4541d32e87?w=600&q=80",
+  cap: "https://images.unsplash.com/photo-1556009762-36a907690bda?w=600&q=80",
+  roundCap: "https://images.unsplash.com/photo-1684962654190-b1f1cc7095c9?w=600&q=80",
+  capLiner: "https://images.unsplash.com/photo-1685537711146-d6c29e41eeb6?w=600&q=80",
 };
 
 // autoAdd: true  → first item is pre-added in the cart

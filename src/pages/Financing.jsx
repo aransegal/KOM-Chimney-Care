@@ -6,7 +6,7 @@ const options = [
 {
   icon: Clock,
   title: "Instant Approval",
-  description: "Get approved in seconds via QuickBooks Affirm."
+  description: "Get approved in seconds via Affirm."
 },
 {
   icon: DollarSign,
@@ -34,7 +34,7 @@ export default function Financing() {
         <div className="text-center mb-12">
           <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Upgrade Your Home's Safety</h1>
           <h1 className="text-slate-900 text-4xl sm:text-5xl font-extrabold mb-4">Pay Over Time</h1>
-          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Chimney Care, we know that chimney services are essential for your home's safety, but an unexpected repair doesn't always fit the monthly budget. That's why we're using QuickBooks Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.</p>
+          <p className="text-xl text-slate-500 max-w-2xl mx-auto">At KOM Chimney Care, we know that chimney services are essential for your home's safety, but an unexpected repair doesn't always fit the monthly budget. That's why we're using Affirm to offer flexible payment plans that let you pay for your service in manageable monthly installments.</p>
           <div className="mt-6 flex justify-center">
             <img src="https://media.base44.com/images/public/699c9ea61bf0c459e3994bae/803d0aa16_Affirm_Logosvg.png" alt="Affirm" className="h-12" />
           </div>

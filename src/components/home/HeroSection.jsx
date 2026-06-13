@@ -49,27 +49,29 @@ export default function HeroSection() {
           </div>
 
           {/* Trust Badges */}
-          <table className="sm:mx-auto">
-            <tbody>
-              {[[{ icon: Shield, text: "Licensed Vendor" }, { icon: Clock, text: "Same-Day Available" }],
-              [{ icon: Star, text: "5-Star Rated" }, { icon: Phone, text: "24/7 Support" }]].map((row, ri) =>
-              <tr key={ri}>
-                  {row.map(({ icon: Icon, text }) =>
-                <>
-                      <td key={text + "-icon"} className="pr-2 py-1.5">
-                        <div className="bg-green-700 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
-                          <Icon className="w-4 h-4 text-green-400" />
-                        </div>
-                      </td>
-                      <td key={text + "-text"} className="pr-6 py-1.5">
-                        <span className="text-zinc-900 text-sm font-medium">{text}</span>
-                      </td>
-                    </>
+          <div className="sm:mx-auto inline-block bg-black/30 backdrop-blur-sm rounded-2xl px-5 py-3">
+            <table>
+              <tbody>
+                {[[{ icon: Shield, text: "Licensed Vendor" }, { icon: Clock, text: "Same-Day Available" }],
+                [{ icon: Star, text: "5-Star Rated" }, { icon: Phone, text: "24/7 Support" }]].map((row, ri) =>
+                <tr key={ri}>
+                    {row.map(({ icon: Icon, text }) =>
+                  <>
+                        <td key={text + "-icon"} className="pr-2 py-1.5">
+                          <div className="bg-green-700 rounded-full w-8 h-8 border border-green-500/30 flex items-center justify-center">
+                            <Icon className="w-4 h-4 text-white" />
+                          </div>
+                        </td>
+                        <td key={text + "-text"} className="pr-6 py-1.5">
+                          <span className="text-white text-sm font-semibold drop-shadow-md">{text}</span>
+                        </td>
+                      </>
+                  )}
+                  </tr>
                 )}
-                </tr>
-              )}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

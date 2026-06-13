@@ -7,7 +7,7 @@ const options = [
   {
     icon: Clock,
     title: "Instant Approval",
-    description: "Get approved in seconds via QuickBooks Affirm.",
+    description: "Get approved in seconds via Affirm.",
     highlight: false,
   },
   {

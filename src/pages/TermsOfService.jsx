@@ -167,7 +167,7 @@ export default function TermsOfService() {
               <li>equipment failure unrelated to workmanship;</li>
               <li>ordinary wear and tear;</li>
               <li>misuse, abuse, neglect, or improper maintenance;</li>
-              <li>water quality issues;</li>
+              <li>site-specific structural or masonry issues;</li>
               <li>freezing;</li>
               <li>utility or power issues;</li>
               <li>pre-existing chimney, venting, or structural conditions;</li>
