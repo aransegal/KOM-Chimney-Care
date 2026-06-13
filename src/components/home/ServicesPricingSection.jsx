@@ -41,7 +41,7 @@ const services = [
 {
   key: "capLiner",
   name: "Flue Liner",
-  description: "Flue cap liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
+  description: "Flue liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
   startingFrom: "$499",
   bookParam: "cap-liner",
   autoAdd: false
