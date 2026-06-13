@@ -3,9 +3,12 @@ import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, Phone } from "lucide-react";
 
-// Swap image URLs here at any time — one place per service. Omit a key to hide its image.
+// Swap image URLs here at any time — one place per service
 const TILE_IMAGES = {
   cleaning: "https://images.unsplash.com/photo-1594560225349-7d4541d32e87?w=600&q=80",
+  cap: "https://images.unsplash.com/photo-1556009762-36a907690bda?w=600&q=80",
+  roundCap: "https://images.unsplash.com/photo-1684962654190-b1f1cc7095c9?w=600&q=80",
+  capLiner: "https://images.unsplash.com/photo-1685537711146-d6c29e41eeb6?w=600&q=80"
 };
 
 // autoAdd: true  → first item is pre-added in the cart
@@ -63,16 +66,14 @@ export default function ServicesPricingSection() {
             className="rounded-2xl border-2 border-slate-200 hover:border-green-600 hover:shadow-xl hover:shadow-green-700/10 overflow-hidden flex flex-col transition-all duration-300 bg-white">
             
               {/* Image */}
-              {TILE_IMAGES[service.key] && (
-                <div className="relative h-44 overflow-hidden bg-slate-100">
-                  <img
-                  src={TILE_IMAGES[service.key]}
-                  alt={service.name}
-                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  onError={(e) => {e.target.style.display = "none";}} />
-                
-                </div>
-              )}
+              <div className="relative h-44 overflow-hidden bg-slate-100">
+                <img
+                src={TILE_IMAGES[service.key]}
+                alt={service.name}
+                className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                onError={(e) => {e.target.style.display = "none";}} />
+              
+              </div>
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-5">
