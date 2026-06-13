@@ -80,7 +80,7 @@ export default function Layout({ children, currentPageName }) {
                 onClick={() => scrollToSection("hero")}
                 className="flex items-center">
                 <img
-                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/be8d8058e_ChatGPT_Image_May_27__2026__10_06_47_PM-removebg-preview.png"
+                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/ea65acc23_logowide1200x630.png"
                   alt="KOM Water Heaters"
                   className="h-12 w-auto" />
               </button>
@@ -186,7 +186,7 @@ export default function Layout({ children, currentPageName }) {
             <div className="md:col-span-1">
               <div className="flex items-center gap-2.5 mb-4">
                 <img
-                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/175bae279_logowide1200x630nobackground.png"
+                  src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/ea65acc23_logowide1200x630.png"
                     alt="KOM Water Heaters"
                     className="h-10 w-auto brightness-0 invert" />
 
