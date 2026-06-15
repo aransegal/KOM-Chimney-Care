@@ -27,7 +27,8 @@ Deno.serve(async (req) => {
     const data = await response.json();
 
     if (data.status !== 'OK') {
-      return Response.json({ error: `Distance Matrix API error: ${data.status}` }, { status: 502 });
+      console.error("Distance Matrix API error:", data.status, data.error_message || '');
+      return Response.json({ error: `Distance Matrix API error: ${data.status} — ${data.error_message || 'no details'}`, google_status: data.status, google_error: data.error_message }, { status: 502 });
     }
 
     const element = data.rows?.[0]?.elements?.[0];
