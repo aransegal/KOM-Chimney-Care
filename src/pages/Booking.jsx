@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
@@ -65,11 +65,51 @@ export default function Booking() {
   const [lastBooking, setLastBooking] = useState(null);
   const [autofillDismissed, setAutofillDismissed] = useState(false);
 
+  // Distance calculation state
+  const [distanceData, setDistanceData] = useState(null); // { miles, distance_fee, over_threshold, duration_text }
+  const [distanceLoading, setDistanceLoading] = useState(false);
+  const [distanceError, setDistanceError] = useState(false);
+  const distanceTimerRef = useRef(null);
+
   // Pricing calculations
   const itemsSubtotal = cartItems.reduce((s, ci) => s + ci.price * ci.qty, 0);
   const taxExpenses = itemsSubtotal * 0.15;
-  const distanceFee = 0; // Pending geocoding API — will be $50 if >25 miles
+  const distanceFee = distanceData?.distance_fee || 0;
   const estimatedTotal = itemsSubtotal + taxExpenses + distanceFee + BOOKING_FEE;
+
+  // Debounced distance calculation
+  const calculateDistanceForAddress = useCallback(async (address) => {
+    if (!address || address.trim().length < 5) return;
+    setDistanceLoading(true);
+    setDistanceError(false);
+    try {
+      const res = await base44.functions.invoke("calculateDistance", { address: address.trim() });
+      if (res.data?.miles !== undefined) {
+        setDistanceData(res.data);
+        setDistanceError(false);
+      } else {
+        setDistanceError(true);
+      }
+    } catch {
+      setDistanceError(true);
+    } finally {
+      setDistanceLoading(false);
+    }
+  }, []);
+
+  // Trigger distance calculation when address changes (debounced 800ms)
+  useEffect(() => {
+    if (distanceTimerRef.current) clearTimeout(distanceTimerRef.current);
+    if (!booking.customer_address || booking.customer_address.trim().length < 5) {
+      setDistanceData(null);
+      setDistanceError(false);
+      return;
+    }
+    distanceTimerRef.current = setTimeout(() => {
+      calculateDistanceForAddress(booking.customer_address);
+    }, 800);
+    return () => { if (distanceTimerRef.current) clearTimeout(distanceTimerRef.current); };
+  }, [booking.customer_address, calculateDistanceForAddress]);
 
   useEffect(() => {
     base44.auth.me().then(async (user) => {
@@ -111,16 +151,22 @@ export default function Booking() {
       .join("; ");
   };
 
-  const buildCartJson = () =>
-    JSON.stringify(
-      cartItems.map((ci) => ({
-        category: ci.category,
-        item: ci.label,
-        qty: ci.qty,
-        unit_price: ci.price,
-        subtotal: ci.price * ci.qty,
-      }))
-    );
+  const buildCartJson = () => {
+    const items = cartItems.map((ci) => ({
+      category: ci.category,
+      item: ci.label,
+      qty: ci.qty,
+      unit_price: ci.price,
+      subtotal: ci.price * ci.qty,
+    }));
+    const cartData = { items, subtotal: itemsSubtotal, tax_expenses_15pct: Math.round(taxExpenses * 100) / 100 };
+    if (distanceData) {
+      cartData.distance_miles = distanceData.miles;
+      cartData.distance_fee = distanceData.distance_fee;
+      cartData.distance_over_threshold = distanceData.over_threshold;
+    }
+    return JSON.stringify(cartData);
+  };
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -430,10 +476,22 @@ export default function Booking() {
                     </div>
                   )}
                   <div className="flex justify-between text-slate-600">
-                    <span>Distance Fee</span>
-                    <span className="text-amber-700 font-medium">
-                      {booking.customer_address ? "Will be verified after address confirmation" : "Pending address entry"}
-                    </span>
+                    <span>Distance{distanceData?.miles ? ` (${distanceData.miles} mi)` : ""}</span>
+                    {distanceLoading ? (
+                      <span className="text-slate-400 text-xs italic">Calculating...</span>
+                    ) : distanceData ? (
+                      distanceData.distance_fee > 0 ? (
+                        <span className="text-red-600 font-medium">${distanceData.distance_fee.toLocaleString()}</span>
+                      ) : (
+                        <span className="text-green-600 font-medium">$0</span>
+                      )
+                    ) : distanceError ? (
+                      <span className="text-amber-700 text-xs italic">Distance fee pending address verification</span>
+                    ) : booking.customer_address ? (
+                      <span className="text-slate-400 text-xs italic">Calculating...</span>
+                    ) : (
+                      <span className="text-slate-400 text-xs italic">Pending address entry</span>
+                    )}
                   </div>
                   <div className="flex justify-between text-slate-600">
                     <span>Booking Fee</span>
