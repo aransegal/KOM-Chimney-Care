@@ -26,7 +26,7 @@ export default function ContactSection() {
           <h2 className="text-slate-900 mb-5 text-4xl font-extrabold sm:text-5xl">We're Ready to Help
 
           </h2>
-          <p className="text-slate-700 mx-auto text-xl max-w-2xl">Have a question, need a quote, or facing an emergency? Reach out anytime.
+          <p className="text-slate-700 mx-auto text-xl max-w-2xl">Have a question, need a quote, or need chimney service? Reach out anytime.
 
           </p>
         </div>
@@ -39,7 +39,7 @@ export default function ContactSection() {
               icon: Phone,
               title: "Call or Text",
               info: "(734) 666-2338",
-              sub: "24/7 for emergencies",
+              sub: "Mon–Sat: 7am – 8pm",
               href: "tel:+17346662338"
             },
             {
@@ -59,7 +59,7 @@ export default function ContactSection() {
               icon: Clock,
               title: "Business Hours",
               info: "Mon–Sat: 7am – 8pm",
-              sub: "Emergency: 24/7"
+              sub: "Sunday: Closed"
             }].
             map((item) =>
             <div key={item.title} className="flex items-start gap-4 p-5 bg-slate-800 rounded-xl border border-slate-700">
@@ -140,11 +140,10 @@ export default function ContactSection() {
                     onChange={(e) => setForm({ ...form, service_type: e.target.value })}>
 
                       <option value="">Select a service...</option>
-                      <option value="maintenance">Chimney Cleaning / Sweep</option>
-                      <option value="maintenance">Chimney Inspection</option>
-                      <option value="repair">Chimney Repair</option>
-                      <option value="maintenance">Annual Maintenance</option>
-                      <option value="emergency">24/7 Emergency Service</option>
+                      <option value="chimney-cleaning">Chimney Cleaning</option>
+                      <option value="chimney-cap">Chimney Cap</option>
+                      <option value="liner-cap">Liner Cap</option>
+                      <option value="general">General Chimney Diagnostic</option>
                     </select>
                   </div>
                   <div>

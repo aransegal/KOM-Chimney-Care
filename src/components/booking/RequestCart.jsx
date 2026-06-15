@@ -14,38 +14,24 @@ export const CATALOG = [
   },
   {
     id: "cap",
-    category: "Square Cap",
+    category: "Chimney Cap",
     type: "single",
     items: [
       { id: "cap_regular", label: "Regular Cap", price: 329 },
     ],
   },
   {
-    id: "round_cap",
-    category: "Round Cap",
+    id: "liner_cap",
+    category: "Liner Cap",
     type: "size",
     items: [
-      { id: "round_4", label: '4 Inch', price: 289 },
-      { id: "round_5", label: '5 Inch', price: 359 },
-      { id: "round_6", label: '6 Inch', price: 429 },
-      { id: "round_7", label: '7 Inch', price: 489, special: true },
-      { id: "round_8", label: '8 Inch', price: 559, special: true },
-      { id: "round_9", label: '9 Inch', price: 629, special: true },
-      { id: "round_10", label: '10 Inch', price: 689, special: true },
-    ],
-  },
-  {
-    id: "cap_liner",
-    category: "Liner",
-    type: "size",
-    items: [
-      { id: "liner_4", label: '4 Inch', price: 499 },
-      { id: "liner_5", label: '5 Inch', price: 499 },
-      { id: "liner_6", label: '6 Inch', price: 499 },
-      { id: "liner_7", label: '7 Inch', price: 599, special: true },
-      { id: "liner_8", label: '8 Inch', price: 649, special: true },
-      { id: "liner_9", label: '9 Inch', price: 699, special: true },
-      { id: "liner_10", label: '10 Inch', price: 749, special: true },
+      { id: "liner_4", label: '4 Inch', price: 289 },
+      { id: "liner_5", label: '5 Inch', price: 359 },
+      { id: "liner_6", label: '6 Inch', price: 429 },
+      { id: "liner_7", label: '7 Inch', price: 489, special: true },
+      { id: "liner_8", label: '8 Inch', price: 559, special: true },
+      { id: "liner_9", label: '9 Inch', price: 629, special: true },
+      { id: "liner_10", label: '10 Inch', price: 689, special: true },
     ],
   },
 ];
@@ -175,7 +161,7 @@ function RequestSummary({ cartItems }) {
         ))}
       </div>
       <div className="border-t border-slate-200 pt-3 flex justify-between font-bold text-slate-900">
-        <span>Estimated Subtotal</span>
+        <span>Items Subtotal</span>
         <span>${subtotal.toLocaleString()}</span>
       </div>
       <p className="text-xs text-slate-400 mt-2 italic">Final pricing subject to on-site verification.</p>
@@ -185,7 +171,6 @@ function RequestSummary({ cartItems }) {
 
 // ─── Main Export ──────────────────────────────────────────────────────────────
 export default function RequestCart({ cartItems, setCartItems, preselectedCategory }) {
-  // Auto-open the preselected category on first render
   const handleAdd = (item) => {
     setCartItems((prev) => {
       if (prev.find((ci) => ci.id === item.id)) return prev;

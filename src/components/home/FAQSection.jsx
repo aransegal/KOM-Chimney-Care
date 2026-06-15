@@ -128,16 +128,16 @@ If you cannot be present, please contact us in advance to discuss arrangements. 
 3. Provide your contact information and service address.
 4. A KOM specialist will call you within 2 hours to confirm your appointment.
 
-A $79 diagnostic fee secures your appointment and is applied toward the cost of your service.
+A $29 diagnostic fee secures your appointment.
 
-For same-day or emergency service, call us directly at (734) 666-2338 — we're available 24/7.`
+For same-day service, call us directly at (734) 666-2338.`
   },
   {
     question: "What is your cancellation policy?",
     answer: `We understand that plans change.
 
 • You may reschedule your appointment at any time by calling us or replying to your confirmation email.
-• The $79 diagnostic fee is non-refundable once the appointment is confirmed by our team.
+• The $29 diagnostic fee is non-refundable once the appointment is confirmed by our team.
 • If we need to reschedule due to weather, technician availability, or other operational factors, we will contact you as soon as possible and offer the next available slot at no additional charge.
 
 For questions about your specific booking, contact us at Kom.construction.llc@gmail.com or call (734) 666-2338.`

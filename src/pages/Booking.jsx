@@ -10,33 +10,31 @@ import RequestCart, { CATALOG } from "@/components/booking/RequestCart";
 
 const STEPS = ["Request Items", "Your Details", "Schedule", "Confirm"];
 const TIME_SLOTS = ["7:00 AM – 10:00 AM", "10:00 AM – 1:00 PM", "1:00 PM – 4:00 PM", "4:00 PM – 7:00 PM"];
+const BOOKING_FEE = 29;
 
 export default function Booking() {
   const navigate = useNavigate();
   const urlParams = new URLSearchParams(window.location.search);
-  // Accept ?category= (new) or legacy ?service= / ?product=
   const preselectedCategory = urlParams.get("category") || urlParams.get("service") || urlParams.get("product") || "";
 
   // Catalog slug → category name mapping for URL params
   const SLUG_TO_CATEGORY = {
     "chimney-cleaning": "Chimney Cleaning",
     "chimney-cap": "Chimney Cap",
-    "round-cap": "Round Cap",
-    "cap-liner": "Cap Liner",
+    "round-cap": "Liner Cap",
   };
   // Categories that should NOT auto-add (require size selection)
-  const NO_AUTO_ADD = new Set(["Round Cap", "Cap Liner"]);
+  const NO_AUTO_ADD = new Set(["Liner Cap"]);
 
   const resolvedCategory = SLUG_TO_CATEGORY[preselectedCategory] || preselectedCategory;
 
-  // Pre-populate cart only for categories that don't require size selection
   const buildInitialCart = () => {
     if (!resolvedCategory) return [];
     const cat = CATALOG.find(
       (c) => c.category.toLowerCase() === resolvedCategory.toLowerCase()
     );
     if (!cat) return [];
-    if (NO_AUTO_ADD.has(cat.category)) return []; // Must choose size manually
+    if (NO_AUTO_ADD.has(cat.category)) return [];
     const item = cat.items[0];
     return [{ ...item, qty: 1, category: cat.category }];
   };
@@ -66,6 +64,12 @@ export default function Booking() {
   const [currentUser, setCurrentUser] = useState(null);
   const [lastBooking, setLastBooking] = useState(null);
   const [autofillDismissed, setAutofillDismissed] = useState(false);
+
+  // Pricing calculations
+  const itemsSubtotal = cartItems.reduce((s, ci) => s + ci.price * ci.qty, 0);
+  const taxExpenses = itemsSubtotal * 0.15;
+  const distanceFee = 0; // Pending geocoding API — will be $50 if >25 miles
+  const estimatedTotal = itemsSubtotal + taxExpenses + distanceFee + BOOKING_FEE;
 
   useEffect(() => {
     base44.auth.me().then(async (user) => {
@@ -129,7 +133,7 @@ export default function Booking() {
       selected_product: buildSelectedProductString(),
       notes: (booking.notes || "") + cartNote,
       booking_number: ref,
-      booking_fee: 79,
+      booking_fee: BOOKING_FEE,
       payment_status: "unpaid",
       status: "pending"
     });
@@ -158,7 +162,7 @@ export default function Booking() {
             <span className="font-bold text-orange-600">{bookingRef}</span>
           </p>
           <p className="text-slate-500 text-sm mb-8">
-            We'll contact you within 2 hours to confirm your appointment. A $79 booking deposit secures your slot and will be applied toward your service total.
+            We'll contact you within 2 hours to confirm your appointment. A $29 booking fee secures your slot.
           </p>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-orange-800 font-medium">
@@ -185,7 +189,7 @@ export default function Booking() {
         {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Book a Service &amp; Diagnostic</h1>
-          <p className="text-slate-500">Secure your diagnostics appointment with a $79 booking fee — applied to your service total.</p>
+          <p className="text-slate-500">Secure your diagnostics appointment with a $29 booking fee.</p>
         </div>
 
         {/* Step Indicator */}
@@ -357,7 +361,7 @@ export default function Booking() {
               <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
                 <div className="flex items-center gap-2 text-blue-700 text-sm font-medium">
                   <Clock className="w-4 h-4" />
-                  Need same-day or emergency? Call us at (734) 666-2338
+                  Need a specific time? Call us at (734) 666-2338
                 </div>
               </div>
               <div className="flex justify-between">
@@ -378,7 +382,7 @@ export default function Booking() {
 
               <div className="bg-slate-50 rounded-xl p-5 mb-6 space-y-3 text-sm">
                 <div className="grid grid-cols-2 gap-2">
-                  {cartItems.length > 0 && (
+                  {cartItems.length > 0 ? (
                     <>
                       <div className="col-span-2 font-bold text-slate-700 text-xs uppercase tracking-wide mb-1">Requested Items</div>
                       {cartItems.map((ci) => (
@@ -387,8 +391,11 @@ export default function Booking() {
                           <span className="font-semibold text-slate-900">${(ci.price * ci.qty).toLocaleString()}</span>
                         </div>
                       ))}
-                      <div className="col-span-2 text-xs text-slate-400 italic mb-2">Final pricing subject to on-site verification.</div>
                     </>
+                  ) : (
+                    <div className="col-span-2 bg-white rounded-lg px-3 py-2 border border-slate-200 text-slate-500 italic text-sm">
+                      General Chimney Diagnostic — our technician will assess on-site
+                    </div>
                   )}
                   <div className="text-slate-500">Name</div>
                   <div className="font-semibold text-slate-900">{booking.customer_first_name} {booking.customer_last_name}</div>
@@ -409,6 +416,34 @@ export default function Booking() {
                   <div className="text-slate-500">Time Window</div>
                   <div className="font-semibold text-slate-900">{booking.preferred_time}</div>
                 </div>
+
+                {/* Pricing Breakdown */}
+                <div className="border-t border-slate-200 pt-3 mt-3 space-y-1.5">
+                  <div className="flex justify-between text-slate-600">
+                    <span>Items Subtotal</span>
+                    <span>${itemsSubtotal.toLocaleString()}</span>
+                  </div>
+                  {itemsSubtotal > 0 && (
+                    <div className="flex justify-between text-slate-600">
+                      <span>Tax &amp; Expenses (15%)</span>
+                      <span>${taxExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    </div>
+                  )}
+                  <div className="flex justify-between text-slate-600">
+                    <span>Distance Fee</span>
+                    <span className="text-amber-700 font-medium">
+                      {booking.customer_address ? "Will be verified after address confirmation" : "Pending address entry"}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-slate-600">
+                    <span>Booking Fee</span>
+                    <span>${BOOKING_FEE.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-slate-900 border-t border-slate-200 pt-1.5">
+                    <span>Estimated Total</span>
+                    <span>${estimatedTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                  </div>
+                </div>
               </div>
 
               {/* Booking Fee Notice */}
@@ -416,9 +451,9 @@ export default function Booking() {
                 <div className="flex items-start gap-3">
                   <Shield className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-orange-800 mb-1">$79 Booking Fee</div>
+                    <div className="font-bold text-orange-800 mb-1">$29 Booking Fee</div>
                     <div className="text-orange-700 text-sm">
-                      A $79 booking deposit secures your diagnostics appointment and is applied toward your service total. Our team will contact you to collect payment and confirm your appointment.
+                      A $29 booking fee secures your diagnostics appointment. Our team will contact you to collect payment and confirm your appointment.
                     </div>
                   </div>
                 </div>

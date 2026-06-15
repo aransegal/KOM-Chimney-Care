@@ -1,14 +1,12 @@
 import { Link } from "react-router-dom";
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle, Phone } from "lucide-react";
 
 // Swap image URLs here at any time — one place per service
 const TILE_IMAGES = {
   cleaning: "https://images.unsplash.com/photo-1594560225349-7d4541d32e87?w=600&q=80",
   cap: "https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/7faf253f5_squarecap3.png",
-  roundCap: "https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/0d07e6868_roundcap2.png",
-  capLiner: "https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/44eda1dc2_liner2.png"
+  linerCap: "https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/0d07e6868_roundcap2.png"
 };
 
 // autoAdd: true  → first item is pre-added in the cart
@@ -24,26 +22,18 @@ const services = [
 },
 {
   key: "cap",
-  name: "Square Cap",
-  description: "Standard square chimney cap installation or replacement. Protects against water, animals, and debris entry.",
+  name: "Chimney Cap",
+  description: "Standard chimney cap installation or replacement. Helps protect against rain, animals, and debris entry.",
   startingFrom: "$329",
   bookParam: "chimney-cap",
   autoAdd: true
 },
 {
-  key: "roundCap",
-  name: "Round Cap",
-  description: "Stainless round chimney cap in sizes 4 to 10 inch. Special-order sizes available. Technician verifies fit on site.",
+  key: "linerCap",
+  name: "Liner Cap",
+  description: "Stainless steel liner cap available in 4 to 10 inch sizes. Special-order sizes available. Technician verifies fit on site.",
   startingFrom: "$289",
   bookParam: "round-cap",
-  autoAdd: false
-},
-{
-  key: "capLiner",
-  name: "Flue Liner",
-  description: "Flue liner in sizes 4 to 10 inch. Special-order sizes available. Technician measures and confirms correct size on site.",
-  startingFrom: "$499",
-  bookParam: "cap-liner",
   autoAdd: false
 }];
 
@@ -59,7 +49,7 @@ export default function ServicesPricingSection() {
         </p>
 
         {/* Service tiles */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 max-w-4xl mx-auto">
           {services.map((service) =>
           <div
             key={service.key}
@@ -106,27 +96,8 @@ export default function ServicesPricingSection() {
           <h2 className="text-slate-900 mb-5 text-4xl font-extrabold text-center sm:text-5xl">No Hidden Fees. Ever.</h2>
           <p className="text-xl text-slate-500 max-w-2xl mx-auto">
             We believe in honest, upfront pricing. A{" "}
-            <span className="font-bold text-green-700">$79 booking fee</span> secures your diagnostics appointment — applied toward your service total.
+            <span className="font-bold text-green-700">$29 booking fee</span> secures your diagnostics appointment.
           </p>
-        </div>
-
-        {/* Emergency */}
-        <div className="bg-red-50 border border-red-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mt-12">
-          <div className="flex items-start gap-4">
-            <div className="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-              <AlertTriangle className="w-5 h-5 text-red-600" />
-            </div>
-            <div>
-              <h3 className="font-extrabold text-slate-900 text-xl mb-1">Emergency Service</h3>
-              <p className="text-slate-600 text-sm">Smoke in the home, suspected chimney fire, or unsafe conditions? Our emergency team is available 24/7 including weekends and holidays.</p>
-            </div>
-          </div>
-          <a href="tel:+17346662338" className="flex-shrink-0">
-            <Button className="bg-red-600 hover:bg-red-700 text-white px-8 h-12">
-              <Phone className="mr-2 w-4 h-4" />
-              Call Emergency Line
-            </Button>
-          </a>
         </div>
 
       </div>

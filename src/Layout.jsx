@@ -90,7 +90,7 @@ export default function Layout({ children, currentPageName }) {
               {navLinks.map((link) =>
               <button
                 key={link.id}
-                onClick={() => scrollToSection(link.id)} className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">
+                onClick={() => scrollToSection(link.id)} className="text-gray-900 text-[15px] font-semibold transition-colors hover:text-green-600">
 
 
 
@@ -99,7 +99,7 @@ export default function Layout({ children, currentPageName }) {
                 </button>
               )}
 
-              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-sm font-medium transition-colors hover:text-green-600">KOM USA</a>
+              <a href="https://www.kom.construction/" target="_blank" rel="noopener noreferrer" className="text-gray-900 text-[15px] font-semibold transition-colors hover:text-green-600">KOM USA</a>
             </div>
 
             <div className="hidden lg:flex items-center gap-4">
@@ -196,7 +196,7 @@ export default function Layout({ children, currentPageName }) {
             <div>
               <h4 className="font-semibold text-white mb-4 text-sm tracking-wide uppercase">Services</h4>
               <ul className="space-y-2 text-slate-400 text-sm">
-                {["Chimney Cleaning & Sweeping", "Chimney Inspections", "24/7 Emergency Services"].map((s) =>
+                {["Chimney Cleaning", "Chimney Cap Installation", "Liner Cap Installation"].map((s) =>
                 <li key={s} className="hover:text-green-400 cursor-pointer transition-colors">{s}</li>
                 )}
                 <li>
@@ -228,7 +228,7 @@ export default function Layout({ children, currentPageName }) {
                     Kom.construction.llc@gmail.com
                   </a>
                 </li>
-                <li className="text-green-400 font-medium">Available 24/7 for emergencies</li>
+                <li className="text-green-400 font-medium">Serving Detroit Metro Area</li>
               </ul>
             </div>
           </div>

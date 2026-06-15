@@ -12,9 +12,8 @@ const images = [
 
 
 const stats = [
-{ value: "5+", label: "Years in Business" },
-{ value: "8,400+", label: "Jobs Completed" },
-{ value: "4.9★", label: "Average Rating" },
+{ value: "15+", label: "Years in Business" },
+{ value: "1,000+", label: "Jobs Completed" },
 { value: "100%", label: "Licensed Vendor" }];
 
 
@@ -81,17 +80,13 @@ export default function AboutSection() {
             </h2>
             <p className="text-slate-600 mb-6 text-xl font-medium leading-relaxed">KOM Chimney Care was founded with one mission: provide homeowners and businesses with fast, honest, and expertly executed chimney cleaning and inspection services at a fair price.</p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-3 gap-4">
               {stats.map((stat) => (
                 <div key={stat.label} className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
                   <div className="text-3xl font-extrabold text-green-700">{stat.value}</div>
                   <div className="text-slate-500 text-sm mt-1">{stat.label}</div>
                 </div>
               ))
-
-
-
-
               }
             </div>
           </div>
