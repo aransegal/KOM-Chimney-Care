@@ -73,7 +73,7 @@ export default function Layout({ children, currentPageName }) {
         "bg-transparent"}`
         }>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-[#2c2d2d]">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex items-center gap-4">
               <button
@@ -187,8 +187,8 @@ export default function Layout({ children, currentPageName }) {
               <div className="flex items-center gap-2.5 mb-4">
                 <img
                   src="https://media.base44.com/images/public/6a17301a1292b55206aaf2b1/ea65acc23_logowide1200x630.png"
-                    alt="KOM Water Heaters"
-                    className="h-10 w-auto brightness-0 invert" />
+                  alt="KOM Water Heaters"
+                  className="h-10 w-auto brightness-0 invert" />
 
               </div>
               <p className="text-slate-400 text-sm leading-relaxed">Professional chimney cleaning, inspections, and fireplace safety services.</p>
