@@ -130,7 +130,7 @@ export default function Layout({ children, currentPageName }) {
             </div>
 
             <button
-              className={`lg:hidden p-2 rounded-md ${scrolled || !isHome ? "text-slate-800" : "text-gray-800"}`}
+              className={`lg:hidden p-2 rounded-md ${scrolled || !isHome ? "text-slate-800" : "text-gray-50"}`}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
 
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
