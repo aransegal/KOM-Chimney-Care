@@ -75,7 +75,8 @@ export default function Booking() {
   const itemsSubtotal = cartItems.reduce((s, ci) => s + ci.price * ci.qty, 0);
   const taxExpenses = itemsSubtotal * 0.15;
   const distanceFee = distanceData?.distance_fee || 0;
-  const estimatedTotal = itemsSubtotal + taxExpenses + distanceFee + BOOKING_FEE;
+  const estimatedServiceTotal = itemsSubtotal + taxExpenses + distanceFee;
+  const estimatedBalanceAfterCredit = itemsSubtotal > 0 ? Math.max(0, estimatedServiceTotal - BOOKING_FEE) : null;
 
   // Debounced distance calculation
   const calculateDistanceForAddress = useCallback(async (address) => {
@@ -159,12 +160,18 @@ export default function Booking() {
       unit_price: ci.price,
       subtotal: ci.price * ci.qty,
     }));
-    const cartData = { items, subtotal: itemsSubtotal, tax_expenses_15pct: Math.round(taxExpenses * 100) / 100 };
-    if (distanceData) {
-      cartData.distance_miles = distanceData.miles;
-      cartData.distance_fee = distanceData.distance_fee;
-      cartData.distance_over_threshold = distanceData.over_threshold;
-    }
+    const cartData = {
+      items,
+      items_subtotal: itemsSubtotal,
+      tax_expenses_15_percent: Math.round(taxExpenses * 100) / 100,
+      distance_fee: distanceFee,
+      distance_miles: distanceData?.miles || null,
+      distance_over_threshold: distanceData?.over_threshold || false,
+      estimated_service_total: Math.round(estimatedServiceTotal * 100) / 100,
+      booking_fee_due_today: BOOKING_FEE,
+      booking_fee_credit_applied: true,
+      estimated_balance_after_booking_credit: estimatedBalanceAfterCredit !== null ? Math.round(estimatedBalanceAfterCredit * 100) / 100 : null,
+    };
     return JSON.stringify(cartData);
   };
 
@@ -208,7 +215,7 @@ export default function Booking() {
             <span className="font-bold text-orange-600">{bookingRef}</span>
           </p>
           <p className="text-slate-500 text-sm mb-8">
-            We'll contact you within 2 hours to confirm your appointment. A $29 booking fee secures your slot.
+            We'll contact you within 2 hours to confirm your appointment. Your $29 booking fee reserves the diagnostic appointment and will be credited toward the final approved service price.
           </p>
           <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
             <p className="text-sm text-orange-800 font-medium">
@@ -465,42 +472,66 @@ export default function Booking() {
 
                 {/* Pricing Breakdown */}
                 <div className="border-t border-slate-200 pt-3 mt-3 space-y-1.5">
-                  <div className="flex justify-between text-slate-600">
-                    <span>Items Subtotal</span>
-                    <span>${itemsSubtotal.toLocaleString()}</span>
-                  </div>
-                  {itemsSubtotal > 0 && (
-                    <div className="flex justify-between text-slate-600">
-                      <span>Tax &amp; Expenses (15%)</span>
-                      <span>${taxExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                    </div>
+                  {itemsSubtotal > 0 ? (
+                    <>
+                      <div className="flex justify-between text-slate-600">
+                        <span>Items Subtotal</span>
+                        <span>${itemsSubtotal.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-slate-600">
+                        <span>Tax &amp; Expenses (15%)</span>
+                        <span>${taxExpenses.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      </div>
+                      <div className="flex justify-between text-slate-600">
+                        <span>Distance{distanceData?.miles ? ` (${distanceData.miles} mi)` : ""}</span>
+                        {distanceLoading ? (
+                          <span className="text-slate-400 text-xs italic">Calculating...</span>
+                        ) : distanceData ? (
+                          distanceData.distance_fee > 0 ? (
+                            <span className="text-red-600 font-medium">${distanceData.distance_fee.toLocaleString()}</span>
+                          ) : (
+                            <span className="text-green-600 font-medium">$0</span>
+                          )
+                        ) : distanceError ? (
+                          <span className="text-amber-700 text-xs italic">Distance fee pending address verification</span>
+                        ) : booking.customer_address ? (
+                          <span className="text-slate-400 text-xs italic">Calculating...</span>
+                        ) : (
+                          <span className="text-slate-400 text-xs italic">Pending address entry</span>
+                        )}
+                      </div>
+                      <div className="flex justify-between font-semibold text-slate-900 border-t border-slate-200 pt-1.5">
+                        <span>Estimated Service Total</span>
+                        <span>${estimatedServiceTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      </div>
+                      <div className="flex justify-between text-slate-600 pt-2">
+                        <span>Booking Fee Due Today</span>
+                        <span>${BOOKING_FEE.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-green-600 text-sm">
+                        <span className="italic">Credited Toward Final Price</span>
+                        <span>-${BOOKING_FEE.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between font-bold text-slate-900 border-t border-slate-200 pt-1.5">
+                        <span>Est. Balance After Credit</span>
+                        <span>${estimatedBalanceAfterCredit.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex justify-between text-slate-600">
+                        <span>Service</span>
+                        <span className="italic">General Chimney Diagnostic</span>
+                      </div>
+                      <div className="flex justify-between text-slate-600">
+                        <span>Booking Fee Due Today</span>
+                        <span>${BOOKING_FEE.toLocaleString()}</span>
+                      </div>
+                      <div className="text-slate-500 text-xs italic mt-2">
+                        Final service pricing will be confirmed after inspection. The $29 booking fee is credited toward approved service work.
+                      </div>
+                    </>
                   )}
-                  <div className="flex justify-between text-slate-600">
-                    <span>Distance{distanceData?.miles ? ` (${distanceData.miles} mi)` : ""}</span>
-                    {distanceLoading ? (
-                      <span className="text-slate-400 text-xs italic">Calculating...</span>
-                    ) : distanceData ? (
-                      distanceData.distance_fee > 0 ? (
-                        <span className="text-red-600 font-medium">${distanceData.distance_fee.toLocaleString()}</span>
-                      ) : (
-                        <span className="text-green-600 font-medium">$0</span>
-                      )
-                    ) : distanceError ? (
-                      <span className="text-amber-700 text-xs italic">Distance fee pending address verification</span>
-                    ) : booking.customer_address ? (
-                      <span className="text-slate-400 text-xs italic">Calculating...</span>
-                    ) : (
-                      <span className="text-slate-400 text-xs italic">Pending address entry</span>
-                    )}
-                  </div>
-                  <div className="flex justify-between text-slate-600">
-                    <span>Booking Fee</span>
-                    <span>${BOOKING_FEE.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between font-bold text-slate-900 border-t border-slate-200 pt-1.5">
-                    <span>Estimated Total</span>
-                    <span>${estimatedTotal.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                  </div>
                 </div>
               </div>
 
@@ -509,9 +540,9 @@ export default function Booking() {
                 <div className="flex items-start gap-3">
                   <Shield className="w-5 h-5 text-orange-600 flex-shrink-0 mt-0.5" />
                   <div>
-                    <div className="font-bold text-orange-800 mb-1">$29 Booking Fee</div>
+                    <div className="font-bold text-orange-800 mb-1">$29 Booking Fee — Credited Toward Final Price</div>
                     <div className="text-orange-700 text-sm">
-                      A $29 booking fee secures your diagnostics appointment. Our team will contact you to collect payment and confirm your appointment.
+                      A $29 booking fee reserves your diagnostic appointment. This fee is credited toward the final approved service price — it's not an extra charge. Our team will contact you to collect payment and confirm your appointment.
                     </div>
                   </div>
                 </div>

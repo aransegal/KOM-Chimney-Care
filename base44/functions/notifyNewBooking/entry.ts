@@ -78,6 +78,7 @@ Deno.serve(async (req) => {
 <p><strong>Preferred Date:</strong> ${booking.preferred_date}</p>
 <p><strong>Preferred Time:</strong> ${booking.preferred_time}</p>
 <p><strong>Notes:</strong> ${cleanNotes || 'None'}</p>
+<p><strong>Booking Fee:</strong> $29 (credited toward final approved service price)</p>
 <p><strong>Booking Ref:</strong> ${booking.booking_number}</p>
 <br>
 <p>Log in to the <a href="https://kom-heat-fix.base44.app/AdminDashboard">Admin Dashboard</a> to manage this booking.</p>

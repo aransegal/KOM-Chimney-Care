@@ -58,6 +58,7 @@ Deno.serve(async (req) => {
   <h2 style="color:#d97706;">Booking Received – We'll Be in Touch Shortly! 🕐</h2>
   <p>Hi ${booking.customer_name},</p>
   <p>Thank you for booking with <strong>KOM Chimney Care</strong>! We've received your request and a specialist will contact you within 2 hours to confirm your appointment.</p>
+  <p>Your $29 booking fee reserves the diagnostic appointment and <strong>will be credited toward the final approved service price</strong> — it's not an extra charge.</p>
   <br>
   <table style="width:100%;border-collapse:collapse;background:#f9fafb;border-radius:8px;padding:16px;">
     <tr><td style="padding:8px 12px;color:#6b7280;font-weight:600;">Booking Ref</td><td style="padding:8px 12px;font-weight:700;color:#111827;">${booking.booking_number}</td></tr>
